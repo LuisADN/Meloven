@@ -7,9 +7,6 @@
     font-weight: normal;
 }
 
-
-
-
 *, body{
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
@@ -123,7 +120,7 @@ header{
     width: 295px;
     height: 44px;
     padding: 0 40px 0 50px;
-    background: url("img/send.png") 3% center no-repeat, #ffffff; /*left center */
+    background: url("../img/send.svg") 3% center no-repeat, #ffffff; /*left center */
     border-radius: 50px;
     border: none;
     /*box-shadow: lightgrey 2px 2px 2px 2px;*/
@@ -133,10 +130,13 @@ header{
 }
 .block-left .mailchimp-send-btn{
     height: 44px;
-    width: 44px;
-    background: url("img/next.png") center center no-repeat, linear-gradient(-45deg, #ff5175 0%, #ff93a9 100%);
-    border: 2px solid #ff93a9;;
-    border-radius: 50%;
+    background: linear-gradient(-45deg, #ff5175 0%, #ff93a9 100%);
+    font-size: 13px;
+    padding: 0 25px;
+    border: 2px solid #ff93a9;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.10);
 }
 
 
@@ -151,6 +151,7 @@ header{
     margin: 0 20px;
     border-radius: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
 }
 /*.block-right .video{
     position: relative;
@@ -164,11 +165,26 @@ header{
     height: 100px;
     margin-left: -50px;
     margin-top: -50px;
+    cursor: pointer;
+    animation: rotate 5s linear infinite;
 }
-/*.block-right img{
-    width: 100%;
-    height: auto;
-}*/
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(5deg);
+    }
+
+    20%, 80% {
+        transform: rotate(-5deg);
+    }
+
+    30%, 50%, 70% {
+        transform: rotate(5deg);
+    }
+
+    40%, 60% {
+        transform: rotate(-5deg);
+    }
+}
 
 footer{
     position: absolute;
@@ -202,36 +218,96 @@ footer .legal-mentions-btn{
 footer .contact-btn{
     font-size: 13px;
     color: #ffffff;
-    padding: 10px 40px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5879ff+0,9db1ff+100 */
-    background: #1D1D1B; /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  #1D1D1B 0%, #707070 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg,  #1D1D1B 0%,#707070 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg,  #1D1D1B 0%,#707070 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D1D1B', endColorstr='#707070',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    border: 2px solid #707070;
-    border-radius: 50px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
+
+/* Wobble Horizontal */
+@-webkit-keyframes hvr-wobble-horizontal {
+    16.65% {
+        -webkit-transform: translateX(8px);
+        transform: translateX(8px);
+    }
+    33.3% {
+        -webkit-transform: translateX(-6px);
+        transform: translateX(-6px);
+    }
+    49.95% {
+        -webkit-transform: translateX(4px);
+        transform: translateX(4px);
+    }
+    66.6% {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    83.25% {
+        -webkit-transform: translateX(1px);
+        transform: translateX(1px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes hvr-wobble-horizontal {
+    16.65% {
+        -webkit-transform: translateX(8px);
+        transform: translateX(8px);
+    }
+    33.3% {
+        -webkit-transform: translateX(-6px);
+        transform: translateX(-6px);
+    }
+    49.95% {
+        -webkit-transform: translateX(4px);
+        transform: translateX(4px);
+    }
+    66.6% {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    83.25% {
+        -webkit-transform: translateX(1px);
+        transform: translateX(1px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.hvr-wobble-horizontal {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-wobble-horizontal:hover, .hvr-wobble-horizontal:focus, .hvr-wobble-horizontal:active {
+    -webkit-animation-name: hvr-wobble-horizontal;
+    animation-name: hvr-wobble-horizontal;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
 
 
 
 
 /* ******************* MOBILE ******************* */
 /* ********************************************** */
-
-
-/*@media screen and (max-width: 1250px) {
-    .block-left  .mailchimp-send-div{
-        width: 200px;
-        left: 255px;
-    }
+@media screen and (max-width: 500px) {
     .block-left input[type=email]{
-        width: 200px;
+        width: 180px;
     }
-}*/
+    .block-left .mailchimp-send-div {
+        width: 200px;
+        left: 235px;
+    }
+
+}
 
 @media screen and (max-width: 800px) {
     .logo{
@@ -275,10 +351,21 @@ footer .contact-btn{
         display: flex;
         flex-direction: column;
     }
+    .block-left form{
+        width: 100%;
+        margin: 0 auto;
+        /*text-align: center;*/
+    }
     .block-left input[type=radio]{
         margin: 20px 10px;
         transform: scale(2);
     }
+    .block-left .mailchimp-send {
+        position: relative;
+        margin: 20px 0 40px 0;
+    }
+
+
     .block-right{
         width: auto;
         margin: 0;
@@ -303,21 +390,5 @@ footer .contact-btn{
     footer .contact-btn{
         order: 1;
         margin-top: 40px;
-    }
-    .block-left  .mailchimp-send-div{
-        width: 0;
-        left: 82%;
-    }
-    .block-left .mailchimp-send {
-        position: relative;
-        margin: 20px 0 40px 0;
-    }
-    .block-left input[type=email]{
-        width: 200px;
-    }
-    form{
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
     }
 }

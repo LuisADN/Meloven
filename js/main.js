@@ -13,8 +13,22 @@ document.getElementById('lecteur').addEventListener('click', function (ev) {
     document.getElementById('lecteur').style.display = "none";
 });
 
+
 document.getElementById('video').addEventListener('ended',restartPlayer,false);
 function restartPlayer(e) {
-    video.load();
+    videoPlayer.load();
     document.getElementById('lecteur').style.display = "block";
 }
+
+var videoPlayer = document.getElementById('video')
+videoPlayer.addEventListener('click', function () {
+    if (videoPlayer.paused == false) {
+        videoPlayer.pause();
+        videoPlayer.firstChild.nodeValue = 'Play';
+        document.getElementById('lecteur').style.display = "block";
+    } else {
+        videoPlayer.play();
+        videoPlayer.firstChild.nodeValue = 'Pause';
+        document.getElementById('lecteur').style.display = "none";
+    }
+});
