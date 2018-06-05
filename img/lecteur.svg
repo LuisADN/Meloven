@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 134.61 134.61">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #fff;
+        stroke-width: 3px;
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2, .cls-3, .cls-6 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #f6fafb;
+      }
+
+      .cls-3 {
+        opacity: 0.328;
+      }
+
+      .cls-4 {
+        stroke: #ff90a6;
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+
+      .cls-7 {
+        filter: url(#Ellipse_8);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#eaeaea"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <filter id="Ellipse_8" x="0" y="0" width="134.61" height="134.61" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.149"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff5175"/>
+      <stop offset="1" stop-color="#ff93a9"/>
+    </linearGradient>
+  </defs>
+  <g id="Lecteur" transform="translate(15.923 5.923)">
+    <g class="cls-7" transform="matrix(1, 0, 0, 1, -15.92, -5.92)">
+      <g id="Ellipse_8-2" data-name="Ellipse 8" class="cls-1" transform="translate(30 20)">
+        <circle class="cls-5" cx="37.305" cy="37.305" r="37.305"/>
+        <circle class="cls-6" cx="37.305" cy="37.305" r="35.805"/>
+      </g>
+    </g>
+    <g id="Ellipse_9" data-name="Ellipse 9" class="cls-2" transform="translate(7.039 7.039)">
+      <circle class="cls-5" cx="44.344" cy="44.344" r="44.344"/>
+      <circle class="cls-6" cx="44.344" cy="44.344" r="43.844"/>
+    </g>
+    <g id="Ellipse_10" data-name="Ellipse 10" class="cls-3">
+      <circle class="cls-5" cx="51.383" cy="51.383" r="51.383"/>
+      <circle class="cls-6" cx="51.383" cy="51.383" r="50.883"/>
+    </g>
+    <path id="Tracé_8" data-name="Tracé 8" class="cls-4" d="M29.324,15.653,2.848.376C1.385-.471.192.106.038,1.645A1.186,1.186,0,0,0,0,2.03V32.586c0,1.809,1.27,2.54,2.848,1.655L28.824,19.232l.5-.308C30.9,18.039,30.9,16.577,29.324,15.653Z" transform="translate(40.097 36.19)"/>
+  </g>
+</svg>

@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+@font-face {
+    font-family: 'Bauhaus93';
+    src: url("fonts/Bauhaus93.ttf");
+    font-weight: normal;
+}
+
+
+
+
+*, body{
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+}
+
+.bg-one{
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5879ff+0,9db1ff+100 */
+    background: #5879ff; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #5879ff 0%, #9db1ff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #5879ff 0%,#9db1ff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #5879ff 0%,#9db1ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5879ff', endColorstr='#9db1ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.perfect-center-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 95px); 
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 81px;
+}
+
+header{
+    padding: 20px;
+}
+.logo{
+    max-width: 72px;
+}
+
+.block-left{
+    width: 40%;
+    margin: 0 20px;
+}
+.block-left h1{
+    font-family: 'Bauhaus93', 'Rubik', sans-serif;
+    font-weight: normal;
+    font-size: 100px;
+    color: #ffffff;
+    text-shadow: 2px 2px rgba(0,0,0,0.10);
+}
+.block-left h2{
+    font-family: 'Rubik', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 20px 0 30px 0;
+}
+.block-left p{
+    font-size: 13px;
+    line-height: 19.5px;
+    padding: 10px 0;
+}
+
+.block-left div h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 20px;
+    color: #ffffff;
+    padding: 60px 0 10px 0;
+}
+.block-left .radio-label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 23px;
+    padding-right: 20px;
+}
+.radio-image{
+  display: none;
+}
+.block-left .radio-align{
+    display: flex;
+    flex-direction: row;
+}
+.block-left input[type=radio]{
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+.block-left #mc_embed_signup{
+    background-color: transparent;
+}
+.block-left  .mailchimp-send{
+    position: relative;
+    margin: 40px 0;
+ }
+.block-left  .mailchimp-send-div{
+    position: absolute;
+    width: 295px;
+    left: 345px;
+    top: 0px;
+}
+.block-left input[type=email]{
+    width: 295px;
+    height: 44px;
+    padding: 0 40px 0 50px;
+    background: url("img/send.png") 3% center no-repeat, #ffffff; /*left center */
+    border-radius: 50px;
+    border: none;
+    /*box-shadow: lightgrey 2px 2px 2px 2px;*/
+    font-size: 13px;
+    color: #1D1D1B;
+    box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.10);
+}
+.block-left .mailchimp-send-btn{
+    height: 44px;
+    width: 44px;
+    background: url("img/next.png") center center no-repeat, linear-gradient(-45deg, #ff5175 0%, #ff93a9 100%);
+    border: 2px solid #ff93a9;;
+    border-radius: 50%;
+}
+
+
+.block-right{
+    position: relative;
+    width: 60%;
+    margin: 0 20px;
+}
+.block-right video{
+    width: 100%;
+    height: auto;
+    margin: 0 20px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/*.block-right .video{
+    position: relative;
+    width: 100%;
+}*/
+.block-right .lecteur{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+/*.block-right img{
+    width: 100%;
+    height: auto;
+}*/
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    /*  left: 0px; */
+    width: 100%;
+    height: 50.6px;
+    margin-top: 30px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5879ff+0,9db1ff+100 */
+    background: #1D1D1B; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #1D1D1B 0%, #707070 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #1D1D1B 0%,#707070 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #1D1D1B 0%,#707070 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D1D1B', endColorstr='#707070',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+footer a{
+    display: block;
+    margin: 0 20px;
+    text-decoration: none;
+}
+footer img{
+    width: 38.5px;
+}
+footer .legal-mentions-btn{
+    font-size: 13px;
+    color: #ffffff;
+}
+footer .contact-btn{
+    font-size: 13px;
+    color: #ffffff;
+    padding: 10px 40px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5879ff+0,9db1ff+100 */
+    background: #1D1D1B; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #1D1D1B 0%, #707070 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #1D1D1B 0%,#707070 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #1D1D1B 0%,#707070 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1D1D1B', endColorstr='#707070',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    border: 2px solid #707070;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+
+/* ******************* MOBILE ******************* */
+/* ********************************************** */
+
+
+/*@media screen and (max-width: 1250px) {
+    .block-left  .mailchimp-send-div{
+        width: 200px;
+        left: 255px;
+    }
+    .block-left input[type=email]{
+        width: 200px;
+    }
+}*/
+
+@media screen and (max-width: 800px) {
+    .logo{
+        max-width: 108px;
+    }
+    .bg-one{
+        width: 100%;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5879ff+0,9db1ff+100 */
+        background: #5879ff; /* Old browsers */
+        background: -moz-linear-gradient(#5879ff 0%, #9db1ff 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(#5879ff 0%,#9db1ff 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(#5879ff 0%,#9db1ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5879ff', endColorstr='#9db1ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+    header h1{
+        text-align: center;
+    }
+    .container {
+        flex-direction: column;
+        padding-bottom: 258px;
+    }
+    .block-left, .block-right{
+        width: 100%;
+    }
+    .block-left h1{
+        font-size: 70px;
+    }
+    .block-left h2{
+        font-size: 20px;
+        color: #1D1D1B;
+    }
+    .block-left h1, .block-left h2 {
+        text-align: center;
+    }
+    .block-left div h1{
+        font-size: 18px;
+        text-align: left;
+        padding: 30px 0 10px 0;
+    }
+    .block-left .radio-align{
+        display: flex;
+        flex-direction: column;
+    }
+    .block-left input[type=radio]{
+        margin: 20px 10px;
+        transform: scale(2);
+    }
+    .block-right{
+        width: auto;
+        margin: 0;
+    }
+    .block-right video{
+        margin: 0 auto;
+    }
+    footer{
+        flex-direction: column;
+        height: auto;
+    }
+    footer a{
+        margin: 20px 0;
+    }
+    footer .logo-footer{
+        order: 2;
+    }
+    footer .legal-mentions-btn{
+        order: 3;
+        margin-bottom: 30px;
+    }
+    footer .contact-btn{
+        order: 1;
+        margin-top: 40px;
+    }
+    .block-left  .mailchimp-send-div{
+        width: 0;
+        left: 82%;
+    }
+    .block-left .mailchimp-send {
+        position: relative;
+        margin: 20px 0 40px 0;
+    }
+    .block-left input[type=email]{
+        width: 200px;
+    }
+    form{
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
