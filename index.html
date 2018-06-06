@@ -43,14 +43,21 @@
                     <h1>Cela vous intéresse ? Recevez les actualités par email</h1>
 
                     <div class="radio-align">
-                        <div>
-                            <input type="radio" id="contactChoice1" name="contact" value="contactChoice1" onclick="RadioStateChange(0)" checked>
-                            <label class="radio-label" for="contactChoice1">Je suis un(e) artiste </label>
-                        </div>
-                        <div>
-                            <input type="radio" id="contactChoice2" name="contact" value="contactChoice2" onclick="RadioStateChange(1)">
-                            <label class="radio-label" for="contactChoice2">Je veux soutenir des artistes</label>
-                        </div>
+                        <ul>
+                            <li id="liChoice1" onclick="RadioStateChange(0)">
+                                <input type="radio" id="contactChoice1" name="contact" value="contactChoice1" checked>
+                                <label class="radio-label" for="contactChoice1">Je suis un(e) artiste</label>
+                                <div class="check">
+                                    <img src="img/note.svg" alt="Note">
+                                </div>
+                            </li>
+                            <li id="liChoice2" onclick="RadioStateChange(1)">
+                                <input type="radio" id="contactChoice2" name="contact">
+                                <label class="radio-label" for="contactChoice2">Je veux soutenir des artistes</label>
+                                <div class="check">
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
                         <!-- Begin MailChimp Signup Form -->
