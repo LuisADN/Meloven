@@ -95,6 +95,7 @@ header{
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display: inline-flex;
 }
 .block-left ul li{
     color: #ffffff;
@@ -172,7 +173,7 @@ header{
 }
 .block-left  .mailchimp-send{
     position: relative;
-    margin: 40px 0;
+    margin: 10px 0 40px;
  }
 .block-left  .mailchimp-send-div{
     position: absolute;
@@ -422,6 +423,9 @@ footer .contact-btn{
     .block-left .mailchimp-send {
         position: relative;
         margin: 20px 0 40px 0;
+    }
+    .block-left ul{
+        display: initial;
     }
 
 
