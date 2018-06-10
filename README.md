@@ -4,4 +4,4 @@
 ##### ./node_modules/.bin/encore dev --watch
 
 ## To start server :
-##### bin/console server:stop 127.0.0.1:8001
+##### bin/console server:start 127.0.0.1:8001
