@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Close);
+      }
+
+      .cls-2, .cls-3, .cls-5 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #9f84e2;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        stroke: #8247df;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+    </style>
+    <clipPath id="clip-Close">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="Close" class="cls-1">
+    <g id="Symbole_18_4" data-name="Symbole 18 – 4" transform="translate(-309 -21)">
+      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-2" transform="translate(309 21)">
+        <circle class="cls-4" cx="24" cy="24" r="24"/>
+        <circle class="cls-5" cx="24" cy="24" r="23"/>
+      </g>
+      <g id="TRAIT_" data-name="TRAIT " transform="translate(172.165 475.099) rotate(45)">
+        <path id="Tracé_2" data-name="Tracé 2" class="cls-3" d="M27-329.828H58.5" transform="translate(-233.5 -87.672)"/>
+      </g>
+      <g id="TRAIT_2" data-name="TRAIT " transform="translate(762.599 205.335) rotate(-45)">
+        <path id="Tracé_2-2" data-name="Tracé 2" class="cls-3" d="M27-329.828H58.5" transform="translate(-233.5 -87.672)"/>
+      </g>
+    </g>
+  </g>
+</svg>

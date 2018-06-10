@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 26">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Twitter);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        filter: url(#Rectangle_48);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="1" y2="1.27" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#8247df"/>
+      <stop offset="1" stop-color="#c59ffc"/>
+    </linearGradient>
+    <filter id="Rectangle_48" x="0" y="0.477" width="23.695" height="24.695" filterUnits="userSpaceOnUse">
+      <feOffset dx="-1" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#06fbad"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Twitter">
+      <rect width="24" height="26"/>
+    </clipPath>
+  </defs>
+  <g id="Twitter" class="cls-1">
+    <g id="Symbole_31_7" data-name="Symbole 31 – 7" transform="translate(-1075 -182)">
+      <g class="cls-4" transform="matrix(1, 0, 0, 1, 1075, 182)">
+        <rect id="Rectangle_48-2" data-name="Rectangle 48" class="cls-2" width="22.695" height="22.695" rx="11.347" transform="translate(1 0.48)"/>
+      </g>
+      <g id="Groupe_63" data-name="Groupe 63" transform="translate(1081.201 189.15)">
+        <path id="Tracé_23" data-name="Tracé 23" class="cls-3" d="M124.9,16.617a6.658,6.658,0,0,0,10.233-5.9A4.965,4.965,0,0,0,136.3,9.5a4.895,4.895,0,0,1-1.345.373,2.4,2.4,0,0,0,1.021-1.295,4.337,4.337,0,0,1-1.494.573,2.319,2.319,0,0,0-3.959,2.116,6.585,6.585,0,0,1-4.805-2.44,2.316,2.316,0,0,0,.722,3.112,2.131,2.131,0,0,1-1.046-.3,2.339,2.339,0,0,0,1.867,2.316,2.457,2.457,0,0,1-1.046.05,2.366,2.366,0,0,0,2.191,1.618A4.675,4.675,0,0,1,124.9,16.617Z" transform="translate(-124.9 -8.4)"/>
+      </g>
+    </g>
+  </g>
+</svg>

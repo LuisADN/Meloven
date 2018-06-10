@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {% include('heads/head_back.html.twig') %}
+{% endblock %}
+
+{% block nav %}
+    {% include('blog_post/nav.html.twig') %}
+{% endblock %}
+
+
+
+{% block content %}
+    <!-- Main -->
+    <div class="container" style="margin-top: 40px">
+        {% if app.user.userGroup == "Author" %}
+
+            {#{{ app.user.username }}
+            {{ app.user.email }}
+            {{ author.shortBio }}
+            {{ author.phone }}#}
+
+            <a class="btn btn-success" href="{{ path('blog_post_new') }}">Créer un article</a>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Liste d'articles</h1>
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+
+        {% endif %}
+        <!-- One -->
+        {#<section id="one">
+            <div class="inner">
+                <header class="major">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <ul class="actions vertical">
+                            <li><a href="/admin" class="button special fit">Espace d'administration</a></li>
+                        </ul>
+                    {% endif %}
+                    <h1>Mon profil</h1>
+                </header>
+                {{ form_start(userForm, {'attr': {'id': 'updateProfile', 'novalidate': 'novalidate'}}) }}
+                    <!-- avatar -->
+                    <p>
+                        {{ form_label(userForm.avatarFile) }}
+                        {{ form_widget(userForm.avatarFile) }}
+
+                    </p>
+                    <p>
+                        {{ form_label(userForm.firstName) }}
+                        {{ form_widget(userForm.firstName) }}
+                        {{ form_errors(userForm.firstName) }}
+                    </p>
+                    <p>
+                        {{ form_label(userForm.lastName) }}
+                        {{ form_widget(userForm.lastName) }}
+                        {{ form_errors(userForm.lastName) }}
+                    </p>
+                    <p>
+                        {{ form_label(userForm.email) }}
+                        {{ form_widget(userForm.email) }}
+                        {{ form_errors(userForm.email) }}
+                    </p>
+
+                    <button type="submit">Enregistrer</button>
+                {{ form_end(userForm) }}
+                #}{#<p><a href="{{ path('forgotpassword') }}">Changer de mot de passe</a></p>#}{#
+
+
+            </div>
+        </section>#}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ asset('asset/js/main.js') }}"></script>
+{% endblock %}

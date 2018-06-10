@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 51 51">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Facebook);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        filter: url(#Rectangle_49);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="1" y2="1.27" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#8247df"/>
+      <stop offset="1" stop-color="#c59ffc"/>
+    </linearGradient>
+    <filter id="Rectangle_49" x="0.96" y="0.287" width="49.325" height="50.325" filterUnits="userSpaceOnUse">
+      <feOffset dx="-1" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#06fbad"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Facebook">
+      <rect width="51" height="51"/>
+    </clipPath>
+  </defs>
+  <g id="Facebook" class="cls-1">
+    <g id="Facebook-2" data-name="Facebook" transform="translate(-45.388 -2947)">
+      <g class="cls-4" transform="matrix(1, 0, 0, 1, 45.39, 2947)">
+        <rect id="Rectangle_49-2" data-name="Rectangle 49" class="cls-2" width="48.325" height="48.325" rx="6" transform="translate(1.96 0.29)"/>
+      </g>
+      <g id="Groupe_62" data-name="Groupe 62" transform="translate(65.414 2957.69)">
+        <path id="Tracé_24" data-name="Tracé 24" class="cls-3" d="M2.844,27.332H8.321v-13.8h3.844L12.586,8.9H8.321V6.267c0-1.106.211-1.527,1.264-1.527h3V0H8.795C4.687,0,2.844,1.791,2.844,5.266V8.953H0v4.687H2.844Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 49 24">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Burger);
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #8247df;
+        stroke-width: 2px;
+      }
+    </style>
+    <clipPath id="clip-Burger">
+      <rect width="49" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Burger" class="cls-1">
+    <g id="TRAIT_VIOLET" data-name="TRAIT VIOLET" transform="translate(-39.535 429.5)">
+      <g id="TRAIT_" data-name="TRAIT " transform="translate(246.035)">
+        <path id="Tracé_2" data-name="Tracé 2" class="cls-2" d="M27-329.828H76" transform="translate(-233.5 -87.672)"/>
+      </g>
+      <g id="TRAIT_2" data-name="TRAIT " transform="translate(246.035 12)">
+        <path id="Tracé_2-2" data-name="Tracé 2" class="cls-2" d="M27-329.828H76" transform="translate(-233.5 -87.672)"/>
+      </g>
+      <g id="TRAIT_3" data-name="TRAIT " transform="translate(246.035 -12)">
+        <path id="Tracé_2-3" data-name="Tracé 2" class="cls-2" d="M27-329.828H76" transform="translate(-233.5 -87.672)"/>
+      </g>
+    </g>
+  </g>
+</svg>

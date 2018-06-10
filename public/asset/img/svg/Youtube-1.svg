@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 26">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Youtube);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        filter: url(#Rectangle_51);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="1" y2="1.27" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#8247df"/>
+      <stop offset="1" stop-color="#c59ffc"/>
+    </linearGradient>
+    <filter id="Rectangle_51" x="0" y="0.477" width="23.695" height="24.695" filterUnits="userSpaceOnUse">
+      <feOffset dx="-1" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#06fbad"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Youtube">
+      <rect width="24" height="26"/>
+    </clipPath>
+  </defs>
+  <g id="Youtube" class="cls-1">
+    <g id="Symbole_33_6" data-name="Symbole 33 – 6" transform="translate(-987 -182)">
+      <g class="cls-4" transform="matrix(1, 0, 0, 1, 987, 182)">
+        <rect id="Rectangle_51-2" data-name="Rectangle 51" class="cls-2" width="22.695" height="22.695" rx="11.347" transform="translate(1 0.48)"/>
+      </g>
+      <g id="Groupe_65" data-name="Groupe 65" transform="translate(994.04 187.27)">
+        <g id="Groupe_59" data-name="Groupe 59" transform="translate(0)">
+          <g id="Groupe_57" data-name="Groupe 57" transform="translate(1.608)">
+            <path id="Tracé_30" data-name="Tracé 30" class="cls-3" d="M151.17,263.46a1.012,1.012,0,0,0,.767-.445v.4h.668V259.8h-.668v2.745a.722.722,0,0,1-.4.272c-.148,0-.173-.1-.173-.247V259.8H150.7v3.017C150.7,263.163,150.824,263.46,151.17,263.46Z" transform="translate(-145.68 -258.514)"/>
+            <path id="Tracé_31" data-name="Tracé 31" class="cls-3" d="M140.5,262.42a.86.86,0,0,0,.989.965.922.922,0,0,0,.965-.965v-1.756a.977.977,0,0,0-1.954,0Zm.692-1.706c0-.2.1-.346.272-.346.2,0,.3.148.3.346V262.4c0,.2-.1.346-.272.346a.314.314,0,0,1-.3-.346Z" transform="translate(-138.002 -258.439)"/>
+            <path id="Tracé_32" data-name="Tracé 32" class="cls-3" d="M131.315,259.5h.742v-1.979l.89-2.918h-.767l-.495,1.954-.519-1.954H130.4l.915,2.918Z" transform="translate(-130.4 -254.6)"/>
+          </g>
+          <g id="Groupe_58" data-name="Groupe 58" transform="translate(0 5.713)">
+            <path id="Tracé_33" data-name="Tracé 33" class="cls-3" d="M133.347,277.7h-7.914a1.541,1.541,0,0,0-1.533,1.533v3.883a1.541,1.541,0,0,0,1.533,1.533h7.914a1.541,1.541,0,0,0,1.533-1.533v-3.883A1.541,1.541,0,0,0,133.347,277.7Zm-6.851,5.812h-.717V279.53h-.742v-.668h2.2v.668H126.5Zm2.572,0h-.643v-.371a1.436,1.436,0,0,1-.371.322c-.346.2-.816.2-.816-.495V280.1h.643v2.622c0,.148.025.223.173.223a.624.624,0,0,0,.371-.247v-2.6h.643Zm2.448-.717c0,.42-.148.767-.594.767a.777.777,0,0,1-.618-.3v.272h-.643v-4.649h.643V280.4a.8.8,0,0,1,.569-.322c.47,0,.618.4.618.866v1.855Zm2.349-.915h-1.212v.643c0,.247.025.47.272.47.272,0,.3-.173.3-.47v-.247h.668v.247c0,.668-.272,1.063-.965,1.063-.618,0-.915-.445-.915-1.063v-1.533a.949.949,0,0,1,.965-1.014c.618,0,.915.4.915,1.014v.89Z" transform="translate(-123.9 -277.7)"/>
+            <path id="Tracé_34" data-name="Tracé 34" class="cls-3" d="M159.5,289.4c-.247,0-.3.173-.3.4v.346h.569V289.8C159.794,289.548,159.744,289.4,159.5,289.4Z" transform="translate(-150.47 -286.506)"/>
+            <path id="Tracé_35" data-name="Tracé 35" class="cls-3" d="M150.024,289.322a.247.247,0,0,0-.124.1v2.152a.655.655,0,0,0,.148.124.3.3,0,0,0,.322-.025c.049-.049.049-.124.049-.247v-1.781a.444.444,0,0,0-.074-.272A.3.3,0,0,0,150.024,289.322Z" transform="translate(-143.47 -286.428)"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,390 @@
+@font-face {
+  font-family: 'GothamBlack';
+  src: url("../fonts/GothamBlack.ttf");
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'GilroyRegular';
+  src: url("../fonts/GilroyRegular.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'GilroyBlack';
+  src: url("../fonts/GilroyExtraBold.otf");
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'GilroyLight';
+  src: url("../fonts/GilroyLight.otf");
+  font-weight: 300;
+}
+
+/* ***************************** VARIABLES ***************************** */
+/* ********************************************************************* */
+$titles: 'GothamBlack', sans-serif;
+/* ********************************************************************* */
+/* ********************************************************************* */
+
+.wrapper{
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+header{
+  div.site-title{
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+    h1.logo{
+      img{
+        width: 106px;
+        height: auto;
+      }
+    }
+    div{
+      padding: 20px 20px 20px 60px;
+      h2{
+        font-family: $titles;
+        font-size: 37px;
+        color: #8247DF;
+        text-shadow: -1px 1px 1px #06FBAD;
+      }
+      p{
+        font-family: $titles;
+        font-size: 18px;
+        color: #CBA8FF;
+      }
+    }
+  }
+  nav{
+    & > ul{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #8247DF;;
+      & > li{
+        font-family: $titles;
+        font-size: 11px;
+        padding: 0 35px;
+        a{
+          color: #8247DF;
+          text-decoration: none;
+        }
+        div.rs-nav{
+          ul{
+            width: 150px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            li a img {
+                width: 23px;
+                height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+div.video{
+  img{
+    width: 1020px;
+    padding: 40px 0;
+  }
+}
+
+div.content{
+  div.article-one{
+    border-bottom: 1px solid #707070;
+    padding: 20px 0 60px;
+    margin-bottom: 40px;
+    & > h1{
+      font-family: $titles;
+      font-size: 30px;
+      color: #3D3D3D;
+      padding-bottom: 40px;
+      text-shadow: -1px 1px 1px #06FBAD;
+    }
+    article{
+      height: 400px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      div.image-overfow{
+        width: 50%;
+        height: auto;
+        overflow: hidden;
+        text-align: center;
+        margin-right: 20px;
+        img{
+          height: 100%;
+          transform: translateX(-25%);
+        }
+      }
+      div.article-one-content{
+        width: 50%;
+        margin-left: 20px;
+        & > span{
+          display: block;
+          font-family: $titles;
+          font-size: 13px;
+          color: #06FBAD;
+          padding: 20px 0 10px;
+          text-transform: uppercase;
+        }
+        & > h1{
+          font-family: $titles;
+          font-size: 25px;
+          color: #8247DF;
+          text-shadow: -1px 1px 1px #06FBAD;
+          padding: 5px 0;
+        }
+        & > p{
+          font-family: 'GilroyRegular', sans-serif;
+          font-size: 16px;
+          line-height: 24px;
+          color: #3D3D3D;
+        }
+        div.article-one-author {
+          display: flex;
+          flex-direction: row;
+          justify-content: baseline;
+          align-items: center;
+          padding: 30px 0 60px;
+          div.article-one-image-oveflow {
+            width: 49px;
+            height: 52px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 1px solid #06FBAD;
+            img {
+              height: 100%;
+              width: auto;
+            }
+          }
+          div.article-one-author-description{
+            padding: 0 10px;
+            h1{
+              font-family: 'GilroyBlack', sans-serif;
+              font-size: 19px;
+              color: #DAC7F7;
+              padding-bottom: 10px;
+            }
+            p{
+              font-family: 'GilroyRegular', sans-serif;
+              font-size: 16px;
+              color: #DAC7F7;
+            }
+          }
+        }
+      }
+    }
+  }
+  div.article-all{
+    & > h1{
+      font-family: $titles;
+      font-size: 30px;
+      color: #3D3D3D;
+      padding-bottom: 40px;
+      text-shadow: -1px 1px 1px #06FBAD;
+    }
+    div.articles{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      article{
+        max-width: 50%;
+        & > a img{
+          max-width: 100%;
+        }
+        & > span{
+          display: block;
+          font-family: $titles;
+          font-size: 13px;
+          color: #06FBAD;
+          padding: 20px 0 10px;
+          text-transform: uppercase;
+        }
+        & > h1{
+          font-family: $titles;
+          font-size: 25px;
+          color: #8247DF;
+          text-shadow: -1px 1px 1px #06FBAD;
+          padding: 0 0 2px;
+        }
+        & > p{
+          font-family: 'GilroyRegular', sans-serif;
+          font-size: 16px;
+          color: #3D3D3D;
+        }
+        div.author{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 30px 0 60px;
+          div.image-oveflow{
+            width: 49px;
+            height: 52px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 1px solid #06FBAD;
+            img{
+              height: 100%;
+              width: auto;
+            }
+          }
+          div.author-description{
+            padding: 0 10px;
+            h1{
+              font-family: 'GilroyBlack', sans-serif;
+              font-size: 19px;
+              color: #DAC7F7;
+              padding-bottom: 10px;
+            }
+            p{
+              font-family: 'GilroyRegular', sans-serif;
+              font-size: 16px;
+              color: #DAC7F7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+footer{
+  padding: 60px 0;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7bf8cf+0,dff7ec+100 */
+  background: #7bf8cf; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #7bf8cf 0%, #dff7ec 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg,  #7bf8cf 0%,#dff7ec 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg,  #7bf8cf 0%,#dff7ec 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7bf8cf', endColorstr='#dff7ec',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  div.footer-wrapper{
+    max-width: 1020px;
+    margin: 0 auto;
+    h1.footer-logo{
+      text-align: center;
+      img{
+        width: 106px;
+        height: auto;
+      }
+    }
+    p{
+      font-family: 'GilroyBlack', sans-serif;
+      font-size: 20px;
+      line-height: 28px;
+      color: #8247DF;
+      text-align: center;
+      padding: 40px 0;
+    }
+    div.mailchimp-box{
+      background-color: #DFF7EC;
+      width: 100%;
+      height: auto;
+      padding: 40px 0;
+      & > h1{
+        font-family: $titles;
+        font-size: 29px;
+        color: #8247DF;
+        text-shadow: -1px 1px 1px #06FBAD;
+        text-align: center;
+        padding: 0px 0 10px 0;
+      }
+      & > h2{
+        font-family: 'GilroyBlack', sans-serif;
+        font-size: 20px;
+        color: #3D3D3D;
+        text-align: center;
+      }
+      div.block-newsletter{
+        div.radio-align{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          padding: 40px 0;
+          div{
+            padding: 0 30px;
+            label{
+              font-family: 'GilroyRegular', sans-serif;
+              font-size: 16px;
+              color: #3D3D3D;
+            }
+          }
+        }
+        #mc_embed_signup{
+          text-align: center;
+          input[type="email"]{
+            width: 663px;
+            height: 31px;
+            font-family: 'GilroyRegular', sans-serif;
+            font-size: 16px;
+            color: #3D3D3D;
+            text-align: center;
+            border-radius: 20px;
+            border: none;
+          }
+          input[type="submit"]{
+            width: 279px;
+            height: 31px;
+            margin-top: 30px;
+            font-family: 'GilroyBlack', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8247df+0,c59ffc+100 */
+            background: #8247df; /* Old browsers */
+            background: -moz-linear-gradient(-45deg,  #8247df 0%, #c59ffc 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg,  #8247df 0%,#c59ffc 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg,  #8247df 0%,#c59ffc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8247df', endColorstr='#c59ffc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            border-radius: 20px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    div.footer-bottom{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 60px;
+      div.footer-menu{
+        ul{
+          li a{
+            display: block;
+            font-family: $titles;
+            font-size: 15px;
+            color: #3D3D3D;
+            padding: 10px 0;
+            text-decoration: none;
+          }
+        }
+      }
+      div.footer-rs{
+        width: 338px;
+        h1{
+          font-family: $titles;
+          font-size: 17px;
+          color: #8247DF;
+          text-align: center;
+        }
+        ul{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          margin-top: 30px;
+          li a img{
+            width: 48px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

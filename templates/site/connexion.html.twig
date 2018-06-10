@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+    {% block content %}
+        <!-- Main -->
+        <div id="main" class="alt">
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h1>Connexion</h1>
+                    </header>
+                    <form method="post" action="#">
+                        <p>
+                            <label for="login">Login</label>
+                            <input type="text" title="login" id="login">
+                        </p>
+                        <p>
+                            <label for="password">Mot de passe</label>
+                            <input type="text" id="password" title="password">
+                        </p>
+                        {#<p><a href="{{ path('forgotpassword') }}">Mot de passe oublié</a></p>#}
+                        <button>Valider</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    {% endblock %}

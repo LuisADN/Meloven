@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 26">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Instagram);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        filter: url(#Rectangle_50);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="1" y2="1.27" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#8247df"/>
+      <stop offset="1" stop-color="#c59ffc"/>
+    </linearGradient>
+    <filter id="Rectangle_50" x="0" y="0.477" width="23.695" height="24.695" filterUnits="userSpaceOnUse">
+      <feOffset dx="-1" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#06fbad"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Instagram">
+      <rect width="24" height="26"/>
+    </clipPath>
+  </defs>
+  <g id="Instagram" class="cls-1">
+    <g id="Symbole_30_6" data-name="Symbole 30 – 6" transform="translate(-1118 -182)">
+      <g class="cls-4" transform="matrix(1, 0, 0, 1, 1118, 182)">
+        <rect id="Rectangle_50-2" data-name="Rectangle 50" class="cls-2" width="22.695" height="22.695" rx="11.347" transform="translate(1 0.48)"/>
+      </g>
+      <g id="Groupe_64" data-name="Groupe 64" transform="translate(1124.567 188.129)">
+        <g id="Groupe_52" data-name="Groupe 52" transform="translate(0 0)">
+          <g id="Groupe_51" data-name="Groupe 51">
+            <path id="Tracé_26" data-name="Tracé 26" class="cls-3" d="M262.451,3.471c1.569,0,1.743,0,2.365.025a3.547,3.547,0,0,1,1.1.2,1.528,1.528,0,0,1,.672.448,2.12,2.12,0,0,1,.448.672,3.384,3.384,0,0,1,.2,1.1c.025.622.025.8.025,2.365s0,1.743-.025,2.365a3.547,3.547,0,0,1-.2,1.1,1.528,1.528,0,0,1-.448.672,2.119,2.119,0,0,1-.672.448,3.385,3.385,0,0,1-1.1.2c-.622.025-.8.025-2.365.025s-1.743,0-2.365-.025a3.546,3.546,0,0,1-1.1-.2,1.528,1.528,0,0,1-.672-.448,2.12,2.12,0,0,1-.448-.672,3.386,3.386,0,0,1-.2-1.1c-.025-.622-.025-.8-.025-2.365s0-1.743.025-2.365a3.548,3.548,0,0,1,.2-1.1,1.528,1.528,0,0,1,.448-.672,2.119,2.119,0,0,1,.672-.448,3.385,3.385,0,0,1,1.1-.2c.622-.025.8-.025,2.365-.025m0-1.071c-1.594,0-1.793,0-2.415.025a4.089,4.089,0,0,0-1.419.274,3,3,0,0,0-1.046.672,2.788,2.788,0,0,0-.672,1.046,4.089,4.089,0,0,0-.274,1.419c-.025.622-.025.822-.025,2.415s0,1.793.025,2.415a4.089,4.089,0,0,0,.274,1.419,3,3,0,0,0,.672,1.046,2.789,2.789,0,0,0,1.046.672,4.089,4.089,0,0,0,1.419.274c.622.025.822.025,2.415.025s1.793,0,2.415-.025a4.089,4.089,0,0,0,1.419-.274,3,3,0,0,0,1.046-.672A2.789,2.789,0,0,0,268,12.086a4.089,4.089,0,0,0,.274-1.419c.025-.622.025-.822.025-2.415s0-1.793-.025-2.415A4.089,4.089,0,0,0,268,4.417a3,3,0,0,0-.672-1.046,2.789,2.789,0,0,0-1.046-.672,4.089,4.089,0,0,0-1.419-.274c-.622-.025-.822-.025-2.415-.025" transform="translate(-256.6 -2.4)"/>
+            <path id="Tracé_27" data-name="Tracé 27" class="cls-3" d="M271.013,13.9a3.013,3.013,0,1,0,3.013,3.013,3.007,3.007,0,0,0-3.013-3.013m0,4.955a1.942,1.942,0,1,1,1.942-1.942,1.945,1.945,0,0,1-1.942,1.942" transform="translate(-265.162 -11.037)"/>
+            <path id="Tracé_28" data-name="Tracé 28" class="cls-3" d="M291.294,11.3a.7.7,0,1,1-.7-.7.7.7,0,0,1,.7.7" transform="translate(-281.609 -8.558)"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

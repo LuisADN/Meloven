@@ -1,0 +1,36 @@
+security:
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\User
+
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+    firewalls:
+#        csrf_protection: true
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            form_login:
+               login_path: login
+               check_path: login
+               csrf_parameter: _csrf_security_token
+               csrf_token_id: a_private_string
+            logout:
+                path: /logout
+                target: /
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+
+    access_control:
+        - { path: ^/profil, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/blog, roles: ROLE_USER }
+#        - { path: ^/profile, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER

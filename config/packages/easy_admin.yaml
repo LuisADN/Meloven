@@ -1,0 +1,39 @@
+easy_admin:
+  disabled_actions: ['show']
+  site_name: Meloven Dashboard
+  design:
+    menu:
+      - User
+  list:
+    title: 'Liste des %%entity_label%%'
+    actions: ['show']
+  entities:
+    User:
+      class: App\Entity\User
+      controller: App\Controller\Admin\EasyAdmin\UserController
+      export_path: '%kernel.root_dir/../var/export/user'
+      password_encoding: { algorithm: 'bcrypt', cost: 12 }
+      label: 'Utilisateurs'
+      help: 'Un utilisateur peut être ADMIN ou USER.'
+      list:
+        title: 'Liste des utilisateurs'
+        fields:
+          - { property: username, label: 'Username' }
+          - { property: firstName, label: 'Prénom' }
+          - { property: lastName, label: 'Nom' }
+          - email
+          - { property: avatar, label: 'Photo', type: image, base_path: '/media/' }
+          - { property: isActive, label: 'Actif' }
+          - { property: isAdmin, label: 'Admin' }
+          - { property: userGroup, label: 'User Group' }
+      form:
+        fields:
+          - { property: username, label: 'Username' }
+          - { property: firstName, label: 'Prénom' }
+          - { property: lastName, label: 'Nom' }
+          - { property: plainPassword, label: 'Mot de passe', type: 'password' }
+          - { property: email, label: 'Adresse email' }
+          - { property: avatarFile, label: 'Photo de profil', type: 'vich_image' }
+          - { property: isActive, label: 'Actif' }
+          - { property: isAdmin, label: 'Admin' }
+          - { property: userGroup, type: choice, type_options: {choices: {'Admin':'Admin', 'Mucicien':'Mucicien', 'Author':'Author'}}}

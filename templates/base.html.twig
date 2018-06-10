@@ -1,0 +1,24 @@
+{% set asset_base = '/media/' %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Meloven</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <!-- Head -->
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- Nav -->
+            {% block nav %}{% endblock %}
+            <!-- Contenu -->
+            {% block content %}{% endblock %}
+        </div>
+        <!-- Footer -->
+        {% block footer %}{% endblock %}
+        <!-- Scripts -->
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

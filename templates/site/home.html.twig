@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {% include('heads/head_front.html.twig') %}
+{% endblock %}
+
+{% block nav %}
+    <header>
+        <div class="site-title">
+            <h1 class="logo"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1>
+            <div>
+                <h2>Découvrez et soutenez les artistes de rue !</h2>
+                <p>Meloven, met en avant les artistes de rues en organisant des concerts à ciel ouvert.</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">ARTISTE DE RUE</a></li>
+                <li><a href="#">SPECTACLE DE RUE</a></li>
+                <li><a href="#">INSOLITE</a></li>
+                <li><a href="#">JE SUIS UN ARTISTE</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li>
+                    <div class="rs-nav">
+                        <ul>
+                            <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Youtube-1.svg') }}" alt="Youtube"></a></li>
+                            <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Facebook-1.svg') }}" alt="Facebook"></a></li>
+                            <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Twitter-1.svg') }}" alt="Twitter"></a></li>
+                            <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Instagram-1.svg') }}" alt="Instagram"></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+{% endblock %}
+
+
+{% block content %}
+    <div class="video">
+        <img src="{{ asset('asset/img/videoPlayerImg.png') }}" alt="">
+    </div>
+    <div class="content">
+        <div class="article-one">
+            <h1>Derniers </h1>
+            <article>
+                <div class="image-overfow">
+                    <a href="{{ path('blog_post_show', {'id': last_post[0].id}) }}"><img src="{{ asset('asset/img/article1.png') }}" alt=""></a>
+                </div>
+                <div class="article-one-content">
+                    <span>Catégorie</span>
+                    <h1>{{ last_post[0].title }}</h1>
+                    <p>{{ last_post[0].description }}</p>
+                    <div class="article-one-author">
+                        <div class="article-one-image-oveflow">
+                            <img src="{{ asset('asset/img/test-profil.jpg') }}" alt="">
+                        </div>
+                        <div class="article-one-author-description">
+                            <h1>{{ last_post[0].user.username }} de Meloven</h1>
+                            <p>{{ last_post[0].createdAt|localizeddate('medium', 'none') }}  •   2 min de lecture</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="article-all">
+            <h1>ARTISTE DE RUE</h1>
+            <div class="articles">
+                {% for blog_post in blog_posts %}
+                    <article>
+                        {#<img src="{{ blog_post.cover }}" alt="{{ blog_post.title }}">#}
+                        <a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">
+                            <img src="{{ asset('asset/img/exemple-img-post.png') }}" alt="{{ blog_post.title }}">
+                        </a>
+                        <span>{{ blog_post.category }}</span>
+                        <h1>{{ blog_post.title }}</h1>
+                        <p>{{ blog_post.description }}</p>
+
+                        <div class="author">
+                            <div class="image-oveflow">
+                                <img src="{{ asset('asset/img/test-profil.jpg') }}" alt="{{ blog_post.user.username }}">
+                            </div>
+                            <div class="author-description">
+                                <h1>{{ blog_post.user.username }} de Meloven</h1>
+                                <p>{{ blog_post.createdAt|localizeddate('medium', 'none') }}   •   {{ blog_post.readingTime }} min de lecture</p>
+                            </div>
+                        </div>
+                        <p>
+                            {#<a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">show</a>#}
+                        </p>
+                    </article>
+                {% else %}
+                    <p>no records found</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock  %}
+
+{% block footer %}
+    <footer>
+        <div class="footer-wrapper">
+            <h1 class="footer-logo"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1>
+            <p>Meloven, met en avant les artistes de rues en organisant des concerts à ciel ouvert sur Paris.</br>L’objectif est de faire un partenariat avec la mairie de Paris pour mettre en avant les meilleurs artistes de rue lors d’un grand concert.</p>
+            <div class="mailchimp-box">
+                <h1>Ça vous intéresse ?</h1>
+                <h2>Envie de découvrir des talents ou tu en es tout simplement un ?</h2>
+
+                <div class="block-newsletter">
+                    <div class="radio-align">
+                        <div id="liChoice1" onclick="RadioStateChange(0)">
+                            <input type="radio" id="contactChoice1" name="contact" value="contactChoice1" checked>
+                            <label class="radio-label" for="contactChoice1">Je suis un(e) artiste</label>
+                        </div>
+                        <div id="liChoice2" onclick="RadioStateChange(1)">
+                            <input type="radio" id="contactChoice2" name="contact">
+                            <label class="radio-label" for="contactChoice2">Je veux soutenir des artistes</label>
+                        </div>
+                    </div>
+                    <!-- Begin MailChimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <form action="https://meloven.us18.list-manage.com/subscribe/post?u=4d2f69fba82cf20af4f478eb7&amp;id=76c0a7833d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll" class="mailchimp-send">
+                                <label for="mce-EMAIL"></label>
+                                <div>
+                                    <!--<img src="img/note.png" alt="">-->
+                                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Indiquez votre adresse mail" required>
+                                </div>
+                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_4d2f69fba82cf20af4f478eb7_76c0a7833d" tabindex="-1" value=""></div>
+                                <div class="clear mailchimp-send-div"><input type="submit" value="Envoyer" name="subscribe" id="mc-embedded-subscribe" class="mailchimp-send-btn hvr-wobble-horizontal"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End mc_embed_signup-->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-menu">
+                    <ul>
+                        <li><a href="#" target="_blank">À propos de Meloven</a></li>
+                        <li><a href="#" target="_blank">Contacter Meloven</a></li>
+                        <li><a href="#" target="_blank">Je connais un artiste</a></li>
+                        <li><a href="#" target="_blank">Je suis un artiste</a></li>
+                        <li><a href="#" target="_blank">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-rs">
+                    <h1>Suis-nous sur nos réseaux !</h1>
+                    <ul>
+                        <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Youtube.svg') }}" alt="Youtube"></a></li>
+                        <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Facebook.svg') }}" alt="Facebook"></a></li>
+                        <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Twitter.svg') }}" alt="Twitter"></a></li>
+                        <li><a href="#" target="_blank"><img src="{{ asset('asset/img/svg/Instagram.svg') }}" alt="Instagram"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('asset/js/app.js') }}"></script>
+{% endblock %}
+
