@@ -9,19 +9,22 @@
 {% endblock %}
 
 {% block content %}
-   <div class="container">
-    <div class="col-md-auto">
-        <h1>Create new BlogPost</h1>
+    <div class="card">
+        <div class="card-header">
+            <strong>Créer</strong>
+             un article
+        </div>
+        <div class="card-body">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+        <div class="card-footer">
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
-
-        {#{{ include('blog_post/_form.html.twig') }}#}
-
-        <a href="{{ path('blog_post_index') }}">back to list</a>
+            <a class="btn btn-block btn-warning" href="{{ path('blog_post_index') }}" style="max-width: 100px;">back to list</a>
+        </div>
     </div>
-   </div>
+
 {% endblock %}
 
 {% block javascripts %}

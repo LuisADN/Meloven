@@ -93,6 +93,7 @@
         }
 
         document.getElementById('iAm').addEventListener('click', function (ev) {
+            console.log('test');
             var form = document.getElementById('mc-embedded-subscribe-form');
             document.getElementById('contactChoice1').checked = true;
             form.action = 'https://meloven.us18.list-manage.com/subscribe/post?u=4d2f69fba82cf20af4f478eb7&amp;id=76c0a7833d';
@@ -100,6 +101,20 @@
         });
 
         document.getElementById('iWant').addEventListener('click', function (ev) {
+            var form = document.getElementById('mc-embedded-subscribe-form');
+            document.getElementById('contactChoice2').checked = true;
+            form.action = 'https://meloven.us18.list-manage.com/subscribe/post?u=4d2f69fba82cf20af4f478eb7&amp;id=34470ec719';
+        });
+
+        document.getElementById('iAmTwo').addEventListener('click', function (ev) {
+            console.log('test');
+            var form = document.getElementById('mc-embedded-subscribe-form');
+            document.getElementById('contactChoice1').checked = true;
+            form.action = 'https://meloven.us18.list-manage.com/subscribe/post?u=4d2f69fba82cf20af4f478eb7&amp;id=76c0a7833d';
+
+        });
+
+        document.getElementById('iWantTwo').addEventListener('click', function (ev) {
             var form = document.getElementById('mc-embedded-subscribe-form');
             document.getElementById('contactChoice2').checked = true;
             form.action = 'https://meloven.us18.list-manage.com/subscribe/post?u=4d2f69fba82cf20af4f478eb7&amp;id=34470ec719';

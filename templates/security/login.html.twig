@@ -1,34 +1,74 @@
 {% extends 'base.html.twig' %}
 
-    {% block content %}
-        <!-- Main -->
-        <div id="main" class="alt">
-            <!-- One -->
-            <section id="one">
-                <div class="inner">
-                    <header class="major">
-                        <h1>Connexion</h1>
-                    </header>
-                    {# templates/security/login.html.twig #}
-                    {# ... you will probably extend your base template, like base.html.twig #}
+    {% block contentLogin %}
 
-                    {% if app.session %}
-                        <div class="flash-message">
-                            {% for label, messages in app.session.flashbag.all %}
-                                {% for message in messages %}
-                                    <div class="alert alert-{{ label }}">
-                                        {{ message }}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-group">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h1>Login</h1>
+                            <p class="text-muted">Connexion</p>
+
+
+                            {% if app.session %}
+                                <div class="flash-message">
+                                    {% for label, messages in app.session.flashbag.all %}
+                                        {% for message in messages %}
+                                            <div class="alert alert-{{ label }}">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            {% if error %}
+                                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+
+                            <form action="{{ path('login') }}" method="post">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="icon-user"></i>
+                                        </span>
                                     </div>
-                                {% endfor %}
-                            {% endfor %}
+                                    <input value="{{ last_username }}" id="username" name="_username" type="text" class="form-control" placeholder="Username" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAbNJREFUWAntV8FqwkAQnaymUkpChB7tKSfxWCie/Yb+gbdeCqGf0YsQ+hU95QNyDoWCF/HkqdeiIaEUqyZ1ArvodrOHxanQOiCzO28y781skKwFW3scPV1/febP69XqarNeNTB2KGs07U3Ttt/Ozp3bh/u7V7muheQf6ftLUWyYDB5yz1ijuPAub2QRDDunJsdGkAO55KYYjl0OUu1VXOzQZ64Tr+IiPXedGI79bQHdbheCIAD0dUY6gV6vB67rAvo6IxVgWVbFy71KBKkAFaEc2xPQarXA931ot9tyHphiPwpJgSbfe54Hw+EQHMfZ/msVEEURjMfjCjbFeG2dFxPo9/sVOSYzxmAwGIjnTDFRQLMQAjQ5pJAQkCQJ5HlekeERxHEsiE0xUUCzEO9AmqYQhiF0Oh2Yz+ewWCzEY6aYKKBZCAGYs1wuYTabKdNNMWWxnaA4gp3Yry5JBZRlWTXDvaozUgGTyQSyLAP0dbb3DtQlmcan0yngT2ekE9ARc+z4AvC7nauh9iouhpcGamJeX8XF8MaClwaeROWRA7nk+tUnyzGvZrKg0/40gdME/t8EvgG0/NOS6v9NHQAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                </div>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="icon-lock"></i>
+                                        </span>
+                                    </div>
+                                    <input id="password" name="_password" type="password" class="form-control" placeholder="Password" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAbNJREFUWAntV8FqwkAQnaymUkpChB7tKSfxWCie/Yb+gbdeCqGf0YsQ+hU95QNyDoWCF/HkqdeiIaEUqyZ1ArvodrOHxanQOiCzO28y781skKwFW3scPV1/febP69XqarNeNTB2KGs07U3Ttt/Ozp3bh/u7V7muheQf6ftLUWyYDB5yz1ijuPAub2QRDDunJsdGkAO55KYYjl0OUu1VXOzQZ64Tr+IiPXedGI79bQHdbheCIAD0dUY6gV6vB67rAvo6IxVgWVbFy71KBKkAFaEc2xPQarXA931ot9tyHphiPwpJgSbfe54Hw+EQHMfZ/msVEEURjMfjCjbFeG2dFxPo9/sVOSYzxmAwGIjnTDFRQLMQAjQ5pJAQkCQJ5HlekeERxHEsiE0xUUCzEO9AmqYQhiF0Oh2Yz+ewWCzEY6aYKKBZCAGYs1wuYTabKdNNMWWxnaA4gp3Yry5JBZRlWTXDvaozUgGTyQSyLAP0dbb3DtQlmcan0yngT2ekE9ARc+z4AvC7nauh9iouhpcGamJeX8XF8MaClwaeROWRA7nk+tUnyzGvZrKg0/40gdME/t8EvgG0/NOS6v9NHQAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                </div>
+
+                                <input type="hidden" name="_target_path" value="/profil" />
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-primary px-4">Se connecter</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {#<div class="row">
+                                <div class="col-6 text-right">
+                                    <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                                </div>
+                            </div>#}
                         </div>
-                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    {% if error %}
-                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
 
-                    <form action="{{ path('login') }}" method="post">
+
+                    {#<form action="{{ path('login') }}" method="post">
                         <p>
                             <label for="username">Identifiant :</label>
                             <input type="text" id="username" name="_username" value="{{ last_username }}" />
@@ -37,13 +77,13 @@
                             <label for="password">Mot de passe :</label>
                             <input type="password" id="password" name="_password" />
                         </p>
-                        {#<p><a href="{{ path('forgotpassword') }}">Mot de passe oublié</a></p>#}
+                        #}{#<p><a href="{{ path('forgotpassword') }}">Mot de passe oublié</a></p>#}{#
 
-                        {#
+                        #}{#
                             If you want to control the URL the user
                             is redirected to on success (more details below)
                             <input type="hidden" name="_target_path" value="/account" />
-                        #}
+                        #}{#
                         <input type="hidden" name="_target_path" value="/profil" />
 
                         <input type="hidden" name="_csrf_token"
@@ -53,8 +93,6 @@
 
 
                         <button type="submit">Se connecter</button>
-                    </form>
-                </div>
-            </section>
-        </div>
+                    </form>#}
+
     {% endblock %}

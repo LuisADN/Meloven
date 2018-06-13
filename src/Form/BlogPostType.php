@@ -38,7 +38,11 @@ class BlogPostType extends AbstractType
                 'delete_label' => 'Supprimer ?',
                 'download_link' => false
             ))
-            ->add('save', SubmitType::class)
+            ->add('save', SubmitType::class, array('attr' =>
+                array('class' => 'btn btn-sm btn-primary')))
+
+
+
             /*->add('user')*/
         ;
         /*$builder

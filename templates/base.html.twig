@@ -7,21 +7,58 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <!-- Head -->
+        <!-- Icons-->
+        <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/coreui-icons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" />
+        <!-- Main styles for this application-->
+        <link href="{{ asset('asset/coreui/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('asset/coreui/pace.min.css') }}" rel="stylesheet">
         {% block head %}{% endblock %}
         {#{% include('analytics/analyticsHead.html.twig') %}#}
     </head>
-    <body>
+    <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show   pace-done pace-done">
         {#{% include('analytics/analyticsBody.html.twig') %}#}
 
+        <!-- Nav -->
+        {% block nav %}{% endblock %}
 
 
 
-        <div class="wrapper">
-            <!-- Nav -->
-            {% block nav %}{% endblock %}
-            <!-- Contenu -->
-            {% block content %}{% endblock %}
+        <div class="app-body">
+
+            {% if app.request.get('_route') == 'login' %}
+                <!-- Contenu -->
+                    <div class="container">
+                        {% block contentLogin %}{% endblock %}
+                    </div>
+
+
+
+            {% else %}
+                {% include('blog_post/sidebar.html.twig') %}
+                <div class="main">
+                    <div class="container-fluid">
+                        <div id="ui-view">
+                            <div>
+                                <!-- Contenu -->
+                                {% block content %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+
         </div>
+
+
+
+
+
+
+
         <!-- Footer -->
         {% block footer %}{% endblock %}
         <!-- Scripts -->

@@ -1,0 +1,7 @@
+.vich-image{
+    display: flex;
+    flex-direction: column;
+}
+.vich-image a img{
+     max-width: 300px;
+}
