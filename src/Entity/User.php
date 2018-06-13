@@ -52,6 +52,11 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->username;
     }
 
+    /**
+     * @Assert\NotBlank(message="Le nom ne doit pas être vide")
+     * @Assert\Length(min="3", minMessage="Le nom doit faire au moins 3 caractères")
+     * @ORM\Column(type="string")
+     */
     private $firstName;
     /**
      * @Assert\NotBlank(message="Le nom ne doit pas être vide")

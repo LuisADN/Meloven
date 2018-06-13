@@ -37,7 +37,7 @@ class MainController extends Controller
     }
 
     /**
-     * @Route("/article/{id}", name="blog_post_show", methods="GET")
+     * @Route("/article/{slug}", name="site_post_show", methods="GET")
      */
     public function show(BlogPost $blogPost): Response
     {

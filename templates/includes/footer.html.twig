@@ -1,0 +1,60 @@
+<footer>
+    <div class="footer-wrapper">
+        <h1 class="footer-logo"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1>
+        <p>Meloven, met en avant les artistes de rues en organisant des concerts à ciel ouvert sur Paris.</br>L’objectif est de faire un partenariat avec la mairie de Paris pour mettre en avant les meilleurs artistes de rue lors d’un grand concert.</p>
+        <div class="mailchimp-wrapper">
+            <div class="mailchimp-box">
+                <h1>Ça vous intéresse ?</h1>
+                <h2>Envie de découvrir des talents ou tu en es tout simplement un ?</h2>
+
+                <div id="newsletter" class="block-newsletter">
+                    <div class="radio-align">
+                        <div id="liChoice1" onclick="RadioStateChange(0)">
+                            <input type="radio" id="contactChoice1" name="contact" value="contactChoice1" checked>
+                            <label class="radio-label" for="contactChoice1">Je suis un(e) artiste</label>
+                        </div>
+                        <div id="liChoice2" onclick="RadioStateChange(1)">
+                            <input type="radio" id="contactChoice2" name="contact">
+                            <label class="radio-label" for="contactChoice2">Je veux soutenir des artistes</label>
+                        </div>
+                    </div>
+                    <!-- Begin MailChimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <form action="https://meloven.us18.list-manage.com/subscribe/post?u=4d2f69fba82cf20af4f478eb7&amp;id=76c0a7833d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll" class="mailchimp-send">
+                                <label for="mce-EMAIL"></label>
+                                <div>
+                                    <!--<img src="img/note.png" alt="">-->
+                                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Indiquez votre adresse mail" required>
+                                </div>
+                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_4d2f69fba82cf20af4f478eb7_76c0a7833d" tabindex="-1" value=""></div>
+                                <div class="clear mailchimp-send-div"><input type="submit" value="Envoyer" name="subscribe" id="mc-embedded-subscribe" class="mailchimp-send-btn hvr-wobble-horizontal"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End mc_embed_signup-->
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">À propos de Meloven</a></li>
+                    <li><a href="#">Contacter Meloven</a></li>
+                    <li><a href="#">Je connais un artiste</a></li>
+                    <li><a href="#">Je suis un artiste</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
+            <div class="footer-rs">
+                <h1>Suis-nous sur nos réseaux !</h1>
+                <ul>
+                    <li><a href="https://www.facebook.com/Meloven.fr" target="_blank"><img src="{{ asset('asset/img/svg/Facebook.svg') }}" alt="Facebook"></a></li>
+                    <li><a href="https://twitter.com/melovenfr" target="_blank"><img src="{{ asset('asset/img/svg/Twitter.svg') }}" alt="Twitter"></a></li>
+                    <li><a href="https://www.instagram.com/melovenfr/" target="_blank"><img src="{{ asset('asset/img/svg/Instagram.svg') }}" alt="Instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

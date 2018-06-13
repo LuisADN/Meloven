@@ -2,7 +2,11 @@
 
 namespace App\Entity;
 
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Entity\User;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="blog_post")
  * @ORM\Entity(repositoryClass="App\Repository\BlogPostRepository")
  * @ORM\HasLifecycleCallbacks
+ * @Vich\Uploadable
  */
 class BlogPost
 {
@@ -38,9 +43,8 @@ class BlogPost
     private $category;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(name="slug", length=255, unique=true)
      */
     private $slug;
 
@@ -59,11 +63,47 @@ class BlogPost
     private $body;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="cover", type="string", nullable=true)
      */
     private $cover;
+    /**
+     * @Vich\UploadableField(mapping="images", fileNameProperty="cover")
+     * @var File
+     */
+    private $coverFile;
+
+
+
+    public function setCoverFile(File $coverFile = null)
+    {
+        $this->coverFile = $coverFile;
+        if ($coverFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+    public function getCoverFile()
+    {
+        return $this->coverFile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCover()
+    {
+        return $this->cover;
+    }
+
+    /**
+     * @param mixed $cover
+     */
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+        if ($cover instanceof UploadedFile) {
+            $this->setUpdatedAt(new \DateTime());
+        }
+    }
 
     /**
      * Many BlogPost have One User.
@@ -110,21 +150,7 @@ class BlogPost
         $this->user = $user;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCover()
-    {
-        return $this->cover;
-    }
 
-    /**
-     * @param mixed $cover
-     */
-    public function setCover(string $cover)
-    {
-        $this->cover = $cover;
-    }
 
 
     /**
@@ -339,10 +365,6 @@ class BlogPost
     {
         if (!$this->getCreatedAt()) {
             $this->setCreatedAt(new \DateTime());
-        }
-
-        if (!$this->getUpdatedAt()) {
-            $this->setUpdatedAt(new \DateTime());
         }
     }
 

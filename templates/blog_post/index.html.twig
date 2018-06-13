@@ -17,8 +17,8 @@
             <th>Id</th>
             <th>Title</th>
             <th>Slug</th>
-            <th>Description</th>
-            <th>Body</th>
+            {#<th>Description</th>
+            <th>Body</th>#}
             <th>Cover</th>
             <th>CreatedAt</th>
             <th>UpdatedAt</th>
@@ -31,8 +31,8 @@
                 <td>{{ blog_post.id }}</td>
                 <td>{{ blog_post.title }}</td>
                 <td>{{ blog_post.slug }}</td>
-                <td>{{ blog_post.description }}</td>
-                <td>{{ blog_post.body }}</td>
+                {#<td>{{ blog_post.description }}</td>
+                <td>{{ blog_post.body }}</td>#}
                 <td>{{ blog_post.cover }}</td>
                 <td>{{ blog_post.createdAt|date("m/d/Y") }}{#{{ dump(blog_post.createdAt) }}#} </td>
                 <td>{{ blog_post.updatedAt|date("m/d/Y") }}{#{{ blog_post.updatedAt ? blog_post.updatedAt|date('Y-m-d H:i:s') : '' }}#}</td>

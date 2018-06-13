@@ -1,0 +1,55 @@
+{% set asset_base = '/media/' %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Meloven</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <!-- Head -->
+        {% block head %}{% endblock %}
+        {% include('analytics/analyticsHead.html.twig') %}
+    </head>
+    <body>
+        {% include('analytics/analyticsBody.html.twig') %}
+
+        <div class="burger-menu">
+            <label>
+                <input type='checkbox'>
+                <span class='menu'>
+                <span class='hamburger'></span>
+            </span>
+                <ul>
+                    <li><a href="#artiste-de-rue">Artiste de rue</a></li>
+                    <li><a id="iAm" href="#newsletter">Je suis un artiste</a></li>
+                    <li><a id="iWant" href="#newsletter">Soutenir des artistes</a></li>
+                    <li><a href="#" class="disable">Contact</a></li>
+                    <li><a href="#" class="disable">Mentions légales</a></li>
+                </ul>
+            </label>
+        </div>
+
+
+        <div class="wrapper">
+            <!-- Header and Nav -->
+            {% include('includes/header.html.twig') %}
+            <!-- Contenu -->
+            {% block content %}{% endblock %}
+        </div>
+        <!-- Footer -->
+        {% include('includes/footer.html.twig') %}
+        <!-- Scripts -->
+        <!-- Hotjar Tracking Code for https://meloven.fr/ -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:907964,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
