@@ -176,48 +176,51 @@ div.content{
           padding: 20px 0 10px;
           text-transform: uppercase;
         }
-        & > h1{
-          font-family: $titles;
-          font-size: 25px;
-          color: #8247DF;
-          text-shadow: -1px 1px 1px #06FBAD;
-          padding: 5px 0;
-        }
-        & > p{
-          font-family: 'GilroyRegular', sans-serif;
-          font-size: 16px;
-          line-height: 24px;
-          color: #3D3D3D;
-        }
-        div.article-one-author {
-          display: flex;
-          flex-direction: row;
-          justify-content: baseline;
-          align-items: center;
-          padding: 30px 0 60px;
-          div.article-one-image-oveflow {
-            width: 49px;
-            height: 52px;
-            overflow: hidden;
-            border-radius: 50%;
-            border: 1px solid #06FBAD;
-            img {
-              height: 100%;
-              width: auto;
-            }
+        & > a {
+          text-decoration: none;
+          & > h1{
+            font-family: $titles;
+            font-size: 25px;
+            color: #8247DF;
+            text-shadow: -1px 1px 1px #06FBAD;
+            padding: 5px 0;
           }
-          div.article-one-author-description{
-            padding: 0 10px;
-            h1{
-              font-family: 'GilroyBlack', sans-serif;
-              font-size: 19px;
-              color: #DAC7F7;
-              padding-bottom: 10px;
+          & > p{
+            font-family: 'GilroyRegular', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            color: #3D3D3D;
+          }
+          & > div.article-one-author {
+            display: flex;
+            flex-direction: row;
+            justify-content: baseline;
+            align-items: center;
+            padding: 30px 0 60px;
+            div.article-one-image-oveflow {
+              width: 49px;
+              height: 52px;
+              overflow: hidden;
+              border-radius: 50%;
+              border: 1px solid #06FBAD;
+              img {
+                height: 100%;
+                width: auto;
+              }
             }
-            p{
-              font-family: 'GilroyRegular', sans-serif;
-              font-size: 16px;
-              color: #DAC7F7;
+            div.article-one-author-description{
+              padding: 0 10px;
+              h1{
+                font-family: 'GilroyBlack', sans-serif;
+                font-size: 19px;
+                color: #DAC7F7;
+                padding-bottom: 10px;
+              }
+              p{
+                font-family: 'GilroyRegular', sans-serif;
+                font-size: 16px;
+                color: #DAC7F7;
+              }
             }
           }
         }
@@ -261,7 +264,7 @@ div.content{
           max-width: 100%;
           margin: 20px 20px;
           padding: 0 0;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(218, 199, 247, 0.2), 0 6px 20px 0 rgba(218, 199, 247, 0.2);
         }
         & > a img{
           max-width: 100%;
@@ -277,64 +280,67 @@ div.content{
             padding: 20px 20px 10px;
           }
         }
-        & > h1{
-          font-family: $titles;
-          font-size: 25px;
-          color: #8247DF;
-          text-shadow: -1px 1px 1px #06FBAD;
-          padding: 0 0 2px;
-          @media screen and (max-width: $break-big) {
-            font-size: 17px;
-            padding: 0 20px 2px;
-          }
-        }
-        & > p{
-          font-family: 'GilroyRegular', sans-serif;
-          font-size: 16px;
-          line-height: 24px;
-          color: #3D3D3D;
-          @media screen and (max-width: $break-big) {
-            font-size: 13px;
-            line-height: 20px;
-            padding: 5px 20px 0;
-          }
-        }
-        div.author{
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          padding: 30px 0 60px;
-          @media screen and (max-width: $break-big) {
-            padding: 20px 20px 10px;
-          }
-          div.image-oveflow{
-            width: 49px;
-            height: 52px;
-            overflow: hidden;
-            border-radius: 50%;
-            border: 1px solid #06FBAD;
-            img{
-              height: 100%;
-              width: auto;
+        & > a{
+          text-decoration: none;
+          & > h1{
+            font-family: $titles;
+            font-size: 25px;
+            color: #8247DF;
+            text-shadow: -1px 1px 1px #06FBAD;
+            padding: 0 0 2px;
+            @media screen and (max-width: $break-big) {
+              font-size: 17px;
+              padding: 0 20px 2px;
             }
           }
-          div.author-description{
-            padding: 0 10px;
-            h1{
-              font-family: 'GilroyBlack', sans-serif;
-              font-size: 19px;
-              color: #DAC7F7;
-              padding-bottom: 10px;
-              @media screen and (max-width: $break-big) {
-                font-size: 11px;
+          & > p{
+            font-family: 'GilroyRegular', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            color: #3D3D3D;
+            @media screen and (max-width: $break-big) {
+              font-size: 13px;
+              line-height: 20px;
+              padding: 5px 20px 0;
+            }
+          }
+          div.author{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 30px 0 60px;
+            @media screen and (max-width: $break-big) {
+              padding: 20px 20px 10px;
+            }
+            div.image-oveflow{
+              width: 49px;
+              height: 52px;
+              overflow: hidden;
+              border-radius: 50%;
+              border: 1px solid #06FBAD;
+              img{
+                height: 100%;
+                width: auto;
               }
             }
-            p{
-              font-family: 'GilroyRegular', sans-serif;
-              font-size: 16px;
-              color: #DAC7F7;
-              @media screen and (max-width: $break-big) {
-                font-size: 11px;
+            div.author-description{
+              padding: 0 10px;
+              h1{
+                font-family: 'GilroyBlack', sans-serif;
+                font-size: 19px;
+                color: #DAC7F7;
+                padding-bottom: 10px;
+                @media screen and (max-width: $break-big) {
+                  font-size: 11px;
+                }
+              }
+              p{
+                font-family: 'GilroyRegular', sans-serif;
+                font-size: 16px;
+                color: #DAC7F7;
+                @media screen and (max-width: $break-big) {
+                  font-size: 11px;
+                }
               }
             }
           }
@@ -471,6 +477,7 @@ footer{
               background: linear-gradient(135deg,  #8247df 0%,#c59ffc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
               filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8247df', endColorstr='#c59ffc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
               border-radius: 10px;
+              box-shadow: -1px 1px 1px #06FBAD;
               cursor: pointer;
               @media screen and (max-width: $break-big) {
                 width: 100%;
@@ -510,6 +517,8 @@ footer{
         width: 338px;
         @media screen and (max-width: $break-big) {
           width: 100%;
+          max-width: 350px;
+          margin: 0 auto;
           order: 1;
         }
         h1{
@@ -593,7 +602,7 @@ div.burger-menu{
       left: 50px;
       width: 30px;
       height: 2px;
-      background: #000;
+      background: #8247DF;
       display: block;
       transform-origin: center;
       transition: .5s ease-in-out;
@@ -605,7 +614,7 @@ div.burger-menu{
         display: block;
         width: 100%;
         height: 100%;
-        background: #000;
+        background: #8247DF;
       }
       &:before {
         top: -10px;
@@ -618,7 +627,8 @@ div.burger-menu{
       display: none;
     }
     input:checked + .menu {
-      box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF;
+      box-shadow: 0 0 0 100vw #7bf8cf, 0 0 0 100vh #7bf8cf;
+      background: #7bf8cf;
       border-radius: 0;
       .hamburger {
         transform: rotate(45deg);
@@ -637,7 +647,7 @@ div.burger-menu{
       opacity: 1;
     }
 
-    ul {
+    & > ul {
       z-index: 200;
       position: absolute;
       top: 50%;
@@ -653,9 +663,33 @@ div.burger-menu{
       font-family: $titles;
       font-size: 15px;
       color: #3D3D3D;
-      margin-bottom: 1em;
+      margin-bottom: 5px;
       display: block;
       padding: 10px 0;
+    }
+  }
+}
+h1.logo-burger img{
+  max-width: 106px;
+  padding-bottom: 30px;
+}
+div.burger-rs{
+  padding-top: 40px;
+    width: 100%;
+  & > h1{
+    font-family: $titles;
+    font-size: 17px;
+    color: #8247DF;
+    text-align: center;
+  }
+  & > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    & > li a img{
+      width: 48px;
+      height: auto;
     }
   }
 }
