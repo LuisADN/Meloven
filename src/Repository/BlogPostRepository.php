@@ -26,6 +26,16 @@ class BlogPostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    /*public function findByCategory() {
+        return $this->createQueryBuilder('b')
+            ->where('b.category = :category')
+            ->addOrderBy('b.id', 'DESC')
+            ->setParameter('category', $category)
+            ->getQuery()
+            ->getResult();
+    }*/
+
 //    /**
 //     * @return BlogPost[] Returns an array of BlogPost objects
 //     */

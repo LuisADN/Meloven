@@ -27,6 +27,13 @@ $break-big: 1066px;
 /* ********************************************************************* */
 /* ********************************************************************* */
 
+body{
+    font-family: 'GilroyRegular', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3D3D3D;
+}
+
 .wrapper{
   max-width: 1020px;
   margin: 0 auto;
@@ -652,11 +659,13 @@ div.burger-menu{
     }
 
     input:checked + .menu + ul {
+      z-index: 200 !important;
       opacity: 1;
     }
 
+    ///// HERE
     & > ul {
-      z-index: 200;
+      z-index: -200;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -677,6 +686,7 @@ div.burger-menu{
     }
   }
 }
+
 h1.logo-burger img{
   max-width: 106px;
   padding-bottom: 30px;
@@ -715,5 +725,53 @@ div.burger-rs{
   padding: 20px 0 40px;
   @media screen and (max-width: $break-big) {
     padding: 20px 20px 40px;
+  }
+}
+
+.mentions-legales{
+  padding: 30px 0;
+  & > h1{
+    font-family: $titles;
+    font-size: 25px;
+    color: #8247DF;
+    text-shadow: -1px 1px 1px #06FBAD;
+    padding: 0 0 2px;
+    @media screen and (max-width: $break-big) {
+      font-size: 17px;
+      padding: 0 20px 2px;
+    }
+  }
+  & > h2{
+    font-family: $titles;
+    font-size: 20px;
+    color: #8247DF;
+    text-shadow: -1px 1px 1px #06FBAD;
+    padding: 30px 0 2px;
+    @media screen and (max-width: $break-big) {
+      font-size: 15px;
+      padding: 0 20px 2px;
+    }
+  }
+  & > h3{
+    font-family: $titles;
+    font-size: 16px;
+    color: #8247DF;
+    text-shadow: -1px 1px 1px #06FBAD;
+    padding: 30px 0 2px;
+    @media screen and (max-width: $break-big) {
+      font-size: 13px;
+      padding: 0 20px 2px;
+    }
+  }
+  & > p{
+    font-family: 'GilroyRegular', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3D3D3D;
+    @media screen and (max-width: $break-big) {
+      font-size: 13px;
+      line-height: 20px;
+      padding: 5px 20px 0;
+    }
   }
 }

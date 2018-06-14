@@ -3,7 +3,8 @@
 namespace App\Form;
 
 use App\Entity\BlogPost;
-use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+/*use Ivory\CKEditorBundle\Form\Type\CKEditorType;*/
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -39,7 +40,7 @@ class BlogPostType extends AbstractType
                 'download_link' => false
             ))
             ->add('save', SubmitType::class, array('attr' =>
-                array('class' => 'btn btn-sm btn-primary')))
+                array('class' => 'btn btn-success')))
 
 
 

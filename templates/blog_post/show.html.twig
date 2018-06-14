@@ -9,50 +9,73 @@
 {% endblock %}
 
 {% block content %}
-    <h1>BlogPost</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ blog_post.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ blog_post.title }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ blog_post.slug }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ blog_post.description }}</td>
-            </tr>
-            <tr>
-                <th>Body</th>
-                <td>{{ blog_post.body }}</td>
-            </tr>
-            <tr>
-                <th>Cover</th>
-                <td>{{ blog_post.cover }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ blog_post.createdAt|date("m/d/Y") }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ blog_post.updatedAt ? blog_post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card">
+        <div class="card-header">
+            <strong>Voir</strong>
+            l'article
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ blog_post.id }}</td>
+                </tr>
+                <tr>
+                    <th>Title</th>
+                    <td>{{ blog_post.title }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ blog_post.slug }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ blog_post.description }}</td>
+                </tr>
+                <tr>
+                    <th>Body</th>
+                    <td>{{ blog_post.body|raw}}</td>
+                </tr>
+                <tr>
+                    <th>Cover</th>
+                    <td>{{ blog_post.cover }}</td>
+                </tr>
+                <tr>
+                    <th>CreatedAt</th>
+                    <td>{{ blog_post.createdAt|date("m/d/Y") }}</td>
+                </tr>
+                <tr>
+                    <th>UpdatedAt</th>
+                    <td>{{ blog_post.updatedAt ? blog_post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
 
-    <a href="{{ path('blog_post_index') }}">back to list</a>
+            <div class="row">
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                    <a class="btn btn-block btn-primary btn-sm" href="{{ path('blog_post_edit', {'id': blog_post.id}) }}">Edit</a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                    <a class="btn btn-block btn-warning btn-sm" href="{{ path('blog_post_index') }}">Back to list</a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                    {{ include('blog_post/_delete_form.html.twig') }}
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0"></div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0"></div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0"></div>
+            </div>
+        </div>
+    </div>
 
-    <a href="{{ path('blog_post_edit', {'id': blog_post.id}) }}">edit</a>
 
-    {{ include('blog_post/_delete_form.html.twig') }}
+
+
+
 {% endblock %}
 
 {% block javascripts %}

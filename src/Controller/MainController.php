@@ -36,12 +36,35 @@ class MainController extends Controller
         ]);
     }
 
+
+    /**
+     * @Route("/mentions-legales", name="mentions-legales")
+     */
+    public function mentionsLegales(BlogPostRepository $blogPostRepository): Response
+    {
+
+        return $this->render('site/mentionslegales.html.twig');
+    }
+
+
     /**
      * @Route("/article/{slug}", name="site_post_show", methods="GET")
      */
     public function show(BlogPost $blogPost): Response
     {
         return $this->render('site/show.html.twig', ['blog_post' => $blogPost]);
+    }
+
+    /**
+     * @Route("/category/{category}", name="category", methods="GET")
+     */
+    public function listPostsByCategory(BlogPostRepository $blogPostRepository, $category): Response
+    {
+        return $this->render('site/category.html.twig', [
+            'blog_posts' => $blogPostRepository->findBy(array(
+                'category' => $category
+            ))
+        ]);
     }
 
 

@@ -1,0 +1,30 @@
+<h1>page cat</h1>
+
+{% for blog_post in blog_posts %}
+    <article>
+        {#<img src="{{ blog_post.cover }}" alt="{{ blog_post.title }}">#}
+        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
+            <img src="{{ asset('media/') }}{{ blog_post.cover }}" alt="{{ blog_post.title }}">
+        </a>
+        <span>{{ blog_post.category }}</span>
+        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><h1>{{ blog_post.title }}</h1></a>
+        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><p>{{ blog_post.description }}</p></a>
+
+        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
+            <div class="author">
+                <div class="image-oveflow">
+                    <img src="{{ asset('asset/img/') }}{{ blog_post.user.avatar }}" alt="{{ blog_post.user.firstName }} {{ blog_post.user.lastName }}">
+                </div>
+                <div class="author-description">
+                    <h1>{{ blog_post.user.firstName }} {{ blog_post.user.lastName }} de Meloven</h1>
+                    <p>{{ blog_post.createdAt|localizeddate('medium', 'none') }}   •   {{ blog_post.readingTime }} min de lecture</p>
+                </div>
+            </div>
+        </a>
+        <p>
+            {#<a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">show</a>#}
+        </p>
+    </article>
+{% else %}
+    <p>no records found</p>
+{% endfor %}

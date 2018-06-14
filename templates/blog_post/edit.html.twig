@@ -22,9 +22,18 @@
             {{ form_end(form) }}
         </div>
         <div class="card-footer">
-
-                {{ include('blog_post/_delete_form.html.twig') }}
-                <a class="btn btn-block btn-warning" href="{{ path('blog_post_index') }}" style="max-width: 100px;">back to list</a>
+            <div class="row">
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                    <a class="btn btn-block btn-warning btn-sm" href="{{ path('blog_post_index') }}">Back to list</a>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                    {{ include('blog_post/_delete_form.html.twig') }}
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0"></div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0"></div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0"></div>
+                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0"></div>
+            </div>
         </div>
     </div>
 
