@@ -1,84 +1,156 @@
-{% extends 'base-site.html.twig' %}
-
-{% block head %}
-    {% include('heads/head_front.html.twig') %}
-{% endblock %}
-
-
-{% block content %}
-    <div class="video">
-        <video id="video" poster="{{ asset('asset/img/background_video_meloven.png') }}"> {#poster="{{ asset('asset/img/background_video_meloven.jpg') }}"#}
-            <source src="{{ asset('asset/video/MoodBoard.webm') }}" type="video/mp4">
-            Votre navigateur ne gère pas l'élément <code>video</code>.
-        </video>
-        <img class="lecteur" id="lecteur" src="{{ asset('asset/img/player-video.png') }}" alt="lecteur">
-    </div>
-    <div class="content">
-        <div class="article-one">
-            <h1>Derniers </h1>
-            <article>
-                <div class="image-overfow">
-                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}"><img src="{{ asset('media/') }}{{ last_post[0].cover }}" alt="{{ last_post[0].title }}"></a>
-                </div>
-                <div class="article-one-content">
-                    <span>{{ last_post[0].category }}</span>
-                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}"><h1>{{ last_post[0].title }}</h1></a>
-                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}"><p>{{ last_post[0].description }}</p></a>
-
-                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}">
-                        <div class="article-one-author">
-                            <div class="article-one-image-oveflow">
-                                <img src="{{ asset('asset/img/') }}{{ last_post[0].user.avatar }}" alt="{{ last_post[0].user.firstName }} {{ last_post[0].user.lastName }}">
-                            </div>
-                            <div class="article-one-author-description">
-                                <h1>{{ last_post[0].user.firstName }} {{ last_post[0].user.lastName }} de Meloven</h1>
-                                <p>{{ last_post[0].createdAt|localizeddate('medium', 'none') }}  •   2 min de lecture</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </article>
-        </div>
-        <div id="artiste-de-rue" class="article-all">
-            <h1>ARTISTE DE RUE</h1>
-            <div class="articles">
-                {% for blog_post in blog_posts %}
-                    <article>
-                        {#<img src="{{ blog_post.cover }}" alt="{{ blog_post.title }}">#}
-                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
-                            <img src="{{ asset('media/') }}{{ blog_post.cover }}" alt="{{ blog_post.title }}">
-                        </a>
-                        <span>{{ blog_post.category }}</span>
-                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><h1>{{ blog_post.title }}</h1></a>
-                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><p>{{ blog_post.description }}</p></a>
-
-                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
-                            <div class="author">
-                                <div class="image-oveflow">
-                                    <img src="{{ asset('asset/img/') }}{{ blog_post.user.avatar }}" alt="{{ blog_post.user.firstName }} {{ blog_post.user.lastName }}">
-                                </div>
-                                <div class="author-description">
-                                    <h1>{{ blog_post.user.firstName }} {{ blog_post.user.lastName }} de Meloven</h1>
-                                    <p>{{ blog_post.createdAt|localizeddate('medium', 'none') }}   •   {{ blog_post.readingTime }} min de lecture</p>
-                                </div>
-                            </div>
-                        </a>
-                        <p>
-                            {#<a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">show</a>#}
-                        </p>
-                    </article>
-                {% else %}
-                    <p>no records found</p>
-                {% endfor %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('asset/css/reset.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/main-site.css') }}" />
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <nav>
+                <figure>
+                    <img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven">
+                </figure>
+                <ul>
+                    <a href="#"><li>Qui est Moloven</li></a>
+                    <a href="#"><li>Nos artistes</li></a>
+                    <a href="#"><li>Blog</li></a>
+                    <a href="#"><li>Contact</li></a>
+                    <a href="#" class="btn-discover"><li>Découvrir des artistes</li></a>
+                </ul>
+            </nav>
+            <div class="main-title">
+                <h1>Meloven</h1>
+                <h2>Pour les artistes de rue</h2>
             </div>
         </div>
-    </div>
-{% endblock  %}
+    </header>
 
+        <section class="explain">
+            <div class="container">
+                <figure>
+                    <img src="http://via.placeholder.com/365x535" alt="">
+                </figure>
+                <div>
+                    <h1>Faire émerger les artistes de rue</h1>
+                    <h2>Découvrez et soutenez des talents</h2>
+                    <p>Les rues de nos villes regorgent de talents. Groupe de rock, jeune rappeur ou bien même chanteuse Pop, ces musiciens ont l’incroyable pouvoir d’arrêter le temps pour nous faire frissonner au cours d’un instant. Meloven fait tous simplement la publicité de ces perles rares !</p>
+                </div>
+            </div>
+        </section>
 
+        <section class="artistes">
+            <div class="artistes-header">
+                <h1 class="title"><a class="underline--magical">Nos artistes de rue</a></h1>
+                <span>de talents</span>
+            </div>
+            <div class="container-artistes">
+                <article class="artistes-content">
+                    <div class="article-content-text">
+                        <h1>victoire bosse</h1>
+                        <span>Paris / Rock’n Roll</span>
+                        <h2><a class="underline--magical--two">Live show</a></h2>
+                        <time>17/07/2018 à 19h</time>
+                        <address>24 Rue de l’amiral Roussin<br>
+                            75015 PARIS</address>
+                        <a href="#">Découvrir</a>
+                    </div>
+                    <figure>
+                        <img src="{{ asset('asset/img/artiste-img-sample.png') }}" alt="">
+                    </figure>
+                </article>
+                <article class="artistes-content">
+                    <div class="article-content-text">
+                        <h1>victoire bosse</h1>
+                        <span>Paris / Rock’n Roll</span>
+                        <h2><a class="underline--magical--two">Live show</a></h2>
+                        <time>17/07/2018 à 19h</time>
+                        <address>24 Rue de l’amiral Roussin<br>
+                            75015 PARIS</address>
+                        <a href="#">Découvrir</a>
+                    </div>
+                    <figure>
+                        <img src="{{ asset('asset/img/artiste-img-sample.png') }}" alt="">
+                    </figure>
+                </article>
+            </div>
+            <div class="artistes-footer"></div>
+        </section>
 
-{% block javascripts %}
-    <script src="{{ asset('asset/js/app.js') }}"></script>
-    {% include('includes/scripts.html.twig') %}
-{% endblock %}
+        <section class="objectif">
+            <h1 class="title"><a class="underline--magical">Objectif de Meloven</a></h1>
+            <p>Les artistes qui chantent dans la rue veulent vivre de leur passion ! Pour cela, <strong>Meloven</strong> promeut des artistes ayant pour but de promouvoir un projet comme la création d’un album mais <strong>Meloven</strong> tente aussi de dénicher des opportunités de contrat pour les artistes.</p>
+            <div class="btn-objectif">
+                <a href="#">En savoir plus</a>
+            </div>
+        </section>
 
+        <section class="blog">
+            <div class="container-blog">
+                <h1 class="title"><a class="underline--magical">Notre blog</a></h1>
+                <div class="article-blog-bloc">
+                    <article>
+                        <figure>
+                            <img src="http://via.placeholder.com/308x194" alt="">
+                            <span>
+                                <img src="{{ asset('asset/img/justine-new.png') }}" alt="">
+                            </span>
+                        </figure>
+                        <span>Justine de Meloven</span>
+                        <h1>Lorem Ipsum</h1>
+                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page […]</p>
+                        <a href="#">Découvrir</a>
+                    </article>
+                    <article>
+                        <figure>
+                            <img src="http://via.placeholder.com/308x194" alt="">
+                            <span>
+                                <img src="{{ asset('asset/img/justine-new.png') }}" alt="">
+                            </span>
+                        </figure>
+                        <span>Justine de Meloven</span>
+                        <h1>Lorem Ipsum</h1>
+                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page […]</p>
+                        <a href="#">Découvrir</a>
+                    </article>
+                    <article>
+                        <figure>
+                            <img src="http://via.placeholder.com/308x194" alt="">
+                            <span>
+                                <img src="{{ asset('asset/img/justine-new.png') }}" alt="">
+                            </span>
+                        </figure>
+                        <span>Justine de Meloven</span>
+                        <h1>Lorem Ipsum</h1>
+                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page […]</p>
+                        <a href="#">Découvrir</a>
+                    </article>
+                </div>
+            </div>
+            <div class="btn-parcourir-blog">
+                <a href="#">Parcourir le blog</a>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h1>Contactez-nous</h1>
+            <div>
+                <div>
+                    <h3>Pour soutenir</h3>
+                    <p>Vous souhaitez découvrir des artistes et suivre l’actualité des spectacles de rue proche de chez vous ?</p>
+                    <a href="#">Je veux soutenir</a>
+                </div>
+                <div>
+                    <h3>Pour devenir</h3>
+                    <p>Vous chantez dans la rue et souhaitez plus de visibilité et de notoriété ? Vous avez des objectifs concrets ? Meloven, c’est votre promotion gratuite !</p>
+                    <a href="#">Je suis artiste</a>
+                </div>
+            </div>
+        </section>
+</body>
+</html>

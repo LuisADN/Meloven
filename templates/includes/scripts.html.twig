@@ -77,3 +77,22 @@
         }
     });
 </script>
+{#
+<script>
+    jQuery("#mc-embedded-subscribe-form").submit(function(e) {
+
+        var url = jQuery(this).prop('action'); // the script where you handle the form input.
+        jQuery.ajax({
+            type: "GET",
+            url: url,
+            data: jQuery("#mc-embedded-subscribe-form").serialize(), // serializes the form's elements.
+            dataType: "jsonp",
+            success: function(data)
+            {
+                if(data.result == 'success') window.location.href = 'https://example.franciskim.co/thank-you.html';
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    });
+</script>#}

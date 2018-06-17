@@ -1,0 +1,84 @@
+{% extends 'base-blog.html.twig' %}
+
+{% block head %}
+    {% include('heads/head_front.html.twig') %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="video">
+        <video id="video" poster="{{ asset('asset/img/background_video_meloven.png') }}"> {#poster="{{ asset('asset/img/background_video_meloven.jpg') }}"#}
+            <source src="{{ asset('asset/video/MoodBoard.webm') }}" type="video/mp4">
+            Votre navigateur ne gère pas l'élément <code>video</code>.
+        </video>
+        <img class="lecteur" id="lecteur" src="{{ asset('asset/img/player-video.png') }}" alt="lecteur">
+    </div>
+    <div class="content">
+        <div class="article-one">
+            <h1>Derniers </h1>
+            <article>
+                <div class="image-overfow">
+                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}"><img src="{{ asset('media/') }}{{ last_post[0].cover }}" alt="{{ last_post[0].title }}"></a>
+                </div>
+                <div class="article-one-content">
+                    <span>{{ last_post[0].category }}</span>
+                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}"><h1>{{ last_post[0].title }}</h1></a>
+                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}"><p>{{ last_post[0].description }}</p></a>
+
+                    <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}">
+                        <div class="article-one-author">
+                            <div class="article-one-image-oveflow">
+                                <img src="{{ asset('asset/img/') }}{{ last_post[0].user.avatar }}" alt="{{ last_post[0].user.firstName }} {{ last_post[0].user.lastName }}">
+                            </div>
+                            <div class="article-one-author-description">
+                                <h1>{{ last_post[0].user.firstName }} {{ last_post[0].user.lastName }} de Meloven</h1>
+                                <p>{{ last_post[0].createdAt|localizeddate('medium', 'none') }}  •   2 min de lecture</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </article>
+        </div>
+        <div id="artiste-de-rue" class="article-all">
+            <h1>ARTISTE DE RUE</h1>
+            <div class="articles">
+                {% for blog_post in blog_posts %}
+                    <article>
+                        {#<img src="{{ blog_post.cover }}" alt="{{ blog_post.title }}">#}
+                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
+                            <img src="{{ asset('media/') }}{{ blog_post.cover }}" alt="{{ blog_post.title }}">
+                        </a>
+                        <span>{{ blog_post.category }}</span>
+                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><h1>{{ blog_post.title }}</h1></a>
+                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><p>{{ blog_post.description }}</p></a>
+
+                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
+                            <div class="author">
+                                <div class="image-oveflow">
+                                    <img src="{{ asset('asset/img/') }}{{ blog_post.user.avatar }}" alt="{{ blog_post.user.firstName }} {{ blog_post.user.lastName }}">
+                                </div>
+                                <div class="author-description">
+                                    <h1>{{ blog_post.user.firstName }} {{ blog_post.user.lastName }} de Meloven</h1>
+                                    <p>{{ blog_post.createdAt|localizeddate('medium', 'none') }}   •   {{ blog_post.readingTime }} min de lecture</p>
+                                </div>
+                            </div>
+                        </a>
+                        <p>
+                            {#<a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">show</a>#}
+                        </p>
+                    </article>
+                {% else %}
+                    <p>no records found</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock  %}
+
+
+
+{% block javascripts %}
+    <script src="{{ asset('asset/js/app.js') }}"></script>
+    {% include('includes/scripts.html.twig') %}
+{% endblock %}
+

@@ -9,6 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * BlogPost
  *
@@ -19,6 +20,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BlogPost
 {
+
+    public function __construct()
+    {
+        $this->updatedAt = new \DateTime();
+    }
+
     /**
      * @var int
      *
@@ -344,6 +351,7 @@ class BlogPost
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+
 
         return $this;
     }

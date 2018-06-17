@@ -42,19 +42,15 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(type="string", length=25, unique=true)
      */
     private $username;
-    /**
-     * @Assert\NotBlank(message="Le prénom ne doit pas être vide")
-     * @Assert\Length(min="3", minMessage="Le prénom doit faire au moins 3 caractères")
-     * @ORM\Column(type="string")
-     */
+
 
     public function __toString() {
         return $this->username;
     }
 
     /**
-     * @Assert\NotBlank(message="Le nom ne doit pas être vide")
-     * @Assert\Length(min="3", minMessage="Le nom doit faire au moins 3 caractères")
+     * @Assert\NotBlank(message="Le prénom ne doit pas être vide")
+     * @Assert\Length(min="3", minMessage="Le prénom doit faire au moins 3 caractères")
      * @ORM\Column(type="string")
      */
     private $firstName;
@@ -112,7 +108,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\Column(name="user_group", type="string")
      */
-    private $userGroup;
+    private $userGroup = 'Mucicien';
 
 
     /**

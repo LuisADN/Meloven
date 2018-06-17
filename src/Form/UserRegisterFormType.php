@@ -15,31 +15,23 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class UserFormType extends AbstractType
+class UserRegisterFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setMethod('POST')
-            ->setAction('profil')
-            ->add('avatarFile',VichImageType::class, array(
-                'label' => 'Photo de profil',
-                'required' => false,
-                'allow_delete' => false,
-                'delete_label' => 'Supprimer ?',
-                'download_link' => false
+            ->add('email', EmailType::class)
+            ->add('username', TextType::class)
+            ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password'),
             ))
-            ->add('firstName',TextType::class, array(
-                'label'=>'Prénom'
-            ))
-            ->add('lastName',TextType::class, array(
-                'label'=>'Nom'
-            ))
-            ->add('email',EmailType::class, array(
-                'label'=>'Adresse e-Mail'
-            ))
+            ->add('firstName', TextType::class)
+            ->add('lastName', TextType::class)
         ;
     }
+
 
     public function configureOptions(OptionsResolver $resolver)
     {

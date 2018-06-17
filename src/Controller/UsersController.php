@@ -25,7 +25,7 @@ class UsersController extends Controller
     }
 
     /**
-     * @Route("/profil", name="profil")
+     * @Route("/dashboard", name="dashboard")
      */
     public function userProfil(Request $request)
     {
@@ -65,7 +65,7 @@ class UsersController extends Controller
 
 
 
-        return $this->render('site/profil.html.twig', [
+        return $this->render('site/dashboard.html.twig', [
             'controller_name' => 'UsersController',
             'userForm' => $form->createView(),
             'today' => new DateTime(),
