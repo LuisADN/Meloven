@@ -52,8 +52,8 @@ class MainController extends Controller
             $email = $task['email'];
 
             // MailChimp API credentials
-            $apiKey = '183861b43ecee8bd7a2b32c963d6e517-us18';
-            $listID = '76c0a7833d';
+            $apiKey = 'MY_API_KEY';
+            $listID = 'LIST_ID';
 
             // MailChimp API URL
             $memberID = md5(strtolower($email));
