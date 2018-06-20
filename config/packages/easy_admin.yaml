@@ -4,6 +4,7 @@ easy_admin:
   design:
     menu:
       - User
+      - BlogPost
   list:
     title: 'Liste des %%entity_label%%'
     actions: ['show']
@@ -37,3 +38,11 @@ easy_admin:
           - { property: isActive, label: 'Actif' }
           - { property: isAdmin, label: 'Admin' }
           - { property: userGroup, type: choice, type_options: {choices: {'Admin':'Admin', 'Mucicien':'Mucicien', 'Author':'Author'}}}
+    BlogPost:
+      class: App\Entity\BlogPost
+      label: 'BlogPost'
+      list:
+        title: 'Liste des Post'
+        fields:
+          - id
+          - Title
