@@ -34,4 +34,10 @@ security:
 #        - { path: ^/profile, roles: ROLE_USER }
 
     role_hierarchy:
-        ROLE_ADMIN: ROLE_USER
+        ROLE_ADMIN: [ROLE_ADMIN]
+        ROLE_AUTHOR: [ROLE_AUTHOR]
+        ROLE_MUSICIAN: [ROLE_MUSICIAN]
+        ROLE_SIMPLEUSER: [ROLE_SIMPLEUSER]
+        ROLE_USER: [ROLE_USER]
+#    role_hierarchy:
+#        ROLE_ADMIN: ROLE_USER

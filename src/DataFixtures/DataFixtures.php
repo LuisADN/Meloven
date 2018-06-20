@@ -46,6 +46,7 @@ class DataFixtures extends Fixture
         $user->setIsAdmin(true);
         $user->setIsActive('1');
         $user->setUserGroup('Admin');
+        $user->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);
 
         $userTwo = new User();
@@ -72,18 +73,19 @@ class DataFixtures extends Fixture
 
 
         $userThree = new User();
-        $userThree->setUsername('user3');
+        $userThree->setUsername('justine');
         $userThree->setFirstName('Justine');
-        $userThree->setLastName('après');
-        $userThree->setPassword('$2a$08$jHZj/wJfcVKlIwr5AvR78euJxYK7Ku5kURNhNx.7.CSIJ3Pq6LEPC');
-        $userThree->setEmail('user3@gmail.com');
-        $userThree->setAvatar('5abe353d9ae8c724858723.jpg');
+        $userThree->setLastName('Claverie');
+        $userThree->setPassword('$2y$13$ySSrGKtUpBl3okPAiPC4W.YyrkPf2KqCDgdKxgyQxSNjs8A5WAL6O');
+        $userThree->setEmail('justine.claverie@meloven.fr');
+        $userThree->setAvatar('justine-profil.png');
         $userThree->setIsAdmin(false);
         $userThree->setIsActive('1');
         $userThree->setUserGroup('Author');
+        $userThree->setRoles(['ROLE_AUTHOR']);
         $manager->persist($userThree);
 
-        $postOne = new BlogPost($user);
+       /* $postOne = new BlogPost($user);
         $postOne->setTitle('Post numero 1 !');
         $postOne->setDescription('Description du post 1');
         $postOne->setBody('Body du post 1');
@@ -92,7 +94,7 @@ class DataFixtures extends Fixture
         $postOne->setCover('test.png');
         $postOne->setCategory('Insolite');
         $postOne->setReadingTime('2');
-        $manager->persist($postOne);
+        $manager->persist($postOne);*/
 
 
 

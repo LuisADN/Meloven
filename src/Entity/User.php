@@ -98,10 +98,33 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
+
+
+
     /**
      * @ORM\Column(name="is_admin", type="boolean")
      */
     private $isAdmin = 0;
+
+
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $roles = ['ROLE_SIMPLEUSER'];
+
+    public function getRoles()
+    {
+        $roles = $this->roles;
+        // give everyone ROLE_USER!
+        if (!in_array('ROLE_USER', $roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+        return $roles;
+    }
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
 
 
     // private $userGroups = ['Admin', 'Mucicien', 'Author'];
@@ -116,42 +139,6 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="user")
      */
     protected $blogPost;
-
-    /**
-     * @return mixed
-     */
-    public function getBlogPost()
-    {
-        return $this->blogPost;
-    }
-
-    /**
-     * @param mixed $blogPost
-     */
-    public function setBlogPost($blogPost)
-    {
-        $this->blogPost = $blogPost;
-    }
-
-
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getUserGroup()
-    {
-        return $this->userGroup;
-    }
-
-    /**
-     * @param mixed $userGroup
-     */
-    public function setUserGroup($userGroup)
-    {
-        $this->userGroup = $userGroup;
-    }
 
 
     /**
@@ -170,6 +157,38 @@ class User implements AdvancedUserInterface, \Serializable
         $this->blogPost = new ArrayCollection();
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBlogPost()
+    {
+        return $this->blogPost;
+    }
+
+    /**
+     * @param mixed $blogPost
+     */
+    public function setBlogPost($blogPost)
+    {
+        $this->blogPost = $blogPost;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserGroup()
+    {
+        return $this->userGroup;
+    }
+
+    /**
+     * @param mixed $userGroup
+     */
+    public function setUserGroup($userGroup)
+    {
+        $this->userGroup = $userGroup;
     }
 
 
@@ -350,20 +369,7 @@ class User implements AdvancedUserInterface, \Serializable
     {
         return $this->password;
     }
-    public function getRoles()
-    {
-        $roles = array('ROLE_USER');
-        if ($this->isAdmin == true) {
-            $roles = array('ROLE_ADMIN');
-        }
-        return $roles;
-    }
-    public function setRoles(array $roles)
-    {
-        $this->isAdmin = $roles;
-        // allows for chaining
-        return $this;
-    }
+
     public function eraseCredentials()
     {
     }
