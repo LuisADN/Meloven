@@ -153,6 +153,41 @@
                     </div>
                 </div>
             </div>
+            <p id="successMessage" style="background: red; height: 30px; width: 30px;"></p>
+            <form id="signup">
+                <input type="text" id="request" name="request">
+                <input type="hidden" id="list" name="list" value="76c0a7833d">
+                <input type="submit" value="submit">
+            </form>
         </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#signup').submit(function() {
+                var data = {
+                    request : $('#request').val(),
+                    list : $('#list').val(),
+                };
+                console.log(data);
+                $.ajax({
+                    url: "{{ path('mailchimp') }}", // proper url to your "store-address.php" file
+                    type: 'POST', // <- IMPORTANT
+                    data: data,
+                    success: function(msg) {
+                        $("#successMessage").html('yo;');
+                        var message = $.parseJSON(msg),
+                            result = '';
+                        if (message.status === 'pending') { // success
+                            result = 'Success!  Please click the confirmation link that will be emailed to you shortly.';
+                        } else { // error
+                            result = 'Error: ' + message.detail;
+                        }
+                        $('#message').html(result); // display the message
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 </body>
 </html>

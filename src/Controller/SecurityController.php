@@ -24,10 +24,15 @@ class SecurityController extends Controller
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', array(
-            'last_username' => $lastUsername,
-            'error'         => $error,
-        ));
+        if (true === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY'))
+        {
+            return $this->redirectToRoute('dashboard');
+        }else{
+            return $this->render('security/login.html.twig', array(
+                'last_username' => $lastUsername,
+                'error'         => $error,
+            ));
+        }
     }
 
     /**
