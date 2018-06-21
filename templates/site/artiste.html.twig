@@ -1,0 +1,104 @@
+{% extends 'base-site.html.twig' %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+    {% if is_granted('ROLE_AUTHOR') %}{% endif %}
+    <header class="header-artiste">
+        <div class="header-container">
+            {% include('site/nav.html.twig') %}
+            <div class="main-title-artiste">
+                <h1>{{ user_info[0].username }}</h1>
+                <span class="trace"></span>
+                {#<span class="fans">44 fans</span>#}
+            </div>
+            <figure>
+                <img src="{{ asset('asset/img/thumb-artiste.png') }}" alt="">
+            </figure>
+        </div>
+    </header>
+    <section class="artiste-rs">
+        <ul>
+            <li><img src="" alt=""></li>
+            <li><img src="" alt=""></li>
+            <li><img src="" alt=""></li>
+        </ul>
+    </section>
+
+    <section class="artiste-infos">
+        <div class="artiste-infos-content">
+            <ul>
+                <li id="bio" class="active"><a href="#">bio</a></li>
+                <li id="evenement"><a href="#">evenement</a></li>
+                <li id="video"><a href="#">video</a></li>
+                <li id="photos"><a href="#">photos</a></li>
+            </ul>
+            <div class="block-changable">
+
+                <div id="block-changable-bio" class="block-changable-bio">
+                    <div class="block-changable-bio-content">
+                        <h1>Biographie</h1>
+                        <p>{{ user_info[0].userdescription }}</p>
+                    </div>
+                </div>
+
+
+                {% for event_info in user_info[0].event %}
+
+                <div id="block-changable-evenement" class="block-changable-evenement">
+                    <div class="block-changable-evenement-date">
+                        {% set foo = event_info.date | date('F') %}
+                        <span class="mount">{{ foo|split('', 3)[0] }}</span>
+                        <span class="day">{{ event_info.date | date('d') }}</span>
+                    </div>
+
+                    <div class="block-changable-evenement-content">
+                        <h1>{{ event_info.title }}</h1>
+                        <span>Organisé par {{ event_info.organizer }}</span>
+                        <adress>{{ event_info.adress }}</adress>
+                        <time>{{ event_info.hour }}</time>
+                        <p>{{ event_info.description }}</p>
+                        <a class="btn-igo" href="#">j'y vais</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div id="block-changable-video" class="block-changable-video">
+                    <div class="block-changable-video-unity">
+                        <figure class="unity"><img src="http://via.placeholder.com/483x259" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/483x259" alt=""></figure>
+                    </div>
+                </div>
+
+                <div id="block-changable-photos" class="block-changable-photos">
+                    <div class="block-changable-photos-unity">
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {#<section class="google-maps">
+        <div id="map" style="height: 400px;width: 100%;"></div>
+    </section>#}
+
+    <section class="objectif-meloven">
+        <div class="objectif-meloven-content">
+            <h1>Objectif de Meloven</h1>
+            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l’imprimerie depuis les années 1500.</p>
+            <a href="#">Chercher</a>
+        </div>
+    </section>
+
+
+{% endblock %}

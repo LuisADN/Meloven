@@ -34,4 +34,13 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
             return $e;
         }
     }
+
+    public function findAllMusicians($username) {
+        return $this->createQueryBuilder('b')
+            ->where('b.userGroup = :user_group AND b.username = :username')
+            ->setParameter('user_group', 'Musician')
+            ->setParameter('username', $username)
+            ->getQuery()
+            ->getResult();
+    }
 }

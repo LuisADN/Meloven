@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Author;
 use App\Entity\BlogPost;
+use App\Entity\Event;
 use App\Entity\Exhibit;
 use App\Entity\Party;
 use App\Entity\User;
@@ -59,17 +60,18 @@ class DataFixtures extends Fixture
         $userTwo->setIsAdmin(false);
         $userTwo->setIsActive('0');
         $userTwo->setUserGroup('Mucicien');
+        $userTwo->setUserdescription('blabla');
         $manager->persist($userTwo);
 
-        /*$firstAuthor = new Author();
-        $firstAuthor->setShortBio('Just sometext');
-        $firstAuthor->setCompany('some Company');
-        $firstAuthor->setFacebook('facebook link');
-        $firstAuthor->setGithub('github link');
-        $firstAuthor->setTwitter('twitter link');
-        $firstAuthor->setPhone('09876543333477');
-        $manager->persist($firstAuthor);*/
-
+        $event = new Event();
+        $event->setTitle('JE CHANTE DANS LA RUE');
+        $event->setOrganizer('MMMprod');
+        $event->setAdress('126 Rue de la croix nivert 15075 Paris');
+        $event->setHour('De 17h à 21h');
+        $event->setDescription('Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l’imprimerie depuis les années 1500.');
+        $event->setUser($userTwo);
+        $event->setDate(new \DateTime('2018-02-21 11:00:00'));
+        $manager->persist($event);
 
 
         $userThree = new User();
@@ -85,16 +87,16 @@ class DataFixtures extends Fixture
         $userThree->setRoles(['ROLE_AUTHOR']);
         $manager->persist($userThree);
 
-       /* $postOne = new BlogPost($user);
-        $postOne->setTitle('Post numero 1 !');
-        $postOne->setDescription('Description du post 1');
-        $postOne->setBody('Body du post 1');
+        $postOne = new BlogPost($user);
+        $postOne->setTitle('Seth, l’artiste poétique.');
+        $postOne->setDescription('Seth, c’est Julien Malland, un parisien de 45 ans ...');
+        $postOne->setBody('<p>Seth, c&rsquo;est Julien Malland, un parisien de 45 ans qui n&rsquo;a cess&eacute; d&rsquo;exprimer son art dans les rues de sa ville. Son style, c&rsquo;est un m&eacute;lange entre l&rsquo;univers de l&rsquo;enfance, de la bande dessin&eacute; et du hip-hop de sa jeunesse, le tout, dessin&eacute; avec quelques bombes de peinture.</p>');
         $postOne->setUser($userThree);
-        $postOne->setSlug('post-one');
-        $postOne->setCover('test.png');
-        $postOne->setCategory('Insolite');
+        $postOne->setSlug('seth-lartiste-poetique');
+        $postOne->setCover('5b2046860123a813623505.jpg');
+        $postOne->setCategory('Focus');
         $postOne->setReadingTime('2');
-        $manager->persist($postOne);*/
+        $manager->persist($postOne);
 
 
 

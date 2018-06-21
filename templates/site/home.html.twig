@@ -1,37 +1,29 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('asset/css/reset.css') }}" />
-    <link rel="stylesheet" href="{{ asset('build/main-site.css') }}" />
-</head>
-<body>
-    <header>
+{% extends 'base-site.html.twig' %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+    <header class="header-home">
         <div class="header-container">
-            <nav>
-                <figure>
-                    <img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven">
-                </figure>
-                <ul>
-                    <a href="#"><li>Qui est Moloven</li></a>
-                    <a href="#"><li>Nos artistes</li></a>
-                    <a href="#"><li>Blog</li></a>
-                    <a href="#"><li>Contact</li></a>
-                    <a href="#" class="btn-discover"><li>Découvrir des artistes</li></a>
-                </ul>
-            </nav>
+            {% include('site/nav.html.twig') %}
             <div class="main-title">
                 <h1>Meloven</h1>
                 <h2>Pour les artistes de rue</h2>
             </div>
         </div>
+        <span class="scroll-btn">
+            <a href="#explain">
+                <span class="mouse">
+                    <span>
+                    </span>
+                </span>
+            </a>
+        </span>
+        <span class="linedown"></span>
+
     </header>
 
-        <section class="explain">
+        <section id="explain" class="explain">
             <div class="container">
                 <figure>
                     <img src="http://via.placeholder.com/365x535" alt="">
@@ -94,100 +86,24 @@
             <div class="container-blog">
                 <h1 class="title"><a class="underline--magical">Notre blog</a></h1>
                 <div class="article-blog-bloc">
-                    <article>
-                        <figure>
-                            <img src="http://via.placeholder.com/308x194" alt="">
-                            <span>
-                                <img src="{{ asset('asset/img/justine-new.png') }}" alt="">
-                            </span>
-                        </figure>
-                        <span>Justine de Meloven</span>
-                        <h1>Lorem Ipsum</h1>
-                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page […]</p>
-                        <a href="#">Découvrir</a>
-                    </article>
-                    <article>
-                        <figure>
-                            <img src="http://via.placeholder.com/308x194" alt="">
-                            <span>
-                                <img src="{{ asset('asset/img/justine-new.png') }}" alt="">
-                            </span>
-                        </figure>
-                        <span>Justine de Meloven</span>
-                        <h1>Lorem Ipsum</h1>
-                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page […]</p>
-                        <a href="#">Découvrir</a>
-                    </article>
-                    <article>
-                        <figure>
-                            <img src="http://via.placeholder.com/308x194" alt="">
-                            <span>
-                                <img src="{{ asset('asset/img/justine-new.png') }}" alt="">
-                            </span>
-                        </figure>
-                        <span>Justine de Meloven</span>
-                        <h1>Lorem Ipsum</h1>
-                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page […]</p>
-                        <a href="#">Découvrir</a>
-                    </article>
+                    {% for post in blog_posts %}
+                        <article>
+                            <figure>
+                                <img src="{{ asset('media/') }}{{ post.cover }}" alt="">
+                                <span>
+                                    <img src="{{ asset('asset/img/') }}{{ post.user.avatar }}" alt="">
+                                </span>
+                            </figure>
+                            <span>{{ post.user.firstName }} de Meloven</span>
+                            <h1>{{ post.title }}</h1>
+                            <p>{{ post.description }}</p>
+                            <a  href="{{ path('site_post_show', {'slug': post.slug}) }}">Découvrir</a>
+                        </article>
+                    {% endfor %}
                 </div>
             </div>
             <div class="btn-parcourir-blog">
-                <a href="#">Parcourir le blog</a>
+                <a href="{{ path('blog') }}">Parcourir le blog</a>
             </div>
         </section>
-
-        <section class="contact">
-            <div class="container-contact">
-                <h1 class="title"><a class="underline--magical">Contactez-nous</a></h1>
-                <div class="contact-bloc">
-                    <div>
-                        <h3>Pour soutenir</h3>
-                        <p>Vous souhaitez découvrir des artistes et suivre l’actualité des spectacles de rue proche de chez vous ?</p>
-                        <a class="btn-souvenir" href="#">Je veux soutenir</a>
-                    </div>
-                    <div>
-                        <h3>Pour devenir</h3>
-                        <p>Vous chantez dans la rue et souhaitez plus de visibilité et de notoriété ? Vous avez des objectifs concrets ? Meloven, c’est votre promotion gratuite !</p>
-                        <a href="#">Je suis artiste</a>
-                    </div>
-                </div>
-            </div>
-            <p id="successMessage" style="background: red; height: 30px; width: 30px;"></p>
-            <form id="signup">
-                <input type="text" id="request" name="request">
-                <input type="hidden" id="list" name="list" value="76c0a7833d">
-                <input type="submit" value="submit">
-            </form>
-        </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#signup').submit(function() {
-                var data = {
-                    request : $('#request').val(),
-                    list : $('#list').val(),
-                };
-                console.log(data);
-                $.ajax({
-                    url: "{{ path('mailchimp') }}", // proper url to your "store-address.php" file
-                    type: 'POST', // <- IMPORTANT
-                    data: data,
-                    success: function(msg) {
-                        $("#successMessage").html('yo;');
-                        var message = $.parseJSON(msg),
-                            result = '';
-                        if (message.status === 'pending') { // success
-                            result = 'Success!  Please click the confirmation link that will be emailed to you shortly.';
-                        } else { // error
-                            result = 'Error: ' + message.detail;
-                        }
-                        $('#message').html(result); // display the message
-                    }
-                });
-                return false;
-            });
-        });
-    </script>
-</body>
-</html>
+{% endblock %}

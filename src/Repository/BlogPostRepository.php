@@ -26,6 +26,14 @@ class BlogPostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findLastThree() {
+        return $this->createQueryBuilder('b')
+            ->addOrderBy('b.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
 
     /*public function findByCategory() {
         return $this->createQueryBuilder('b')

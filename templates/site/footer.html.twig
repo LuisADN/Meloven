@@ -1,0 +1,133 @@
+<section class="contact">
+    <div class="container-contact">
+        <h1 class="title"><a class="underline--magical">Contactez-nous</a></h1>
+        <div class="contact-bloc">
+            <div>
+                <h3>Pour soutenir</h3>
+                <p>Vous souhaitez découvrir des artistes et suivre l’actualité des spectacles de rue proche de chez vous ?</p>
+                <a class="btn-souvenir" href="#">Je veux soutenir</a>
+            </div>
+            <div>
+                <h3>Pour devenir</h3>
+                <p>Vous chantez dans la rue et souhaitez plus de visibilité et de notoriété ? Vous avez des objectifs concrets ? Meloven, c’est votre promotion gratuite !</p>
+                <a href="mailto:contact@meloven.fr">Je suis artiste</a>
+            </div>
+        </div>
+
+        <form id="signup">
+            <input type="email" id="request" name="request">
+            <input type="hidden" id="list" name="list" value="76c0a7833d">
+            <input type="submit" value="Incription">
+        </form>
+        <p id="successMessage"></p>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.btn-souvenir').click(function(e) {
+            e.preventDefault();
+            $("#signup").show().css('display', 'flex');
+        });
+
+
+
+        $('#signup').submit(function() {
+            var data = {
+                request : $('#request').val(),
+                list : $('#list').val(),
+            };
+            console.log(data);
+            $.ajax({
+                url: "{{ path('mailchimp') }}", // proper url to your "store-address.php" file
+                type: 'POST', // <- IMPORTANT
+                data: data,
+                success: function(msg) {
+                    $("#successMessage").html('Merci pour votre inscription !').show();
+                    setTimeout(function() {
+                        $("#successMessage").hide()
+                    }, 5000);
+                    $("#request").val('');
+                    var message = $.parseJSON(msg),
+                        result = '';
+                    if (message.status === 'pending') { // success
+                        result = 'Success!  Please click the confirmation link that will be emailed to you shortly.';
+                    } else { // error
+                        result = 'Error: ' + message.detail;
+                    }
+                    $('#message').html(result); // display the message
+                }
+            });
+            return false;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        function hideBlocks () {
+            $(".block-changable-evenement").hide();
+            $(".block-changable-photos").hide();
+            $(".block-changable-video").hide();
+            $(".block-changable-bio").hide();
+            $("#evenement").removeClass('active');
+            $("#photos").removeClass('active');
+            $("#video").removeClass('active');
+            $("#bio").removeClass('active');
+        }
+        $("#evenement").click(function(e) {
+            e.preventDefault();
+            hideBlocks();
+            $("#evenement").addClass('active');
+            $(".block-changable-evenement").fadeIn().css('display', 'flex');
+        });
+        $("#photos").click(function(e) {
+            e.preventDefault();
+            hideBlocks();
+            $("#photos").addClass('active');
+            $(".block-changable-photos").fadeIn();
+        });
+        $("#video").click(function(e) {
+            e.preventDefault();
+            hideBlocks();
+            $("#video").addClass('active');
+            $(".block-changable-video").fadeIn();
+        });
+        $("#bio").click(function(e) {
+            e.preventDefault();
+            hideBlocks();
+            $("#bio").addClass('active');
+            $(".block-changable-bio").fadeIn();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $(".scroll-btn a").click(function(e) {
+            e.preventDefault();
+            document.querySelector('#explain').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+{#
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        var uluru = {lat: -25.344, lng: 131.036};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+</script>
+<!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API&callback=initMap">
+</script>#}

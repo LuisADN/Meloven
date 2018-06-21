@@ -6,8 +6,10 @@ use App\Entity\Post;
 use App\Entity\BlogPost;
 use App\Entity\User;
 use App\Repository\BlogPostRepository;
+use App\Repository\UserRepository;
 use App\Form\PassChangeFormType;
 use App\Form\PostType;
+use App\Repository\EventRepository;
 use App\Repository\FetchRepository;
 use App\Services\Calculator;
 use Swift_Mailer;
@@ -28,11 +30,14 @@ class MainController extends Controller
     /**
      * @Route("/", name="home")
      */
-    public function home(): Response
+    public function home(BlogPostRepository $blogPostRepository): Response
     {
         return $this->render('site/home.html.twig', [
+            'blog_posts' => $blogPostRepository->findLastThree(),
         ]);
     }
+
+
 
     /**
      * @Route("/blog", name="blog")
@@ -56,6 +61,18 @@ class MainController extends Controller
         return $this->render('site/mentionslegales.html.twig');
     }
 
+    /**
+     * @Route("/artiste/{username}", name="artiste")
+     */
+    public function artiste(UserRepository $userRepository, $username): Response
+    {
+        return $this->render('site/artiste.html.twig', [
+            'user_info' => $userRepository->findAllMusicians(array(
+                'username' => $username
+            ))
+        ]);
+    }
+
 
     /**
      * @Route("/blog/article/{slug}", name="site_post_show", methods="GET")
@@ -74,15 +91,6 @@ class MainController extends Controller
             'blog_posts' => $blogPostRepository->findBy(array(
                 'category' => $category
             ))
-        ]);
-    }
-
-    /**
-     * @Route("/connexion", name="connexion")
-     */
-    public function connexion()
-    {
-        return $this->render('site/connexion.html.twig', [
         ]);
     }
 

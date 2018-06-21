@@ -5,6 +5,7 @@ easy_admin:
     menu:
       - User
       - BlogPost
+      - Event
   list:
     title: 'Liste des %%entity_label%%'
     actions: ['show']
@@ -46,3 +47,20 @@ easy_admin:
         fields:
           - id
           - Title
+    Event:
+          class: App\Entity\Event
+          label: 'Events list'
+          list:
+            title: 'Event'
+            fields:
+              - id
+              - Title
+          form:
+            fields:
+              - { property: title, label: 'Titre' }
+              - { property: organizer, label: 'Organisateur' }
+              - { property: adress, label: 'Adresse' }
+              - { property: date, label: 'Date'}
+              - { property: hour, label: "Heure de l'évenement" }
+              - { property: description, label: 'Description'}
+              - { property: user, label: 'Actif' }

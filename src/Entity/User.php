@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="users")
@@ -47,6 +48,76 @@ class User implements AdvancedUserInterface, \Serializable
     public function __toString() {
         return $this->username;
     }
+
+
+    /**
+     * @ORM\Column(type="string", length=25, unique=true, nullable=true)
+     */
+    private $userdescription;
+
+
+    /**
+     * @Gedmo\Slug(fields={"username"})
+     * @ORM\Column(name="slug", length=255)
+     */
+    private $slug;
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return User
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserdescription()
+    {
+        return $this->userdescription;
+    }
+
+    /**
+     * @param mixed $userdescription
+     */
+    public function setUserdescription($userdescription)
+    {
+        $this->userdescription = $userdescription;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
+    /**
+     * @param mixed $event
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+    }
+
 
     /**
      * @Assert\NotBlank(message="Le prénom ne doit pas être vide")
@@ -131,7 +202,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\Column(name="user_group", type="string")
      */
-    private $userGroup = 'Mucicien';
+    private $userGroup = 'Musician';
 
 
     /**
@@ -139,6 +210,12 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="user")
      */
     protected $blogPost;
+
+    /**
+     * One User has Many Event.
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="user")
+     */
+    protected $event;
 
 
     /**
