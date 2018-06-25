@@ -51,7 +51,7 @@ class User implements AdvancedUserInterface, \Serializable
 
 
     /**
-     * @ORM\Column(type="string", length=25, unique=true, nullable=true)
+     * @ORM\Column(nullable=true, type="text", columnDefinition="longtext")
      */
     private $userdescription;
 
@@ -148,6 +148,7 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(type="string", length=254, unique=true)
      */
     public $email;
+
     /**
      * @ORM\Column(name="avatar", type="string", nullable=true)
      */
@@ -165,12 +166,52 @@ class User implements AdvancedUserInterface, \Serializable
      */
     private $avatarFile;
 
+
+    /**
+    * @ORM\Column(name="background_image", type="string", nullable=true)
+    */
+    private $backgroundImage;
+    /**
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage = "Le fichier choisi ne correspond pas à un fichier valide",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque",
+     *     uploadErrorMessage = "Erreur dans l'upload du fichier"
+     * )
+     * @Vich\UploadableField(mapping="images", fileNameProperty="backgroundImage")
+     * @var File
+     */
+    private $backgroundImageFile;
+
+
+
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
 
 
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $videos;
+
+    /**
+     * @return mixed
+     */
+    public function getVideos()
+    {
+        return $this->videos;
+    }
+
+    /**
+     * @param mixed $videos
+     */
+    public function setVideos($videos)
+    {
+        $this->videos = $videos;
+    }
 
     /**
      * @ORM\Column(name="is_admin", type="boolean")
@@ -224,6 +265,28 @@ class User implements AdvancedUserInterface, \Serializable
     private $updatedAt;
 
 
+    /**
+     * @ORM\Column(name="facebook", type="string", nullable=true)
+     */
+    private $facebook;
+
+
+    /**
+     * @ORM\Column(name="youtube", type="string", nullable=true)
+     */
+    private $youtube;
+
+    /**
+     * @ORM\Column(name="twitter", type="string", nullable=true)
+     */
+    private $twitter;
+
+    /**
+     * @ORM\Column(name="instagram", type="string", nullable=true)
+     */
+    private $instagram;
+
+
     private $resetPasswordToken = false;
 
 
@@ -234,6 +297,70 @@ class User implements AdvancedUserInterface, \Serializable
         $this->blogPost = new ArrayCollection();
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
+    }
+
+    /**
+     * @param mixed $facebook
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstagram()
+    {
+        return $this->instagram;
+    }
+
+    /**
+     * @param mixed $instagram
+     */
+    public function setInstagram($instagram)
+    {
+        $this->instagram = $instagram;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getYoutube()
+    {
+        return $this->youtube;
+    }
+
+    /**
+     * @param mixed $youtube
+     */
+    public function setYoutube($youtube)
+    {
+        $this->youtube = $youtube;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTwitter()
+    {
+        return $this->twitter;
+    }
+
+    /**
+     * @param mixed $twitter
+     */
+    public function setTwitter($twitter)
+    {
+        $this->twitter = $twitter;
     }
 
     /**
@@ -338,6 +465,24 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @return mixed
      */
+    public function getBackgroundImage()
+    {
+        return $this->backgroundImage;
+    }
+    /**
+     * @param mixed $backgroundImage
+     */
+    public function setBackgroundImage($backgroundImage)
+    {
+        $this->backgroundImage = $backgroundImage;
+        if ($backgroundImage instanceof UploadedFile) {
+            $this->setUpdatedAt(new \DateTime());
+        }
+    }
+
+    /**
+     * @return mixed
+     */
     public function getUpdatedAt()
     {
         return $this->updatedAt;
@@ -430,6 +575,20 @@ class User implements AdvancedUserInterface, \Serializable
     public function getAvatarFile()
     {
         return $this->avatarFile;
+    }
+
+
+    public function setBackgroundImageFile(File $backgroundImageFile = null)
+    {
+        $this->backgroundImageFile = $backgroundImageFile;
+
+        if ($backgroundImageFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+    public function getBackgroundImageFile()
+    {
+        return $this->backgroundImageFile;
     }
 
     public function getUsername()

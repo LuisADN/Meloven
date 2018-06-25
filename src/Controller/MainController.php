@@ -30,14 +30,23 @@ class MainController extends Controller
     /**
      * @Route("/", name="home")
      */
-    public function home(BlogPostRepository $blogPostRepository): Response
+    public function home(BlogPostRepository $blogPostRepository, UserRepository $userRepository): Response
     {
         return $this->render('site/home.html.twig', [
             'blog_posts' => $blogPostRepository->findLastThree(),
+            'musicians' => $userRepository->findMusiciansHome()
         ]);
     }
 
+    /**
+     * @Route("/qui-est-moloven", name="qui_sommes_nous")
+     */
+    public function quiSommesNous()
+    {
+        return $this->render('site/qui-sommes-nous.html.twig', [
 
+        ]);
+    }
 
     /**
      * @Route("/blog", name="blog")
@@ -62,13 +71,13 @@ class MainController extends Controller
     }
 
     /**
-     * @Route("/artiste/{username}", name="artiste")
+     * @Route("/artiste/{slug}", name="artiste")
      */
-    public function artiste(UserRepository $userRepository, $username): Response
+    public function artiste(UserRepository $userRepository, $slug): Response
     {
         return $this->render('site/artiste.html.twig', [
             'user_info' => $userRepository->findAllMusicians(array(
-                'username' => $username
+                'slug' => $slug
             ))
         ]);
     }

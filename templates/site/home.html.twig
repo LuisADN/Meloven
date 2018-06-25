@@ -25,9 +25,13 @@
 
         <section id="explain" class="explain">
             <div class="container">
-                <figure>
-                    <img src="http://via.placeholder.com/365x535" alt="">
-                </figure>
+                {#<figure>
+                    <img src="{{ asset('asset/img/cascade.gif') }}" alt="">
+                </figure>#}
+                {#<video autoplay>
+                    <source src="{{ asset('asset/video/cascade.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>#}
                 <div>
                     <h1>Faire émerger les artistes de rue</h1>
                     <h2>Découvrez et soutenez des talents</h2>
@@ -41,8 +45,31 @@
                 <h1 class="title"><a class="underline--magical">Nos artistes de rue</a></h1>
                 <span>de talents</span>
             </div>
+
+
+
             <div class="container-artistes">
+
+                {% for musician in musicians %}
                 <article class="artistes-content">
+                    <div class="article-content-text">
+                        <h1>{{ musician.username }}</h1>
+                        {#<span>Paris / Rock’n Roll</span>
+                        <h2><a class="underline--magical--two">Live show</a></h2>
+                        <time>17/07/2018 à 19h</time>
+                        <address>24 Rue de l’amiral Roussin<br>
+                            75015 PARIS</address>#}
+                        <p>{{ musician.userDescription|easyadmin_truncate(255) }}</p>
+                        <a href="{{ path('artiste', {'slug':musician.slug}) }}">Découvrir</a>
+                    </div>
+                    <figure>
+                        <img src="{{ asset('media/') }}{{ musician.avatar }}" alt="">
+                    </figure>
+                </article>
+                {% endfor %}
+
+
+                {#<article class="artistes-content">
                     <div class="article-content-text">
                         <h1>victoire bosse</h1>
                         <span>Paris / Rock’n Roll</span>
@@ -55,21 +82,7 @@
                     <figure>
                         <img src="{{ asset('asset/img/artiste-img-sample.png') }}" alt="">
                     </figure>
-                </article>
-                <article class="artistes-content">
-                    <div class="article-content-text">
-                        <h1>victoire bosse</h1>
-                        <span>Paris / Rock’n Roll</span>
-                        <h2><a class="underline--magical--two">Live show</a></h2>
-                        <time>17/07/2018 à 19h</time>
-                        <address>24 Rue de l’amiral Roussin<br>
-                            75015 PARIS</address>
-                        <a href="#">Découvrir</a>
-                    </div>
-                    <figure>
-                        <img src="{{ asset('asset/img/artiste-img-sample.png') }}" alt="">
-                    </figure>
-                </article>
+                </article>#}
             </div>
             <div class="artistes-footer"></div>
         </section>

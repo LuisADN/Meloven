@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.586 27.332">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f72d9c;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_62" data-name="Groupe 62" transform="translate(0)">
+    <path id="Tracé_24" data-name="Tracé 24" class="cls-1" d="M2.844,27.332H8.321v-13.8h3.844L12.586,8.9H8.321V6.267c0-1.106.211-1.527,1.264-1.527h3V0H8.795C4.687,0,2.844,1.791,2.844,5.266V8.953H0v4.687H2.844Z"/>
+  </g>
+</svg>

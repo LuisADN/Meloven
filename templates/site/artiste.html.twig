@@ -8,20 +8,33 @@
         <div class="header-container">
             {% include('site/nav.html.twig') %}
             <div class="main-title-artiste">
+                {#<figure>
+                    <img src="{{ asset('asset/img/artiste-img-sample-page.png') }}" alt="">
+                </figure>#}
+                {#{{ dump(user_info[0].videos[0]) }}#}
                 <h1>{{ user_info[0].username }}</h1>
                 <span class="trace"></span>
                 {#<span class="fans">44 fans</span>#}
             </div>
             <figure>
-                <img src="{{ asset('asset/img/thumb-artiste.png') }}" alt="">
+                <img src="{{ asset('media/') }}{{ user_info[0].avatar }}" alt="">
             </figure>
         </div>
     </header>
     <section class="artiste-rs">
         <ul>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
+            {% if user_info[0].facebook is defined and user_info[0].facebook is not null and user_info[0].facebook is not empty %}
+            <li><a href="{{ user_info[0].facebook }}" target="_blank"><img class="facebook-rose" src="{{ asset('asset/img/facebook-rose.svg') }}" alt="Facebook"></a></li>
+            {% endif %}
+            {% if user_info[0].youtube is defined and user_info[0].youtube is not null and user_info[0].youtube is not empty %}
+                <li><a href="{{ user_info[0].youtube }}" target="_blank"><img class="youtube-rose" src="{{ asset('asset/img/youtube-rose.svg') }}" alt="Youtube"></a></li>
+            {% endif %}
+            {% if user_info[0].twitter is defined and user_info[0].twitter is not null and user_info[0].twitter is not empty %}
+                <li><a href="{{ user_info[0].twitter }}" target="_blank"><img class="twitter-rose" src="{{ asset('asset/img/twitter-rose.svg') }}" alt="Twitter"></a></li>
+            {% endif %}
+            {% if user_info[0].instagram is defined and user_info[0].instagram is not null and user_info[0].instagram is not empty %}
+                <li><a href="{{ user_info[0].instagram }}" target="_blank"><img class="instagram-rose" src="{{ asset('asset/img/instagram-rose.svg') }}" alt="Instagram"></a></li>
+            {% endif %}
         </ul>
     </section>
 
@@ -30,7 +43,7 @@
             <ul>
                 <li id="bio" class="active"><a href="#">bio</a></li>
                 <li id="evenement"><a href="#">evenement</a></li>
-                <li id="video"><a href="#">video</a></li>
+                <li id="video"><a href="#">videos</a></li>
                 <li id="photos"><a href="#">photos</a></li>
             </ul>
             <div class="block-changable">
@@ -43,44 +56,49 @@
                 </div>
 
 
-                {% for event_info in user_info[0].event %}
+                {% if user_info[0].event is defined and user_info[0].event is not null and user_info[0].event is not empty %}
+                    {% for event_info in user_info[0].event %}
+                    <div id="block-changable-evenement" class="block-changable-evenement">
+                        <div class="block-changable-evenement-date">
+                            {% set foo = event_info.date | date('F') %}
+                            <span class="mount">{{ foo|split('', 3)[0] }}</span>
+                            <span class="day">{{ event_info.date | date('d') }}</span>
+                        </div>
 
-                <div id="block-changable-evenement" class="block-changable-evenement">
-                    <div class="block-changable-evenement-date">
-                        {% set foo = event_info.date | date('F') %}
-                        <span class="mount">{{ foo|split('', 3)[0] }}</span>
-                        <span class="day">{{ event_info.date | date('d') }}</span>
+                        <div class="block-changable-evenement-content">
+                            <h1>{{ event_info.title }}</h1>
+                            <span>Organisé par {{ event_info.organizer }}</span>
+                            <adress>{{ event_info.adress }}</adress>
+                            <time>{{ event_info.hour }}</time>
+                            <p>{{ event_info.description }}</p>
+                            <a class="btn-igo" href="#">j'y vais</a>
+                        </div>
                     </div>
+                    {% endfor %}
+                {% else %}
+                    <div id="block-changable-evenement" class="block-changable-evenement">
+                        No events.
+                    </div>
+                {% endif %}
 
-                    <div class="block-changable-evenement-content">
-                        <h1>{{ event_info.title }}</h1>
-                        <span>Organisé par {{ event_info.organizer }}</span>
-                        <adress>{{ event_info.adress }}</adress>
-                        <time>{{ event_info.hour }}</time>
-                        <p>{{ event_info.description }}</p>
-                        <a class="btn-igo" href="#">j'y vais</a>
-                    </div>
-                </div>
-                {% endfor %}
+
 
                 <div id="block-changable-video" class="block-changable-video">
                     <div class="block-changable-video-unity">
-                        <figure class="unity"><img src="http://via.placeholder.com/483x259" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/483x259" alt=""></figure>
+                        {% for video in user_info[0].videos %}
+                            <div class="unity">
+                                <iframe src="{{ video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
 
                 <div id="block-changable-photos" class="block-changable-photos">
                     <div class="block-changable-photos-unity">
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img onclick="openModal();currentSlide(1)" src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img onclick="openModal();currentSlide(2)" src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img onclick="openModal();currentSlide(3)" src="http://via.placeholder.com/180x180" alt=""></figure>
+                        <figure class="unity"><img onclick="openModal();currentSlide(4)" src="http://via.placeholder.com/180x180" alt=""></figure>
                     </div>
                 </div>
 
@@ -101,4 +119,46 @@
     </section>
 
 
+
+    <!-- The Modal/Lightbox -->
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <div class="mySlides">
+                <img src="https://source.unsplash.com/random/1200x1000">
+            </div>
+
+            <div class="mySlides">
+                <img src="https://source.unsplash.com/random/1200x600">
+            </div>
+
+            <div class="mySlides">
+                <img src="https://source.unsplash.com/random/1200x600">
+            </div>
+
+            <div class="mySlides">
+                <img src="https://source.unsplash.com/random/1200x600">
+            </div>
+
+            <!-- Next/previous controls -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Caption text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block littlejavascript %}
+    <script>
+        // Change the Background image of the page Artise
+        if ($("header.header-artiste")[0]){
+            $('header.header-artiste').css("background-image", "url({{ asset('media/') }}{{ user_info[0].backgroundImage }})");
+        }
+        //$('header.header-artiste').css("background-image", "url({{ asset('media/') }}{{ user_info[0].backgroundImage }})");
+    </script>
 {% endblock %}

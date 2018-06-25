@@ -33,12 +33,19 @@ easy_admin:
           - { property: username, label: 'Username' }
           - { property: firstName, label: 'Prénom' }
           - { property: lastName, label: 'Nom' }
+          - { property: userdescription, type: 'fos_ck_editor' }
+          - { property: facebook, label: 'Facebook' }
+          - { property: youtube, label: 'Youtube' }
+          - { property: twitter, label: 'Twitter' }
+          - { property: instagram, label: 'Instagram' }
           - { property: plainPassword, label: 'Mot de passe', type: 'password' }
           - { property: email, label: 'Adresse email' }
           - { property: avatarFile, label: 'Photo de profil', type: 'vich_image' }
+          - { property: backgroundImageFile, label: 'Photo fond, page profil', type: 'vich_image' }
           - { property: isActive, label: 'Actif' }
           - { property: isAdmin, label: 'Admin' }
-          - { property: userGroup, type: choice, type_options: {choices: {'Admin':'Admin', 'Mucicien':'Mucicien', 'Author':'Author'}}}
+          - { property: videos, label: 'Videos' }
+          - { property: userGroup, type: choice, type_options: {choices: {'Admin':'Admin', 'Musician':'Musician', 'Author':'Author'}}}
     BlogPost:
       class: App\Entity\BlogPost
       label: 'BlogPost'

@@ -1,0 +1,103 @@
+{% extends 'base-site.html.twig' %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+    <header class="qui-sommes-nous-header">
+        <div class="qui-sommes-nous-header-container">
+            {% include('site/nav.html.twig') %}
+            <div class="qui-sommes-nous-header-content">
+                <h1>Des talents parmis les musiciens</h1>
+                <p>Les rues de nos villes regorgent de talents. groupe de rock, jeune rappeur ou bien même chanteuse pop, ces musiciens ont un incroyable pouvoir, celui d’arrêter le temps pour nous faire frissonner le temps d’une chanson. notre mission, vous faire découvrir chaque jour !</p>
+            </div>
+        </div>
+    </header>
+    <section id="promotion">
+        <h1>Promotion pour artistes</h1>
+        <div class="promotion">
+            <article>
+                <figure>
+                    <img src="{{ asset('asset/img/picto-1.svg') }}" alt="">
+                </figure>
+                <h1>Des reporters</h1>
+                <p>des reporters réalisent des podcasts et interviexs des nouveaux artistes</p>
+            </article>
+            <article>
+                <figure>
+                    <img src="{{ asset('asset/img/picto-2.svg') }}" alt="">
+                </figure>
+                <h1>Des community manager </h1>
+                <p>mettent en avant le talents des artistes sur les réseaux sociaux</p>
+            </article>
+            <article>
+                <figure>
+                    <img src="{{ asset('asset/img/picto-3.svg') }}" alt="">
+                </figure>
+                <h1>Des rp</h1>
+                <p class="last-art">établissent le contact avec des influenceurs dans la musique</p>
+            </article>
+        </div>
+        <div class="btn-block-inscription">
+            <a href="#">M’inscrire en tant qu’artiste</a>
+        </div>
+    </section>
+
+    <section id="goals">
+        <h1>les artistes qui chantent dans la rue rêvent de vivre de leur passion !</h1>
+        <p>Pour cela, Meloven met en avant des artistes afin de :</p>
+        <div class="goals">
+            <article>
+                <figure>
+                    <img src="{{ asset('asset/img/cible.svg') }}" alt="">
+                </figure>
+                <p>Promouvoir un projet tel que la création d’un album ou d’un single</p>
+            </article>
+            <article>
+                <figure>
+                    <img src="{{ asset('asset/img/mao.svg') }}" alt="">
+                </figure>
+                <p>Leur offrir de plus grandes opportunités et leur permettre d’être plus visible aux yeux des managers</p>
+            </article>
+            <article>
+                <figure>
+                    <img src="{{ asset('asset/img/loupe.svg') }}" alt="">
+                </figure>
+                <p>Les faire signer en Maison de disques</p>
+            </article>
+        </div>
+    </section>
+
+    {#<section id="confidance">
+        <div class="btn-block-inscription">
+            <a href="#">J’ai besoin de promo</a>
+        </div>
+        <h1>Ils nous font confiance !</h1>
+        <div class="confidance">
+            <article>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <p>simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux</p>
+            </article>
+            <article>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <p>simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux</p>
+            </article>
+            <article>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <p>simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux</p>
+            </article>
+        </div>
+    </section>#}
+
+    <section id="objectif">
+        <div>
+            <h1>Objectif de meloven</h1>
+            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l’imprimerie depuis les années 1500.</p>
+        </div>
+    </section>
+{% endblock %}
