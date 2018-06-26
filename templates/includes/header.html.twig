@@ -3,7 +3,7 @@
 
     </div>
     <div class="site-title">
-        <a href="/"><h1 class="logo"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1></a>
+        <a href="{{ path('blog') }}"><h1 class="logo"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1></a>
 
         <div>
             <h2>Découvrez et soutenez les artistes de rue !</h2>
@@ -13,10 +13,11 @@
 
     <nav>
         <ul>
-            <li><a href="{{ path('home') }}#artiste-de-rue">ARTISTE DE RUE</a></li>
-            <li><a id="iAm" href="{{ path('home') }}#newsletter">JE SUIS UN ARTISTE</a></li>
-            <li><a id="iWant" href="{{ path('home') }}#newsletter">Soutenir des artistes</a></li>
+            <li><a href="{{ path('blog') }}#artiste-de-rue">ARTISTE DE RUE</a></li>
+            <li><a id="iAm" href="{{ path('blog') }}#newsletter">JE SUIS UN ARTISTE</a></li>
+            <li><a id="iWant" href="{{ path('blog') }}#newsletter">Soutenir des artistes</a></li>
             <li><a href="mailto:contact@meloven.fr">Contact</a></li>
+            <li><a href="{{ path('home') }}">Découvrir nos artistes</a></li>
             <li>
                 <div class="rs-nav">
                     <ul>

@@ -163,7 +163,7 @@ span.linedown{
 }
 
 div.mobile-nav{
-  z-index: 1;
+  z-index: 20;
   position: fixed;
   background-color: $rose;
   height: 50px;
@@ -185,7 +185,7 @@ div.burger-menu{
   }
   label {
     .menu {
-      position: absolute;
+      position: fixed;
       right: 0;
       top: -110px;
       z-index: 100;
@@ -245,9 +245,8 @@ div.burger-menu{
     }
 
     input:checked + .menu + ul {
-      z-index: 200 !important;
+      z-index: 200;
       opacity: 1;
-      display: block;
     }
 
     & > ul {
@@ -351,7 +350,7 @@ header.header-home{
       }
       h2{
         text-align: left;
-        max-width: 700px;
+        max-width: 600px;
         font-family: "GothamBlack", sans-serif;
         font-size: 75px;
         color: #ffffff;
@@ -867,6 +866,82 @@ section.contact{
 }
 
 
+footer{
+  padding: 60px 0;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7bf8cf+0,dff7ec+100 */
+  background: $rose; /* Old browsers */
+  margin-top: 80px;
+  @media screen and (max-width: $break-big) {
+    margin-top: 0px;
+  }
+  div.footer-wrapper{
+    max-width: 1020px;
+    margin: 0 auto;
+    h1.footer-logo{
+      text-align: left;
+      img{
+        width: 70px;
+        height: auto;
+      }
+    }
+    div.mailchimp-wrapper{
+      @media screen and (max-width: $break-big) {
+        padding: 0 20px;
+      }
+    }
+
+    div.footer-bottom{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 60px;
+      @media screen and (max-width: $break-big) {
+        flex-direction: column;
+      }
+      div.footer-menu{
+        @media screen and (max-width: $break-big) {
+          order: 2;
+          padding: 40px 20px 0;
+        }
+        ul{
+          li a{
+            display: block;
+            font-family: $titles;
+            font-size: 15px;
+            color: #ffffff;
+            padding: 10px 0;
+            text-decoration: none;
+          }
+        }
+      }
+      div.footer-rs{
+        width: 338px;
+        @media screen and (max-width: $break-big) {
+          width: 100%;
+          max-width: 350px;
+          margin: 0 auto;
+          order: 1;
+        }
+        h1{
+          font-family: $titles;
+          font-size: 17px;
+          color: #ffffff;
+          text-align: center;
+        }
+        ul{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          margin-top: 30px;
+          li a img{
+            width: 48px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 .underline--magical {
@@ -1591,7 +1666,7 @@ section#goals{
     text-align: center;
     a{
       display: inline-block;
-      margin: 80px 0;
+      margin: 60px 0 80px;
       font-family: "GothamBold", sans-serif;
       font-size: 15px;
       text-transform: uppercase;

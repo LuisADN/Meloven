@@ -3,9 +3,10 @@
 <!DOCTYPE HTML>
 <html lang="fr" xmins:og="http://ogp.me/ns#">
     <head>
-        <title>Meloven</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <title>Meloven - Découvrez et soutenez les artistes de rue !</title>
+        <meta name="description" content="Meloven, met en avant les artistes de rues en organisant des concerts à ciel ouvert.">
         <link rel="icon" type="image/png" href="{{ asset('asset/img/favicon.png') }}" />
         <!-- Head -->
         {% block head %}{% endblock %}
@@ -21,10 +22,10 @@
                     <span class='hamburger'></span>
                 </span>
                 <ul>
-                    <li><a href="/"><h1 class="logo-burger"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1></a></li>
-                    <li><a href="{{ path('home') }}#artiste-de-rue">Artiste de rue</a></li>
-                    <li><a id="iAmBurger" href="{{ path('home') }}#newsletter">Je suis un artiste</a></li>
-                    <li><a id="iWantBurger" href="{{ path('home') }}#newsletter">Soutenir des artistes</a></li>
+                    <li><a href="{{ path('blog') }}"><h1 class="logo-burger"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1></a></li>
+                    <li><a href="{{ path('blog') }}#artiste-de-rue">Artiste de rue</a></li>
+                    <li><a id="iAmBurger" href="{{ path('blog') }}#newsletter">Je suis un artiste</a></li>
+                    <li><a id="iWantBurger" href="{{ path('blog') }}#newsletter">Soutenir des artistes</a></li>
                     <li><a href="mailto:contact@meloven.fr">Contact</a></li>
                     <li><a href="{{ path('mentions-legales') }}">Mentions légales</a></li>
                     <li>

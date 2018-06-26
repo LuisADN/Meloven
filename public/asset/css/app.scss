@@ -96,7 +96,8 @@ header{
       & > li{
         font-family: $titles;
         font-size: 11px;
-        padding: 0 35px;
+        /*padding: 0 35px;*/
+        padding: 0;
         text-transform: uppercase;
         a{
           color: #8247DF;
