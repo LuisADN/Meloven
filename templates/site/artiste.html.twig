@@ -13,7 +13,7 @@
                 </figure>#}
                 {#{{ dump(user_info[0].videos[0]) }}#}
                 <h1>{{ user_info[0].username }}</h1>
-                <span class="trace"></span>
+                {#<span class="trace"></span>#}
                 {#<span class="fans">44 fans</span>#}
             </div>
             <figure>
@@ -51,7 +51,7 @@
                 <div id="block-changable-bio" class="block-changable-bio">
                     <div class="block-changable-bio-content">
                         <h1>Biographie</h1>
-                        <p>{{ user_info[0].userdescription }}</p>
+                        <div>{{ user_info[0].userdescription|raw }}</div>
                     </div>
                 </div>
 
@@ -71,13 +71,15 @@
                             <adress>{{ event_info.adress }}</adress>
                             <time>{{ event_info.hour }}</time>
                             <p>{{ event_info.description }}</p>
-                            <a class="btn-igo" href="#">j'y vais</a>
+                            {#<a class="btn-igo" href="#">j'y vais</a>#}
                         </div>
                     </div>
                     {% endfor %}
                 {% else %}
-                    <div id="block-changable-evenement" class="block-changable-evenement">
-                        No events.
+                    <div class="block-changable-evenement">
+                        <p class="no-content">
+                            Pas d'évenement prévus :(
+                        </p>
                     </div>
                 {% endif %}
 
@@ -86,6 +88,7 @@
                 <div id="block-changable-video" class="block-changable-video">
                     <div class="block-changable-video-unity">
                         {% for video in user_info[0].videos %}
+                            {#{{ dump(video) }}#}
                             <div class="unity">
                                 <iframe src="{{ video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
@@ -114,7 +117,7 @@
         <div class="objectif-meloven-content">
             <h1>Objectif de Meloven</h1>
             <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l’imprimerie depuis les années 1500.</p>
-            <a href="#">Chercher</a>
+            {#<a href="#">Chercher</a>#}
         </div>
     </section>
 

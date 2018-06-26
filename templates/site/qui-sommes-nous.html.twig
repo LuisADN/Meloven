@@ -7,13 +7,14 @@
         <div class="qui-sommes-nous-header-container">
             {% include('site/nav.html.twig') %}
             <div class="qui-sommes-nous-header-content">
-                <h1>Des talents parmis les musiciens</h1>
+                <h1 onmouseover="PlaySound('audio')">Des talents parmis les musiciens</h1>
                 <p>Les rues de nos villes regorgent de talents. groupe de rock, jeune rappeur ou bien même chanteuse pop, ces musiciens ont un incroyable pouvoir, celui d’arrêter le temps pour nous faire frissonner le temps d’une chanson. notre mission, vous faire découvrir chaque jour !</p>
+                <audio id="audio" src="{{ asset('audio/qui-sommes-nous.mp3') }}"></audio>
             </div>
         </div>
     </header>
     <section id="promotion">
-        <h1>Promotion pour artistes</h1>
+        <h1><a class="underline--magical">Promotion pour artistes</a></h1>
         <div class="promotion">
             <article>
                 <figure>
@@ -38,7 +39,7 @@
             </article>
         </div>
         <div class="btn-block-inscription">
-            <a href="#">M’inscrire en tant qu’artiste</a>
+            <a href="mailto:contact@meloven.fr">M’inscrire en tant qu’artiste</a>
         </div>
     </section>
 
@@ -64,6 +65,9 @@
                 </figure>
                 <p>Les faire signer en Maison de disques</p>
             </article>
+        </div>
+        <div class="btn-block-promo">
+            <a href="mailto:contact@meloven.fr">J’ai besoin de promo</a>
         </div>
     </section>
 
@@ -96,7 +100,7 @@
 
     <section id="objectif">
         <div>
-            <h1>Objectif de meloven</h1>
+            <h1><a class="underline--magical">Objectif de meloven</a></h1>
             <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l’imprimerie depuis les années 1500.</p>
         </div>
     </section>

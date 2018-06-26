@@ -33,7 +33,7 @@ easy_admin:
           - { property: username, label: 'Username' }
           - { property: firstName, label: 'Prénom' }
           - { property: lastName, label: 'Nom' }
-          - { property: userdescription, type: 'fos_ck_editor' }
+          - { property: userdescription, type: 'ckeditor' }
           - { property: facebook, label: 'Facebook' }
           - { property: youtube, label: 'Youtube' }
           - { property: twitter, label: 'Twitter' }
@@ -69,5 +69,5 @@ easy_admin:
               - { property: adress, label: 'Adresse' }
               - { property: date, label: 'Date'}
               - { property: hour, label: "Heure de l'évenement" }
-              - { property: description, label: 'Description'}
+              - { property: description, label: 'Description', type: 'ckeditor' }
               - { property: user, label: 'Actif' }

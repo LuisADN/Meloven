@@ -18,3 +18,5 @@ yarn-error.log
 .DS_STORE
 
 README.md
+
+config/packages/welp_mailcimp.yaml

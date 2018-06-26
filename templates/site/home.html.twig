@@ -40,7 +40,7 @@
             </div>
         </section>
 
-        <section class="artistes">
+        <section id="artistes" class="artistes">
             <div class="artistes-header">
                 <h1 class="title"><a class="underline--magical">Nos artistes de rue</a></h1>
                 <span>de talents</span>
@@ -59,7 +59,8 @@
                         <time>17/07/2018 à 19h</time>
                         <address>24 Rue de l’amiral Roussin<br>
                             75015 PARIS</address>#}
-                        <p>{{ musician.userDescription|easyadmin_truncate(255) }}</p>
+
+                        <p>{{ musician.userDescription|easyadmin_truncate(300)|raw }}</p>
                         <a href="{{ path('artiste', {'slug':musician.slug}) }}">Découvrir</a>
                     </div>
                     <figure>
@@ -90,9 +91,9 @@
         <section class="objectif">
             <h1 class="title"><a class="underline--magical">Objectif de Meloven</a></h1>
             <p>Les artistes qui chantent dans la rue veulent vivre de leur passion ! Pour cela, <strong>Meloven</strong> promeut des artistes ayant pour but de promouvoir un projet comme la création d’un album mais <strong>Meloven</strong> tente aussi de dénicher des opportunités de contrat pour les artistes.</p>
-            <div class="btn-objectif">
+            {#<div class="btn-objectif">
                 <a href="#">En savoir plus</a>
-            </div>
+            </div>#}
         </section>
 
         <section class="blog">

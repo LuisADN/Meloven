@@ -1,4 +1,4 @@
-<section class="contact">
+<section id="contact" class="contact">
     <div class="container-contact">
         <h1 class="title"><a class="underline--magical">Contactez-nous</a></h1>
         <div class="contact-bloc">
@@ -19,7 +19,8 @@
             <input type="hidden" id="list" name="list" value="76c0a7833d">
             <input type="submit" value="Incription">
         </form>
-        <p id="successMessage"></p>
+        <div id="successMessage"><p></p></div>
+
     </div>
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -53,7 +54,8 @@
                 type: 'POST', // <- IMPORTANT
                 data: data,
                 success: function(msg) {
-                    $("#successMessage").html('Merci pour votre inscription !').show();
+                    $("#successMessage p").html('Merci pour votre inscription !');
+                    $("#successMessage").show();
                     setTimeout(function() {
                         $("#successMessage").hide()
                     }, 5000);
@@ -182,4 +184,15 @@
         dots[slideIndex-1].className += " active";
         captionText.innerHTML = dots[slideIndex-1].alt;
     }
+</script>
+<script>
+    /*$('.qui-sommes-nous-header-content h1').hover(function(){
+        $('.qui-sommes-nous-header-content audio').play();
+    });*/
+
+    /*function PlaySound(soundobj) {
+        var thissound=document.getElementById(soundobj);
+        thissound.play();
+    }*/
+
 </script>

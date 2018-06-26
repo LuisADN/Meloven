@@ -20,4 +20,5 @@ return [
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     Welp\MailchimpBundle\WelpMailchimpBundle::class => ['all' => true],
+    Ivory\CKEditorBundle\IvoryCKEditorBundle::class=> ['all' => true],
 ];

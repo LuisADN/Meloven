@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmins:og="http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,8 +10,10 @@
 
     {% endblock %}
     {% include('heads/head_front_site.html.twig') %}
+    {% include('analytics/analyticsHead.html.twig') %}
 </head>
 <body>
+    {% include('analytics/analyticsBody.html.twig') %}
     <div class="mobile-nav">
         <div class="mobile-nav-logo">
             <a href="{{ path('home') }}"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></a>
@@ -24,12 +26,12 @@
                 </span>
                 <ul>
                     <li><a href="/"><h1 class="logo-burger"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1></a></li>
-                    <li><a href="{{ path('qui_sommes_nous') }}"><li>Qui est Moloven</li></a></li>
-                    <li><a href="#"><li>Nos artistes</li></a></li>
-                    <li><a href="{{ path('blog') }}"><li>Blog</li></a></li>
-                    <li><a href="#"><li>Contact</li></a></li>
-                    <li><a href="#" class="btn-discover"><li>Vous êtes un(e) artiste ?</li></a></li>
-                    <li>
+                    <a href="{{ path('qui_sommes_nous') }}"><li>Qui est Moloven</li></a>
+                    <a href="{{ path('home') }}#artistes"><li>Nos artistes</li></a>
+                    <a href="{{ path('blog') }}"><li>Blog</li></a>
+                    <a href="#contact"><li>Contact</li></a>
+                    {#<a href="#" class="btn-discover"><li>Vous êtes un(e) artiste ?</li></a>#}
+                    {#<li>
                         <div class="burger-rs">
                             <h1>Suis-nous sur nos réseaux !</h1>
                             <ul>
@@ -38,7 +40,7 @@
                                 <li><a href="https://www.instagram.com/melovenfr/" target="_blank"><img src="{{ asset('asset/img/svg/Instagram.svg') }}" alt="Instagram"></a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li>#}
                 </ul>
             </label>
         </div>

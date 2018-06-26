@@ -91,9 +91,10 @@ $rose : #FF3A85;
   position: absolute;
   left: 0;
   right: 0;
+  bottom: 15%;
   text-align: center;
   @media screen and (max-width: $break-big) {
-    bottom: 20%;
+    bottom: 12%;
   }
 }
 .scroll-btn > * {
@@ -155,6 +156,10 @@ span.linedown{
   height: 150px;
   width: 2px;
   background-color: $rose;
+  @media screen and (max-width: $break-big) {
+    /*height: 100px;*/
+    bottom: 0%;
+  }
 }
 
 div.mobile-nav{
@@ -175,10 +180,10 @@ div.mobile-nav{
   }
 }
 div.burger-menu{
-    label {
-      ul{
-        display: none;
-      }
+  @media screen and (min-width: $break-big) {
+    display: none;
+  }
+  label {
     .menu {
       position: absolute;
       right: 0;
@@ -245,15 +250,15 @@ div.burger-menu{
       display: block;
     }
 
-    ///// HERE
     & > ul {
       z-index: -200;
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%,50%);
       opacity: 0;
-      transition: .25s 0s ease-in-out;
+      transition: opacity 0.5s;
+      /*transition: .25s 0s ease-in-out;*/
     }
 
     a {
@@ -261,10 +266,10 @@ div.burger-menu{
       text-decoration: none;
       font-family: $titles;
       font-size: 15px;
-      color: #3D3D3D;
+      color: #ffffff;
       margin-bottom: 5px;
       display: block;
-      padding: 10px 0;
+      padding: 20px 0;
     }
   }
 }
@@ -279,23 +284,25 @@ nav{
     display: none;
   }
   & > figure{
-    width: 20%;
+    width: 25%;
     img{
       width: 65px;
     }
   }
   & > ul{
-    width: 80%;
+    width: 75%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     a{
       text-decoration: none;
+      margin-left: 35px;
     }
     li{
       font-family: 'GothamBlack', sans-serif;
       font-size: 12px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: #FFFFFF;
     }
@@ -304,6 +311,7 @@ nav{
       /*background-color: #9A51F8;*/
       padding: 15px 40px 10px;
       border-radius: 5px;
+      margin-top: -5px;
     }
   }
 }
@@ -334,7 +342,8 @@ header.header-home{
         font-family: "GothamBlack", sans-serif;
         font-size: 75px;
         color: #3CFCC7;
-        line-height: 90px;
+        line-height: 100px;
+        letter-spacing: 10px;
         text-transform: uppercase;
         @media screen and (max-width: $break-big) {
           font-size: 25px;
@@ -342,11 +351,12 @@ header.header-home{
       }
       h2{
         text-align: left;
-        max-width: 400px;
+        max-width: 700px;
         font-family: "GothamBlack", sans-serif;
         font-size: 75px;
         color: #ffffff;
-        line-height: 90px;
+        line-height: 100px;
+        letter-spacing: 10px;
         text-transform: uppercase;
         @media screen and (max-width: $break-big) {
           font-size: 25px;
@@ -397,27 +407,40 @@ section.explain{
       font-family: "GothamBlack", sans-serif;
       font-size: 45px;
       line-height: 60px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      text-align: right;
       @media screen and (max-width: $break-big) {
         font-size: 30px;
         line-height: 35px;
+        text-align: left;
+        margin-top: 100px;
       }
     }
     h2{
       font-family: "GothamBlack", sans-serif;
       font-size: 20px;
       /*line-height: 50px;*/
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-align: right;
+      padding: 20px 0 40px 0;
       @media screen and (max-width: $break-big) {
         font-size: 15px;
         padding: 10px 20px 20px;
+        text-align: left;
       }
     }
     p{
       font-family: "GilroyRegular", sans-serif;
       font-size: 15px;
-      line-height: 19.5px;
+      line-height: 18px;
+      letter-spacing: 3px;
+      text-align: right;
       @media screen and (max-width: $break-big) {
         font-size: 15px;
         line-height: 18px;
+        text-align: left;
       }
     }
   }
@@ -427,6 +450,7 @@ section h1.title{
   font-family: "GothamBlack", sans-serif;
   font-size: 45px;
   line-height: 60px;
+  letter-spacing: 5px;
   text-align: center;
   text-transform: uppercase;
   @media screen and (max-width: $break-big) {
@@ -448,8 +472,10 @@ section.artistes{
   div.artistes-header{
     span{
       display: block;
-      font-family: "GothamBold", sans-serif;
+      font-family: "GothamRegular", sans-serif;
       font-size: 30px;
+      font-style: italic;
+      letter-spacing: 5px;
       text-align: center;
       @media screen and (max-width: $break-big) {
         font-size: 20px;
@@ -483,7 +509,7 @@ section.artistes{
         position: relative;
         width: 50%;
         background-color: #ffffff;
-        padding: 60px 40px;
+        padding: 50px 40px 0 45px;
         border-radius: 5px;
         min-height: 440px;
         @media screen and (max-width: $break-big) {
@@ -496,6 +522,8 @@ section.artistes{
           max-width: 277px;
           font-family: "GothamBlack", sans-serif;
           font-size: 35px;
+          line-height: 35px;
+          letter-spacing: 5px;
           text-transform: uppercase;
         }
         span{
@@ -523,18 +551,25 @@ section.artistes{
           font-family: 'GilroyRegular';
           font-size: 15px;
           line-height: 19.5px;
+          letter-spacing: 3px;
           padding: 20px 50px 0 0;
+          @media screen and (max-width: $break-big) {
+            padding: 5px 0 20px 0;
+          }
         }
         & > a{
+          width: 178px;
           position: absolute;
           bottom: 0px;
           left: 50%;
           transform: translate(-50%, 50%);
-          padding: 7px 40px;
+          padding: 9.5px 0;
           background-color: #9A51F8;
           font-family: "GothamBold", sans-serif;
           font-size: 15px;
           line-height: 18px;
+          letter-spacing: 3px;
+          text-align: center;
           color: #ffffff;
           text-transform: uppercase;
           text-decoration: none;
@@ -567,23 +602,25 @@ section.artistes{
 section.objectif{
   padding-top: 280px;
   width: 100%;
-  background: url("./asset/img/groupe-buildings.png");
+  background: url("./asset/img/bg/city-bg.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: top;
   @media screen and (max-width: $break-big) {
     padding-top: 120px;
   }
   p{
-    max-width: 550px;
+    max-width: 844px;
     margin: 0 auto;
     padding: 80px 0;
     text-align: center;
-    font-family: 'GilroyRegular';
-    font-size: 15px;
-    line-height: 19.5px;
+    font-family: 'GilroyLight';
+    font-size: 20px;
+    line-height: 35px;
+    letter-spacing: 3px;
     @media screen and (max-width: $break-big) {
       padding: 40px 20px;
+      font-size: 15px;
       line-height: 25px;
     }
     strong{
@@ -599,6 +636,7 @@ section.objectif{
       background-color: $rose;
       font-family: "GothamBold", sans-serif;
       font-size: 15px;
+      letter-spacing: 3px;
       text-decoration: none;
       border-radius: 5px;
       color: #ffffff;
@@ -611,6 +649,7 @@ section.blog{
   background: url("./asset/img/violet-block.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #ffffff;
   padding-top: 80px;
   @media screen and (max-width: $break-big) {
     padding-top: 40px;
@@ -669,28 +708,36 @@ section.blog{
           margin: 40px 40px 0;
           font-family: "GothamBlack", sans-serif;
           font-size: 10px;
+          letter-spacing: 3px;
           text-align: center;
           line-height: 30px;
           text-transform: uppercase;
           border-bottom: 1px solid #3CFCC7;
         }
         h1{
-          font-family: "GothamBold", sans-serif;
+          font-family: "GothamBlack", sans-serif;
           font-size: 25px;
+          line-height: 35px;
+          letter-spacing: 3px;
           text-align: center;
+          text-transform: uppercase;
           padding: 30px 20px;
         }
         p{
-          font-family: 'GilroyRegular';
+          font-family: 'GilroyLight';
           font-size: 15px;
-          line-height: 19.5px;
-          padding: 0 20px 40px;
+          line-height: 18px;
+          letter-spacing: 3px;
+          padding: 0 20px 50px;
         }
         & > a{
-          padding: 7px 40px;
+          width: 178px;
+          padding: 11px 0;
           background-color: #9A51F8;
           font-family: "GothamBold", sans-serif;
           font-size: 15px;
+          text-align: center;
+          letter-spacing: 3px;
           color: #ffffff;
           text-transform: uppercase;
           text-decoration: none;
@@ -713,10 +760,11 @@ section.blog{
       padding: 40px 0 0px;
     }
     a{
-      padding: 7px 40px;
+      padding: 11px 40px;
       background-color: $rose;
       font-family: "GothamBold", sans-serif;
       font-size: 15px;
+      letter-spacing: 3px;
       text-decoration: none;
       border-radius: 5px;
       color: #ffffff;
@@ -726,7 +774,7 @@ section.blog{
 }
 
 section.contact{
-  margin-bottom: 200px;
+  margin-bottom: 20px;
   div.container-contact{
     max-width: 988px;
     margin: 0 auto;
@@ -735,8 +783,15 @@ section.contact{
     background-size: 100%;
     background-position: center;
     padding: 20px 0 80px;
+    @media screen and (max-width: $break-big) {
+      background: none;
+    }
     h1{
       padding-top: 120px;
+      letter-spacing: 5px;
+      @media screen and (max-width: $break-big) {
+        padding-top: 60px;
+      }
     }
     div.contact-bloc{
       /*margin: 80px 0;*/
@@ -745,16 +800,30 @@ section.contact{
       justify-content: space-between;
       padding: 80px 0 60px;
       /*padding-bottom: 180px;*/
+      @media screen and (max-width: $break-big) {
+        flex-direction: column;
+        padding: 60px 20px 20px;
+      }
       & > div{
         width: 50%;
         text-align: center;
         &:first-child{
           border-right: 2px solid #3CFCC7;
+          @media screen and (max-width: $break-big) {
+            border: none;
+          }
+        }
+        @media screen and (max-width: $break-big) {
+          width: 100%;
         }
         h3{
           font-family: "GothamBold", sans-serif;
           font-size: 25px;
           padding-bottom: 30px;
+          letter-spacing: 3px;
+          @media screen and (max-width: $break-big) {
+            font-size: 13px;
+          }
         }
         p{
           max-width: 418px;
@@ -762,7 +831,13 @@ section.contact{
           font-family: 'GilroyRegular';
           font-size: 15px;
           line-height: 19.5px;
+          letter-spacing: 2px;
           padding: 0 60px;
+          @media screen and (max-width: $break-big) {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0 30px;
+          }
         }
         a{
           display: inline-block;
@@ -775,9 +850,16 @@ section.contact{
           border-radius: 5px;
           color: #ffffff;
           text-transform: uppercase;
+          @media screen and (max-width: $break-big) {
+            margin-top: 20px;
+          }
         }
         a.btn-souvenir{
           margin-top: 79px;
+          @media screen and (max-width: $break-big) {
+            margin-top: 20px;
+            margin-bottom: 80px;
+          }
         }
       }
     }
@@ -815,6 +897,7 @@ section.contact{
 header.header-artiste {
   width: 100%;
   min-height: 350px;
+  position: relative;
   background-image: url("./asset/img/artiste-img-sample-page.png");
   background-repeat: no-repeat;
   /*background-size: cover;*/
@@ -830,11 +913,21 @@ header.header-artiste {
     div.main-title-artiste{
       text-align: center;
       h1{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
         font-family: "GothamBold", sans-serif;
         font-size: 35px;
+        line-height: 35px;
+        letter-spacing: 5px;
         color: #ffffff;
         text-transform: uppercase;
-        padding-top: 40px;
+        /*padding-top: 40px;*/
+        @media screen and (max-width: $break-big) {
+          /*padding-top: 100px;*/
+          text-shadow: 2px 2px 2px #2d2d2d;
+        }
       }
       span.trace{
         display: block;
@@ -897,7 +990,7 @@ section.artiste-rs{
 
 section.artiste-infos{
   width: 100%;
-  background: url("./asset/img/groupe-nuages.png");
+  background: url("./asset/img/bg/rose-nuage-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   div.artiste-infos-content{
@@ -914,6 +1007,7 @@ section.artiste-infos{
       li{
         font-family: "GothamBlack", sans-serif;
         font-size: 20px;
+        letter-spacing: 3px;
         padding: 0 15px 20px;
         a{
           text-decoration: none;
@@ -945,9 +1039,15 @@ section.artiste-infos{
       @media screen and (max-width: $break-big) {
         padding: 20px;
       }
+      P.no-content{
+        font-family: "GothamBold", sans-serif;
+        font-size: 25px;
+        letter-spacing: 3px;
+      }
       .block-changable-evenement-date{
         width: 200px;
         height: 117px;
+        padding: 30px;
         border: 2px solid $rose;
         display: flex;
         flex-direction: column;
@@ -955,6 +1055,7 @@ section.artiste-infos{
         /*padding: 20px;*/
         @media screen and (max-width: $break-big) {
           position: absolute;
+          padding: 0;
           width: 54px;
           height: 54px;
         }
@@ -984,9 +1085,12 @@ section.artiste-infos{
         h1{
           font-family: "GothamBold", sans-serif;
           font-size: 35px;
+          line-height: 35px;
+          letter-spacing: 3px;
           text-transform: uppercase;
           @media screen and (max-width: $break-big) {
             font-size: 15px;
+            line-height: 20px;
             padding-left: 65px;
           }
         }
@@ -994,6 +1098,7 @@ section.artiste-infos{
           display: block;
           font-family: 'GilroyLight', sans-serif;
           font-size: 15px;
+          letter-spacing: 3px;
           padding: 10px 0 30px;
           @media screen and (max-width: $break-big) {
             font-size: 13px;
@@ -1005,6 +1110,7 @@ section.artiste-infos{
           display: block;
           font-family: 'GilroyLight', sans-serif;
           font-size: 15px;
+          letter-spacing: 3px;
           padding: 10px 0 0 30px;
           &:before{
             position: absolute;
@@ -1023,6 +1129,7 @@ section.artiste-infos{
           display: block;
           font-family: 'GilroyLight', sans-serif;
           font-size: 15px;
+          letter-spacing: 3px;
           padding: 20px 0 0 30px;
           &:before{
             position: absolute;
@@ -1040,6 +1147,7 @@ section.artiste-infos{
           font-family: 'GilroyLight', sans-serif;
           font-size: 15px;
           line-height: 18px;
+          letter-spacing: 3px;
           padding-top: 20px;
           padding-left: 30px;
           @media screen and (max-width: $break-big) {
@@ -1082,18 +1190,34 @@ section.artiste-infos{
     h1{
       font-family: "GothamBlack", sans-serif;
       font-size: 45px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       @media screen and (max-width: $break-big) {
         font-size: 15px;
       }
     }
-    p{
-      font-family: 'GilroyLight', sans-serif;
-      font-size: 15px;
-      line-height: 24px;
+    div{
       padding-top: 40px;
       @media screen and (max-width: $break-big) {
         padding-top: 20px;
+      }
+      p{
+        font-family: 'GilroyLight', sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        letter-spacing: 3px;
+        padding-bottom: 10px;
+        strong{
+          font-family: 'GilroyBlack', sans-serif;
+        }
+        em{
+          font-style: italic;
+        }
+        a{
+          font-family: 'GilroyBlack', sans-serif;
+          text-decoration: none;
+          color: $rose;
+        }
       }
     }
   }
@@ -1162,18 +1286,23 @@ section.objectif-meloven{
       /*padding-top: 120px;*/
       font-family: "GothamBlack", sans-serif;
       font-size: 45px;
+      letter-spacing: 5px;
       @media screen and (max-width: $break-big) {
-        max-width: 150px;
+        max-width:100%;
         margin: 0 auto;
+        padding: 0 20px;
         font-size: 25px;
         line-height: 35px;
       }
     }
     p{
+      max-width: 844px;
+      margin: 0 auto;
       padding: 40px 0 80px;
       font-family: 'GilroyLight', sans-serif;
       font-size: 20px;
       line-height: 35px;
+      letter-spacing: 3px;
       @media screen and (max-width: $break-big) {
         font-size: 15px;
         line-height: 25px;
@@ -1223,11 +1352,15 @@ section.objectif-meloven{
 }
 #successMessage{
   display: none;
+  width: 300px;
+  margin: 10px auto;
   background-color: #00a65a;
-  color: #ffffff;
-  font-family: "GothamBlack", sans-serif;
-  font-size: 15px;
-  padding: 15px 30px 10px;
+  p{
+    color: #ffffff;
+    font-family: "GothamBlack", sans-serif;
+    font-size: 15px;
+    padding: 15px 20px 10px;
+  }
 }
 
 
@@ -1263,6 +1396,7 @@ header.qui-sommes-nous-header{
       font-family: "GothamBlack", sans-serif;
       font-size: 45px;
       line-height: 60px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       @media screen and (max-width: $break-big) {
         font-size: 20px;
@@ -1275,6 +1409,7 @@ header.qui-sommes-nous-header{
       font-family: "GilroyLight", sans-serif;
       font-size: 15px;
       line-height: 20px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       @media screen and (max-width: $break-big) {
         display: none;
@@ -1286,13 +1421,14 @@ header.qui-sommes-nous-header{
 section#promotion{
   /*padding-top: 180px;*/
   width: 100%;
-  background: url("./asset/img/NUAGE5.png");
+  background: url("./asset/img/bg/blue-nuage-bg.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-color: #e6edfc;
   & > h1{
     font-family: "GothamBlack", sans-serif;
     font-size: 45px;
+    letter-spacing: 5px;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 120px;
@@ -1336,6 +1472,7 @@ section#promotion{
         font-family: "GothamBlack", sans-serif;
         font-size: 20px;
         line-height: 28px;
+        letter-spacing: 3px;
         text-transform: uppercase;
         @media screen and (max-width: $break-big) {
           padding: 20px 0;
@@ -1347,6 +1484,7 @@ section#promotion{
         font-family: "GilroyLight", sans-serif;
         font-size: 15px;
         line-height: 21px;
+        letter-spacing: 3px;
         @media screen and (max-width: $break-big) {
           font-size: 13px;
           line-height: 19px;
@@ -1357,6 +1495,7 @@ section#promotion{
   }
   div.btn-block-inscription{
     text-align: center;
+    padding: 0 20px;
     @media screen and (max-width: $break-big) {
       margin-top: -40px;
     }
@@ -1365,11 +1504,12 @@ section#promotion{
       display: inline-block;
       font-family: "GothamBold", sans-serif;
       font-size: 15px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       background-color: $rose;
       color: #ffffff;
       text-decoration: none;
-      padding: 10px 60px;
+      padding: 11px 60px;
       border-radius: 5px;
       @media screen and (max-width: $break-big) {
         padding: 10px 20px;
@@ -1389,12 +1529,13 @@ section#goals{
     padding: 100px 20px 0;
   }
   & > h1{
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 0 20px;
     font-family: "GothamBlack", sans-serif;
     font-size: 25px;
     line-height: 30px;
+    letter-spacing: 5px;
     text-transform: uppercase;
     text-align: center;
     @media screen and (max-width: $break-big) {
@@ -1406,6 +1547,7 @@ section#goals{
     font-family: "GilroyLight", sans-serif;
     font-size: 20px;
     line-height: 21px;
+    letter-spacing: 3px;
     text-align: center;
     padding-top: 40px;
     @media screen and (max-width: $break-big) {
@@ -1440,7 +1582,27 @@ section#goals{
         margin: 40px 0 0;
         font-family: "GilroyLight", sans-serif;
         font-size: 15px;
-        line-height: 21px;
+        line-height: 18px;
+        letter-spacing: 3px;
+      }
+    }
+  }
+  div.btn-block-promo{
+    text-align: center;
+    a{
+      display: inline-block;
+      margin: 80px 0;
+      font-family: "GothamBold", sans-serif;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background-color: $rose;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 11px 60px;
+      border-radius: 5px;
+      @media screen and (max-width: $break-big) {
+        margin-bottom: 80px;
       }
     }
   }
@@ -1449,10 +1611,10 @@ section#goals{
 section#confidance{
   padding: 100px 0 0;
   width: 100%;
-  background: url("./asset/img/mountain-green.png");
+  /*background: url("./asset/img/mountain-green.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
+  background-position: top;*/
   div.btn-block-inscription{
     text-align: center;
     a{
@@ -1460,6 +1622,7 @@ section#confidance{
       margin-bottom: 180px;
       font-family: "GothamBold", sans-serif;
       font-size: 15px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       background-color: $rose;
       color: #ffffff;
@@ -1522,12 +1685,12 @@ section#confidance{
 
 
 section#objectif{
-  padding: 200px 0 100px;
-  width: 100%;
+  padding: 100px 0 100px;
+  /*width: 100%;
   background: url("./asset/img/mountain-green-bottom.png");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: top;
+  background-position: top;*/
   @media screen and (max-width: $break-big) {
     padding: 80px 0 0;
   }
@@ -1540,6 +1703,7 @@ section#objectif{
     h1{
       font-family: "GothamBlack", sans-serif;
       font-size: 45px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       text-align: center;
       @media screen and (max-width: $break-big) {
@@ -1550,10 +1714,13 @@ section#objectif{
       }
     }
     p{
-      margin: 80px 0 0;
+      max-width: 844px;
+      margin: 80px auto 0;
       font-family: "GilroyLight", sans-serif;
       font-size: 20px;
       line-height: 35px;
+      letter-spacing: 3px;
+      text-align: center;
       @media screen and (max-width: $break-big) {
         font-size: 15px;
         line-height: 25px;

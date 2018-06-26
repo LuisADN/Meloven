@@ -193,7 +193,7 @@ class User implements AdvancedUserInterface, \Serializable
 
 
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="simple_array")
      */
     private $videos;
 
@@ -220,7 +220,7 @@ class User implements AdvancedUserInterface, \Serializable
 
 
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="simple_array")
      */
     private $roles = ['ROLE_SIMPLEUSER'];
 
