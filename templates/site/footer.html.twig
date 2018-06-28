@@ -4,7 +4,7 @@
         <div class="contact-bloc">
             <div id="soutenir">
                 <h3>Soutenez-les</h3>
-                <p>Tu aimes écouter de nouveaux artistes? Rejoins l'expérience Meloven et découvre nos musiciens préférés !</p>
+                <p class="padding-soutenir">Tu aimes écouter de nouveaux artistes? Rejoins l'expérience Meloven et découvre nos musiciens préférés !</p>
                 <div class="div-btn">
                     <span class="button--bubble__container">
                       <a href="#" class="button button--bubble btn-souvenir">
@@ -47,7 +47,7 @@
         </div>
 
         <div class="contact-blog-soutenir" style="display: none;">
-            <p>Découvre leur actualité ou de nos artistes préférés et nos nouveaux talents avant tout le monde</p>
+            <p>Découvre l'actualité de nos artistes préférés et nos nouveaux talents avant tout le monde</p>
             <form id="signup">
                 <input type="email" id="request" name="request" placeholder="Adresse email...">
                 <input type="hidden" id="list" name="list" value="76c0a7833d">
@@ -103,26 +103,41 @@
 </section>
 <footer>
     <div class="footer-wrapper">
-        <h1 class="footer-logo"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1>
-        <div class="footer-bottom">
-            <div class="footer-menu">
+        <ul>
+            <li>
+                <h2>La musique partout autour de vous.</h2>
+            </li>
+            <li>
+                <h3><a class="underline--magical">Meloven</a></h3>
                 <ul>
-                    <li><a href="{{ path('qui_sommes_nous') }}">Qui est Moloven</a></li>
+                    <li><a href="{{ path('qui_sommes_nous') }}">Qui est Meloven</a></li>
                     <li><a href="{{ path('home') }}#artistes">Nos artistes</a></li>
                     <li><a href="{{ path('blog') }}" target="_blank">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="{{ path('mentions-legales') }}">Mentions légales</a></li>
                 </ul>
-            </div>
-            <div class="footer-rs">
-                <h1>Suis-nous sur nos réseaux !</h1>
+            </li>
+            <li>
+                <h3><a class="underline--magical">Contact</a></h3>
                 <ul>
-                    <li><a href="https://www.facebook.com/Meloven.fr" target="_blank"><img src="{{ asset('asset/img/svg/Facebook.svg') }}" alt="Facebook"></a></li>
-                    <li><a href="https://twitter.com/melovenfr" target="_blank"><img src="{{ asset('asset/img/svg/Twitter.svg') }}" alt="Twitter"></a></li>
-                    <li><a href="https://www.instagram.com/melovenfr/" target="_blank"><img src="{{ asset('asset/img/svg/Instagram.svg') }}" alt="Instagram"></a></li>
+                    <li>Contact@meloven.fr</li>
                 </ul>
-            </div>
-        </div>
+            </li>
+            <li>
+                <h3><a class="underline--magical">A propos</a></h3>
+                <ul>
+                    <li><a href="{{ path('mentions-legales') }}">Mentions légales</a></li>
+                    <li><a href="http://bit.ly/Kit-meloven" target="_blank">Kit Presse</a></li>
+                </ul>
+            </li>
+            <li>
+                <h3><a class="underline--magical">Rejoignez-nous</a></h3>
+                <ul class="rs-footer">
+                    <li><a class="facebook-rose-round" href="https://www.facebook.com/Meloven.fr" target="_blank"></a></li>
+                    <li><a class="youtube-rose-round" href="https://www.instagram.com/melovenfr/" target="_blank"></a></li>
+                    <li><a class="twitter-rose-round" href="https://twitter.com/melovenfr" target="_blank"></a></li>
+                </ul>
+            </li>
+        </ul>
+
     </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -241,12 +256,16 @@
                 behavior: 'smooth'
             });
         });
-        $(".btn-nos-artistes-nav").click(function(e) {
-            e.preventDefault();
-            document.querySelector('#artistes').scrollIntoView({
-                behavior: 'smooth'
+        console.log(window.location.pathname);
+        if( window.location.pathname == '/'){
+            $(".btn-nos-artistes-nav").click(function(e) {
+                e.preventDefault();
+                document.querySelector('#artistes').scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        });
+        }
+
     });
 </script>
 {#

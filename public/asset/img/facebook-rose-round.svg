@@ -1,0 +1,31 @@
+<svg id="facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f72d9c;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #f72d9c;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Facebook-2" data-name="Facebook" transform="translate(-51.049 -2950.159)">
+    <g id="Groupe_62" data-name="Groupe 62" transform="translate(65.671 2958.248)">
+      <path id="Tracé_24" data-name="Tracé 24" class="cls-1" d="M2.728,26.215H7.981V12.981h3.687l.4-4.445H7.981V6.011c0-1.061.2-1.465,1.212-1.465h2.879V0H8.435C4.5,0,2.728,1.717,2.728,5.051V8.587H0v4.5H2.728Z"/>
+    </g>
+  </g>
+  <g id="Ellipse_5" data-name="Ellipse 5" class="cls-2" transform="translate(0 0)">
+    <circle class="cls-3" cx="20.5" cy="20.5" r="20.5"/>
+    <circle class="cls-4" cx="20.5" cy="20.5" r="19.5"/>
+  </g>
+</svg>

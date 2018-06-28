@@ -39,7 +39,7 @@ class MainController extends Controller
     }
 
     /**
-     * @Route("/qui-est-moloven", name="qui_sommes_nous")
+     * @Route("/qui-est-meloven", name="qui_sommes_nous")
      */
     public function quiSommesNous()
     {

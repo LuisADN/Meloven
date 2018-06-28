@@ -60,7 +60,7 @@
                         <address>24 Rue de l’amiral Roussin<br>
                             75015 PARIS</address>#}
 
-                        <p>{{ musician.userDescription|easyadmin_truncate(300)|raw }}</p>
+                        <p>{{ musician.userDescription|easyadmin_truncate(300, false, "[...]")|raw }}</p>
                         <div class="div-btn">
                             <span class="button--bubble__container">
                               <a href="{{ path('artiste', {'slug':musician.slug}) }}" class="button button--bubble">
@@ -106,7 +106,7 @@
 
         <section class="objectif">
             <h1 class="title"><a class="underline--magical">Pourquoi rejoindre l’aventure ?</a></h1>
-            <p>Meloven rêve de partager avec toi son amour pour la musique et te donner envie de découvrir de nouveaux talents. Nous souhaitons également t'offrir la possibilité d’aider les artistes à vivre de leur passion et à réaliser leur rêves en mettant en place un système de dons grâce au paiement sans contact. Notre mission ultime: se retrouver tous ensemble lors d'un grand concert que nous organiserons et vivre un moment de partage magique.</p>
+            <p>Meloven rêve de partager avec toi son amour pour la musique et de te faire découvrir de nouveaux talents. Nous souhaitons également t'offrir la possibilité d’aider les artistes à vivre de leur passion en réalisant leur rêves en mettant en place un système de dons grâce au paiement sans contact. Notre mission ultime: se retrouver tous ensemble lors d'un grand concert que nous organiserons afin de vivre un moment de partage magique.</p>
             {#<div class="btn-objectif">
                 <a href="#">En savoir plus</a>
             </div>#}
@@ -126,7 +126,7 @@
                             </figure>
                             <span>{{ post.user.firstName }} de Meloven</span>
                             <h1>{{ post.title }}</h1>
-                            <p>{{ post.description }}</p>
+                            <p>{{ post.description|easyadmin_truncate(75, false, "[...]") }}</p>
                             <div class="div-btn">
                                 <span class="button--bubble__container">
                                   <a href="{{ path('site_post_show', {'slug': post.slug}) }}" class="button button--bubble">
