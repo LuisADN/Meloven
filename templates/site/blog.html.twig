@@ -28,7 +28,7 @@
                     <a href="{{ path('site_post_show', {'slug': last_post[0].slug}) }}">
                         <div class="article-one-author">
                             <div class="article-one-image-oveflow">
-                                <img src="{{ asset('asset/img/') }}{{ last_post[0].user.avatar }}" alt="{{ last_post[0].user.firstName }} {{ last_post[0].user.lastName }}">
+                                <img src="{{ asset('media/') }}{{ last_post[0].user.avatar }}" alt="{{ last_post[0].user.firstName }} {{ last_post[0].user.lastName }}">
                             </div>
                             <div class="article-one-author-description">
                                 <h1>{{ last_post[0].user.firstName }} {{ last_post[0].user.lastName }} de Meloven</h1>
@@ -55,7 +55,7 @@
                         <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
                             <div class="author">
                                 <div class="image-oveflow">
-                                    <img src="{{ asset('asset/img/') }}{{ blog_post.user.avatar }}" alt="{{ blog_post.user.firstName }} {{ blog_post.user.lastName }}">
+                                    <img src="{{ asset('media/') }}{{ blog_post.user.avatar }}" alt="{{ blog_post.user.firstName }} {{ blog_post.user.lastName }}">
                                 </div>
                                 <div class="author-description">
                                     <h1>{{ blog_post.user.firstName }} {{ blog_post.user.lastName }} de Meloven</h1>

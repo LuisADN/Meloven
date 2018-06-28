@@ -70,8 +70,10 @@
                             <span>Organisé par {{ event_info.organizer }}</span>
                             <adress>{{ event_info.adress }}</adress>
                             <time>{{ event_info.hour }}</time>
-                            <p>{{ event_info.description }}</p>
-                            {#<a class="btn-igo" href="#">j'y vais</a>#}
+                            <p>{{ event_info.description|raw }}</p>
+                            {% if event_info.btnUrl is defined and event_info.btnUrl is not null and event_info.btnUrl is not empty %}
+                            <a class="btn-igo" href="{{ event_info.btnUrl }}" target="_blank">{{ event_info.btnName }}</a>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
@@ -90,7 +92,7 @@
                         {% for video in user_info[0].videos %}
                             {#{{ dump(video) }}#}
                             <div class="unity">
-                                <iframe src="{{ video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/{{ video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
                         {% endfor %}
                     </div>
@@ -98,25 +100,25 @@
 
                 <div id="block-changable-photos" class="block-changable-photos">
                     <div class="block-changable-photos-unity">
-                        <figure class="unity"><img onclick="openModal();currentSlide(1)" src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img onclick="openModal();currentSlide(2)" src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img onclick="openModal();currentSlide(3)" src="http://via.placeholder.com/180x180" alt=""></figure>
-                        <figure class="unity"><img onclick="openModal();currentSlide(4)" src="http://via.placeholder.com/180x180" alt=""></figure>
+
+                        {% for photo in user_info[0].photos %}
+                            <figure class="unity"><img onclick="openModal();currentSlide({{ loop.index }})" src="{{ asset('media/') }}{{ photo }}" alt=""></figure>
+                        {% endfor %}
                     </div>
                 </div>
 
             </div>
         </div>
-    </section>
+    {#</section>#}
 
     {#<section class="google-maps">
         <div id="map" style="height: 400px;width: 100%;"></div>
     </section>#}
 
-    <section class="objectif-meloven">
+    {#<section class="objectif-meloven">#}
         <div class="objectif-meloven-content">
-            <h1>Objectif de Meloven</h1>
-            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l’imprimerie depuis les années 1500.</p>
+            <h1><a class="underline--magical">Pourquoi rejoindre l’aventure ?</a></h1>
+            <p>Meloven rêve de partager avec toi son amour pour la musique et te donner envie de découvrir de nouveaux talents. Nous souhaitons également t'offrir la possibilité d’aider les artistes à vivre de leur passion et à réaliser leur rêves en mettant en place un système de dons grâce au paiement sans contact. Notre mission ultime: se retrouver tous ensemble lors d'un grand concert que nous organiserons et vivre un moment de partage magique.</p>
             {#<a href="#">Chercher</a>#}
         </div>
     </section>
@@ -128,21 +130,12 @@
         <span class="close cursor" onclick="closeModal()">&times;</span>
         <div class="modal-content">
 
-            <div class="mySlides">
-                <img src="https://source.unsplash.com/random/1200x1000">
-            </div>
 
+            {% for photo in user_info[0].photos %}
             <div class="mySlides">
-                <img src="https://source.unsplash.com/random/1200x600">
+                <img src="{{ asset('media/') }}{{ photo }}">
             </div>
-
-            <div class="mySlides">
-                <img src="https://source.unsplash.com/random/1200x600">
-            </div>
-
-            <div class="mySlides">
-                <img src="https://source.unsplash.com/random/1200x600">
-            </div>
+            {% endfor %}
 
             <!-- Next/previous controls -->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -160,8 +153,14 @@
     <script>
         // Change the Background image of the page Artise
         if ($("header.header-artiste")[0]){
-            $('header.header-artiste').css("background-image", "url({{ asset('media/') }}{{ user_info[0].backgroundImage }})");
+            $("header.header-artiste").css("background-image", "url({{ asset('media/') }}{{ user_info[0].backgroundImage }})");
         }
-        //$('header.header-artiste').css("background-image", "url({{ asset('media/') }}{{ user_info[0].backgroundImage }})");
+
+
+        /*$('#myModal').on('click', function() {
+            console.log('ok');
+            $('.modal').css('display', 'none');
+        });*/
+
     </script>
 {% endblock %}

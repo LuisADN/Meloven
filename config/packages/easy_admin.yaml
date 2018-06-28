@@ -6,6 +6,7 @@ easy_admin:
       - User
       - BlogPost
       - Event
+      - Photo
   list:
     title: 'Liste des %%entity_label%%'
     actions: ['show']
@@ -42,6 +43,7 @@ easy_admin:
           - { property: email, label: 'Adresse email' }
           - { property: avatarFile, label: 'Photo de profil', type: 'vich_image' }
           - { property: backgroundImageFile, label: 'Photo fond, page profil', type: 'vich_image' }
+          - { property: photos, label: 'Gallery de photos' }
           - { property: isActive, label: 'Actif' }
           - { property: isAdmin, label: 'Admin' }
           - { property: videos, label: 'Videos' }
@@ -55,19 +57,34 @@ easy_admin:
           - id
           - Title
     Event:
-          class: App\Entity\Event
-          label: 'Events list'
-          list:
-            title: 'Event'
-            fields:
-              - id
-              - Title
-          form:
-            fields:
-              - { property: title, label: 'Titre' }
-              - { property: organizer, label: 'Organisateur' }
-              - { property: adress, label: 'Adresse' }
-              - { property: date, label: 'Date'}
-              - { property: hour, label: "Heure de l'évenement" }
-              - { property: description, label: 'Description', type: 'ckeditor' }
-              - { property: user, label: 'Actif' }
+      class: App\Entity\Event
+      label: 'Events list'
+      list:
+        title: 'Event'
+        fields:
+          - id
+          - Title
+      form:
+        fields:
+          - { property: title, label: 'Titre' }
+          - { property: organizer, label: 'Organisateur' }
+          - { property: adress, label: 'Adresse' }
+          - { property: date, label: 'Date'}
+          - { property: hour, label: "Heure de l'évenement" }
+          - { property: description, label: 'Description', type: 'ckeditor' }
+          - { property: user, label: 'Actif' }
+          - { property: btnName, label: 'Nom du bouton' }
+          - { property: btnUrl, label: 'Url du bouton' }
+    Photo:
+      class: App\Entity\Photo
+      label: 'Photo'
+      list:
+        title: 'Liste des photos'
+        fields:
+          - id
+          - { property: photo, label: 'Photo', type: image, base_path: '/media/' }
+          - { property: user, label: 'User'}
+      form:
+        fields:
+          - { property: photoFile, label: 'Photo', type: 'vich_image'}
+          - { property: user, label: 'User', type_options: { by_reference: false }}

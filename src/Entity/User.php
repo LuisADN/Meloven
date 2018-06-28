@@ -197,6 +197,46 @@ class User implements AdvancedUserInterface, \Serializable
      */
     private $videos;
 
+
+    /**
+     * Many Parties have Many Users.
+     * @ORM\ManyToMany(targetEntity="Photo", inversedBy="userImage", cascade={"persist"})
+     */
+    private $photos;
+
+    /**
+     * @return mixed
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+
+    /**
+     * @param mixed $photos
+     */
+    public function setPhotos($photos)
+    {
+        $this->photos = $photos;
+    }
+
+    public function addPhotos($photos)
+    {
+        if (!$this->photos->contains($photos)) {
+            $this->photos->add($photos);
+        }
+        return $this;
+    }
+
+    public function removePhotos($photos)
+    {
+        if ($this->photos->contains($photos)) {
+            $this->photos->removeElement($photos);
+        }
+    }
+
+
+
     /**
      * @return mixed
      */
@@ -295,6 +335,7 @@ class User implements AdvancedUserInterface, \Serializable
         $this->isActive = true;
         $this->updatedAt = new \DateTime();
         $this->blogPost = new ArrayCollection();
+        $this->photos = new ArrayCollection();
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
     }

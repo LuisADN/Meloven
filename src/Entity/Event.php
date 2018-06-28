@@ -76,6 +76,50 @@ class Event
      */
     private $description;
 
+    /**
+     * @ORM\Column(name="btn_name", type="string", nullable=true)
+     */
+    private $btnName;
+
+    /**
+     * @ORM\Column(name="btn_url", type="string", nullable=true)
+     */
+    private $btnUrl;
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getBtnName()
+    {
+        return $this->btnName;
+    }
+
+    /**
+     * @param mixed $btnName
+     */
+    public function setBtnName($btnName)
+    {
+        $this->btnName = $btnName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBtnUrl()
+    {
+        return $this->btnUrl;
+    }
+
+    /**
+     * @param mixed $btnUrl
+     */
+    public function setBtnUrl($btnUrl)
+    {
+        $this->btnUrl = $btnUrl;
+    }
+
 
 
     public function getId()

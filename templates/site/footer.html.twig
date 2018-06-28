@@ -1,25 +1,103 @@
 <section id="contact" class="contact">
     <div class="container-contact">
-        <h1 class="title"><a class="underline--magical">Contactez-nous</a></h1>
+        <h1 class="title"><a class="underline--magical">Rejoignez-nous</a></h1>
         <div class="contact-bloc">
-            <div>
-                <h3>Pour soutenir</h3>
-                <p>Vous souhaitez découvrir des artistes et suivre l’actualité des spectacles de rue proche de chez vous ?</p>
-                <a class="btn-souvenir" href="#">Je veux soutenir</a>
+            <div id="soutenir">
+                <h3>Soutenez-les</h3>
+                <p>Tu aimes écouter de nouveaux artistes? Rejoins l'expérience Meloven et découvre nos musiciens préférés !</p>
+                <div class="div-btn">
+                    <span class="button--bubble__container">
+                      <a href="#" class="button button--bubble btn-souvenir">
+                        Je veux soutenir
+                      </a>
+                      <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                      </span>
+                    </span>
+                </div>
+                {#<a class="btn-souvenir" href="#">Je veux soutenir</a>#}
             </div>
-            <div>
-                <h3>Pour devenir</h3>
-                <p>Vous chantez dans la rue et souhaitez plus de visibilité et de notoriété ? Vous avez des objectifs concrets ? Meloven, c’est votre promotion gratuite !</p>
-                <a href="mailto:contact@meloven.fr">Je suis artiste</a>
+            <div id="realisez">
+                <h3>Réalisez-vous</h3>
+                <p>Tu es passionné par la musique? Tu veux en faire ton métier ? Meloven t’aide à réaliser ce rêve en t’apportant plus de visibilité afin de booster ta notoriété.</p>
+                <div class="div-btn">
+                    <span class="button--bubble__container">
+                      <a href="#" class="button button--bubble btn-realisez">
+                        Je suis artiste
+                      </a>
+                      <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                      </span>
+                    </span>
+                </div>
+                {#<a class="btn-realisez" href="mailto:contact@meloven.fr">Je suis artiste</a>#}
             </div>
         </div>
 
-        <form id="signup">
-            <input type="email" id="request" name="request">
-            <input type="hidden" id="list" name="list" value="76c0a7833d">
-            <input type="submit" value="Incription">
-        </form>
-        <div id="successMessage"><p></p></div>
+        <div class="contact-blog-soutenir" style="display: none;">
+            <p>Découvre leur actualité ou de nos artistes préférés et nos nouveaux talents avant tout le monde</p>
+            <form id="signup">
+                <input type="email" id="request" name="request" placeholder="Adresse email...">
+                <input type="hidden" id="list" name="list" value="76c0a7833d">
+                <div class="div-btn">
+                <span class="button--bubble__container">
+                  <input type="submit" value="Inscription" class="button button--bubble">
+                  <span class="button--bubble__effect-container">
+                    <span class="circle top-left"></span>
+                    <span class="circle top-left"></span>
+                    <span class="circle top-left"></span>
+                    <span class="button effect-button"></span>
+                    <span class="circle bottom-right"></span>
+                    <span class="circle bottom-right"></span>
+                    <span class="circle bottom-right"></span>
+                  </span>
+                </span>
+                </div>
+                {#<input type="submit" value="Inscription">#}
+            </form>
+            <a href="#" class="revenir-en-arriere">Revenir en arrière</a>
+            <div id="successMessage"><p></p></div>
+        </div>
+
+
+        <div class="contact-blog-devenir" style="display: none;">
+            <p>Présente toi et explique nous ton projet en quelques mot, nous reviendrons vers toi le plus vite possible !</p>
+            <form id="signup">
+                <input type="email" id="request" name="request" placeholder="Adresse email...">
+                {#<textarea name="body" id="body" cols="20" rows="10"></textarea>#}
+                <input type="hidden" id="list" name="list" value="76c0a7833d">
+                <div class="div-btn">
+                <span class="button--bubble__container">
+                  <input type="submit" value="Inscription" class="button button--bubble">
+                  <span class="button--bubble__effect-container">
+                    <span class="circle top-left"></span>
+                    <span class="circle top-left"></span>
+                    <span class="circle top-left"></span>
+                    <span class="button effect-button"></span>
+                    <span class="circle bottom-right"></span>
+                    <span class="circle bottom-right"></span>
+                    <span class="circle bottom-right"></span>
+                  </span>
+                </span>
+                </div>
+                {#<input type="submit" value="Inscription">#}
+            </form>
+            <a href="#" class="revenir-en-arriere">Revenir en arrière</a>
+            <div id="successMessage"><p></p></div>
+        </div>
+
 
     </div>
 </section>
@@ -62,9 +140,22 @@
     $(document).ready(function() {
         $('.btn-souvenir').click(function(e) {
             e.preventDefault();
-            $("#signup").show().css('display', 'flex');
+            $('.contact-bloc').fadeOut();
+            $(".contact-blog-soutenir").delay( 300 ).fadeIn();
         });
 
+        $('.btn-realisez').click(function(e) {
+            e.preventDefault();
+            $('.contact-bloc').fadeOut();
+            $(".contact-blog-devenir").delay( 300 ).fadeIn();
+        });
+
+        $('.revenir-en-arriere').click(function(e) {
+            e.preventDefault();
+            $(".contact-blog-soutenir").fadeOut();
+            $(".contact-blog-devenir").fadeOut();
+            $('.contact-bloc').delay( 300 ).fadeIn();
+        });
 
 
         $('#signup').submit(function() {
@@ -144,6 +235,18 @@
                 behavior: 'smooth'
             });
         });
+        $(".btn-contact-nav").click(function(e) {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        $(".btn-nos-artistes-nav").click(function(e) {
+            e.preventDefault();
+            document.querySelector('#artistes').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 </script>
 {#
@@ -214,9 +317,61 @@
         $('.qui-sommes-nous-header-content audio').play();
     });*/
 
-    /*function PlaySound(soundobj) {
+    function PlaySound(soundobj) {
         var thissound=document.getElementById(soundobj);
         thissound.play();
-    }*/
+    }
 
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
+<script>
+    $('.button--bubble').each(function() {
+        var $circlesTopLeft = $(this).parent().find('.circle.top-left');
+        var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
+
+        var tl = new TimelineLite();
+        var tl2 = new TimelineLite();
+
+        var btTl = new TimelineLite({ paused: true });
+
+        tl.to($circlesTopLeft, 1.2, { x: -25, y: -25, scaleY: 2, ease: SlowMo.ease.config(0.1, 0.7, false) });
+        tl.to($circlesTopLeft.eq(0), 0.1, { scale: 0.2, x: '+=6', y: '-=2' });
+        tl.to($circlesTopLeft.eq(1), 0.1, { scaleX: 1, scaleY: 0.8, x: '-=10', y: '-=7' }, '-=0.1');
+        tl.to($circlesTopLeft.eq(2), 0.1, { scale: 0.2, x: '-=15', y: '+=6' }, '-=0.1');
+        tl.to($circlesTopLeft.eq(0), 1, { scale: 0, x: '-=5', y: '-=15', opacity: 0 });
+        tl.to($circlesTopLeft.eq(1), 1, { scaleX: 0.4, scaleY: 0.4, x: '-=10', y: '-=10', opacity: 0 }, '-=1');
+        tl.to($circlesTopLeft.eq(2), 1, { scale: 0, x: '-=15', y: '+=5', opacity: 0 }, '-=1');
+
+        var tlBt1 = new TimelineLite();
+        var tlBt2 = new TimelineLite();
+
+        tlBt1.set($circlesTopLeft, { x: 0, y: 0, rotation: -45 });
+        tlBt1.add(tl);
+
+        tl2.set($circlesBottomRight, { x: 0, y: 0 });
+        tl2.to($circlesBottomRight, 1.1, { x: 30, y: 30, ease: SlowMo.ease.config(0.1, 0.7, false) });
+        tl2.to($circlesBottomRight.eq(0), 0.1, { scale: 0.2, x: '-=6', y: '+=3' });
+        tl2.to($circlesBottomRight.eq(1), 0.1, { scale: 0.8, x: '+=7', y: '+=3' }, '-=0.1');
+        tl2.to($circlesBottomRight.eq(2), 0.1, { scale: 0.2, x: '+=15', y: '-=6' }, '-=0.2');
+        tl2.to($circlesBottomRight.eq(0), 1, { scale: 0, x: '+=5', y: '+=15', opacity: 0 });
+        tl2.to($circlesBottomRight.eq(1), 1, { scale: 0.4, x: '+=7', y: '+=7', opacity: 0 }, '-=1');
+        tl2.to($circlesBottomRight.eq(2), 1, { scale: 0, x: '+=15', y: '-=5', opacity: 0 }, '-=1');
+
+        tlBt2.set($circlesBottomRight, { x: 0, y: 0, rotation: 45 });
+        tlBt2.add(tl2);
+
+        btTl.add(tlBt1);
+        btTl.to($(this).parent().find('.button.effect-button'), 0.8, { scaleY: 1.1 }, 0.1);
+        btTl.add(tlBt2, 0.2);
+        btTl.to($(this).parent().find('.button.effect-button'), 1.8, { scale: 1, ease: Elastic.easeOut.config(1.2, 0.4) }, 1.2);
+
+        btTl.timeScale(2.6);
+
+        $(this).on('mouseover', function() {
+            btTl.restart();
+        });
+    });
 </script>

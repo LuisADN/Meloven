@@ -4,9 +4,25 @@
     </figure>
     <ul>
         <a href="{{ path('qui_sommes_nous') }}"><li>Qui est Meloven</li></a>
-        <a href="{{ path('home') }}#artistes"><li>Nos artistes</li></a>
+        <a href="{{ path('home') }}#artistes" class="btn-nos-artistes-nav"><li>Nos artistes</li></a>
         <a href="{{ path('blog') }}" target="_blank"><li>Blog</li></a>
         {#<a href="#"><li>Contact</li></a>#}
-        <a href="#contact" class="btn-discover"><li>Vous êtes un(e) artiste ?</li></a>
+        <div class="div-btn">
+            <span class="button--bubble__container">
+              <a href="#contact" class="button button--bubble btn-contact-nav">
+                Vous êtes un(e) artiste ?
+              </a>
+              <span class="button--bubble__effect-container">
+                <span class="circle top-left"></span>
+                <span class="circle top-left"></span>
+                <span class="circle top-left"></span>
+                <span class="button effect-button"></span>
+                <span class="circle bottom-right"></span>
+                <span class="circle bottom-right"></span>
+                <span class="circle bottom-right"></span>
+              </span>
+            </span>
+        </div>
+        {#<a href="#contact" class="btn-discover"><li>Vous êtes un(e) artiste ?</li></a>#}
     </ul>
 </nav>

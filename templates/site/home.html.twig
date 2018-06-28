@@ -25,25 +25,25 @@
 
         <section id="explain" class="explain">
             <div class="container">
-                <figure>
+                {#<figure>
                     <img src="{{ asset('asset/img/cascade.png') }}" alt="">
-                </figure>
-                {#<video autoplay>
-                    <source src="{{ asset('asset/video/cascade.mp4') }}" type="video/mp4">
+                </figure>#}
+                <video autoplay loop>
+                    <source src="{{ asset('asset/video/cascadeV2.mp4') }}" type="video/mp4">
                     Your browser does not support the video tag.
-                </video>#}
+                </video>
                 <div>
-                    <h1>Faire émerger les artistes de rue</h1>
-                    <h2>Découvrez et soutenez des talents</h2>
-                    <p>Les rues de nos villes regorgent de talents. Groupe de rock, jeune rappeur ou bien même chanteuse Pop, ces musiciens ont l’incroyable pouvoir d’arrêter le temps pour nous faire frissonner au cours d’un instant. Meloven fait tous simplement la publicité de ces perles rares !</p>
+                    <h1>Vous rêvez d’un monde tout en musique ?</h1>
+                    <h2>Venez découvrir de</br> nouveaux talents !</h2>
+                    <p>Explorateurs dans l’âme, chaque jour, nous avons pour mission de dénicher de nouveaux talents. Un seul objectif, créer un monde tout en musique et haut en couleur !</p>
                 </div>
             </div>
         </section>
 
-        <section id="artistes" class="artistes">
+        <section class="artistes">
             <div class="artistes-header">
-                <h1 class="title"><a class="underline--magical">Nos artistes de rue</a></h1>
-                <span>de talents</span>
+                <h1 id="artistes" class="title"><a class="underline--magical">Nos artistes de rue</a></h1>
+                <span>ont du talent</span>
             </div>
 
 
@@ -61,10 +61,26 @@
                             75015 PARIS</address>#}
 
                         <p>{{ musician.userDescription|easyadmin_truncate(300)|raw }}</p>
-                        <a href="{{ path('artiste', {'slug':musician.slug}) }}">Découvrir</a>
+                        <div class="div-btn">
+                            <span class="button--bubble__container">
+                              <a href="{{ path('artiste', {'slug':musician.slug}) }}" class="button button--bubble">
+                                Découvrir
+                              </a>
+                              <span class="button--bubble__effect-container">
+                                <span class="circle top-left"></span>
+                                <span class="circle top-left"></span>
+                                <span class="circle top-left"></span>
+                                <span class="button effect-button"></span>
+                                <span class="circle bottom-right"></span>
+                                <span class="circle bottom-right"></span>
+                                <span class="circle bottom-right"></span>
+                              </span>
+                            </span>
+                        </div>
+                        {#<a href="{{ path('artiste', {'slug':musician.slug}) }}">Découvrir</a>#}
                     </div>
                     <figure>
-                        <img src="{{ asset('media/') }}{{ musician.avatar }}" alt="">
+                        <a href="{{ path('artiste', {'slug':musician.slug}) }}"><img src="{{ asset('media/') }}{{ musician.avatar }}" alt=""></a>
                     </figure>
                 </article>
                 {% endfor %}
@@ -89,8 +105,8 @@
         </section>
 
         <section class="objectif">
-            <h1 class="title"><a class="underline--magical">Objectif de Meloven</a></h1>
-            <p>Les artistes qui chantent dans la rue veulent vivre de leur passion ! Pour cela, <strong>Meloven</strong> promeut des artistes ayant pour but de promouvoir un projet comme la création d’un album mais <strong>Meloven</strong> tente aussi de dénicher des opportunités de contrat pour les artistes.</p>
+            <h1 class="title"><a class="underline--magical">Pourquoi rejoindre l’aventure ?</a></h1>
+            <p>Meloven rêve de partager avec toi son amour pour la musique et te donner envie de découvrir de nouveaux talents. Nous souhaitons également t'offrir la possibilité d’aider les artistes à vivre de leur passion et à réaliser leur rêves en mettant en place un système de dons grâce au paiement sans contact. Notre mission ultime: se retrouver tous ensemble lors d'un grand concert que nous organiserons et vivre un moment de partage magique.</p>
             {#<div class="btn-objectif">
                 <a href="#">En savoir plus</a>
             </div>#}
@@ -105,19 +121,53 @@
                             <figure>
                                 <img src="{{ asset('media/') }}{{ post.cover }}" alt="">
                                 <span>
-                                    <img src="{{ asset('asset/img/') }}{{ post.user.avatar }}" alt="">
+                                    <img src="{{ asset('media/') }}{{ post.user.avatar }}" alt="">
                                 </span>
                             </figure>
                             <span>{{ post.user.firstName }} de Meloven</span>
                             <h1>{{ post.title }}</h1>
                             <p>{{ post.description }}</p>
-                            <a  href="{{ path('site_post_show', {'slug': post.slug}) }}">Découvrir</a>
+                            <div class="div-btn">
+                                <span class="button--bubble__container">
+                                  <a href="{{ path('site_post_show', {'slug': post.slug}) }}" class="button button--bubble">
+                                    Découvrir
+                                  </a>
+                                  <span class="button--bubble__effect-container">
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="button effect-button"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                  </span>
+                                </span>
+                            </div>
+                            {# <a  href="{{ path('site_post_show', {'slug': post.slug}) }}">Découvrir</a> #}
                         </article>
                     {% endfor %}
                 </div>
             </div>
             <div class="btn-parcourir-blog">
-                <a href="{{ path('blog') }}">Parcourir le blog</a>
+                {#<a href="{{ path('blog') }}">Parcourir le blog</a>#}
+                <div class="div-btn">
+                    <span class="button--bubble__container">
+                      <a href="{{ path('blog') }}" class="button button--bubble">
+                        Parcourir le blog
+                      </a>
+                      <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                      </span>
+                    </span>
+                </div>
             </div>
+
+
         </section>
 {% endblock %}
