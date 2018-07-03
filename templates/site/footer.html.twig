@@ -21,7 +21,6 @@
                       </span>
                     </span>
                 </div>
-                {#<a class="btn-souvenir" href="#">Je veux soutenir</a>#}
             </div>
             <div id="realisez">
                 <h3>Réalisez-vous</h3>
@@ -42,7 +41,6 @@
                       </span>
                     </span>
                 </div>
-                {#<a class="btn-realisez" href="mailto:contact@meloven.fr">Je suis artiste</a>#}
             </div>
         </div>
 
@@ -54,50 +52,69 @@
                 <small id="emailHelp" class="valid">Merci d'avoir souscrit à la newsletter !</small>
                 <input type="hidden" id="list" name="list" value="76c0a7833d">
                 <div class="div-btn">
-                <span class="button--bubble__container">
-                  <input type="submit" value="Inscription" class="button button--bubble">
-                  <span class="button--bubble__effect-container">
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="button effect-button"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
-                  </span>
-                </span>
+                    <span class="button--bubble__container">
+                      <input type="submit" value="Inscription" class="button button--bubble">
+                      <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                      </span>
+                    </span>
                 </div>
-                {#<input type="submit" value="Inscription">#}
             </form>
             <a href="#" class="revenir-en-arriere">Revenir en arrière</a>
-            <div id="successMessage"><p></p></div>
         </div>
 
 
         <div class="contact-blog-devenir" style="display: none;">
             <p>Présente toi et explique nous ton projet en quelques mot, nous reviendrons vers toi le plus vite possible !</p>
-            <form id="signup">
-                <input type="email" id="request" name="request" placeholder="Adresse email...">
-                {#<textarea name="body" id="body" cols="20" rows="10"></textarea>#}
-                <input type="hidden" id="list" name="list" value="76c0a7833d">
+            <form id="just-email">
+                <input type="email" id="request-two" name="request-two" placeholder="Adresse email...">
+                <small id="emailHelp" class="error-two">Votre adresse email est invalide !</small>
                 <div class="div-btn">
-                <span class="button--bubble__container">
-                  <input type="submit" value="Inscription" class="button button--bubble">
-                  <span class="button--bubble__effect-container">
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="button effect-button"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
-                  </span>
-                </span>
+                    <span class="button--bubble__container">
+                        <a id="continuer" class="button button--bubble">Continuer</a>
+                      <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                      </span>
+                    </span>
                 </div>
-                {#<input type="submit" value="Inscription">#}
             </form>
             <a href="#" class="revenir-en-arriere">Revenir en arrière</a>
-            <div id="successMessage"><p></p></div>
+        </div>
+
+
+        <div class="contact-blog-devenir-send" style="display: none;">
+            <p>Présente toi et explique nous ton projet en quelques mot, nous reviendrons vers toi le plus vite possible !</p>
+            <form id="signup-two">
+                <textarea name="body-message" id="body-message" cols="30" rows="10"></textarea>
+                <small id="emailHelp" class="valid-two">Votre message a été envoyé, merci !</small>
+                <div class="div-btn">
+                    <span class="button--bubble__container">
+                      <input type="submit" value="Envoyer" class="button button--bubble">
+                      <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                      </span>
+                    </span>
+                </div>
+            </form>
+            <a href="#" class="revenir-en-arriere-two">Revenir en arrière</a>
         </div>
 
 
@@ -185,6 +202,11 @@
 
 <script>
     $(document).ready(function() {
+
+        /*$('form.just-email').click(function(e) {
+            e.preventDefault();
+        });*/
+
         $('.btn-souvenir').click(function(e) {
             e.preventDefault();
             $('.contact-bloc').fadeOut();
@@ -205,35 +227,60 @@
         });
 
 
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+        $('#continuer').click(function(e) {
+            e.preventDefault();
+            var email = $('#request-two').val();
+            if (validateEmail(email)) {
+                $(".contact-blog-devenir").fadeOut();
+                $(".contact-blog-devenir-send").delay( 300 ).fadeIn();
+            } else {
+                console.log('mail error')
+                $(".error-two").show();
+                setTimeout(function() {
+                    $(".error-two").hide()
+                }, 3000);
+            }
+        });
+
+        $('#signup-two').submit(function(e) {
+            e.preventDefault();
+            $(".valid-two").show();
+            setTimeout(function() {
+                $(".valid-two").hide()
+            }, 5000);
+            setTimeout(function() {
+                $(".contact-blog-soutenir").fadeOut();
+                $(".contact-blog-devenir").fadeOut();
+                $(".contact-blog-devenir-send").fadeOut();
+                $('.contact-bloc').delay( 300 ).fadeIn();
+            }, 5000);
+            var data = {
+                request : $('#request-two').val(),
+                body : $('#body-message').val(),
+            };
+            console.log(data);
+            $('#request-two').val('');
+            $('#body-message').val('');
+        });
+
+        $('.revenir-en-arriere-two').click(function(e) {
+            e.preventDefault();
+            $(".contact-blog-devenir-send").fadeOut();
+            $(".contact-blog-devenir").delay( 300 ).fadeIn();
+        });
+
+
         /*function validateEmail(email) {
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
         }*/
 
         $('#signup').submit(function() {
-            /*var email = $("#request").val();
-            /!*$result.text("");*!/
-            if (validateEmail(email) == true) {
-                console.log('not ok');
-                var $result = $(".error");
-                /!*$result.text(email + " is valid :)");*!/
-                $result.css("display", "block");
-                function hideBlock() {
-                    $result.css("display", "none");
-                }
-                setTimeout(hideBlock, 2000);
-            } else {
-                console.log('ok');
-                var $result = $(".valid");
-                /!*$result.text(email + " is not valid :(");*!/
-                $result.css("display", "block");
-                function hideBlock() {
-                    $result.css("display", "none");
-                }
-                setTimeout(hideBlock, 2000);
-            }
-            /!*return false;*!/*/
-
             var data = {
                 request : $('#request').val(),
                 list : $('#list').val(),
@@ -244,14 +291,15 @@
                 type: 'POST', // <- IMPORTANT
                 data: data,
                 success: function(msg) {
-                    $("#successMessage p").html('Merci pour votre inscription !');
-                    $("#successMessage").show();
+                    //$("#successMessage p").html('Merci pour votre inscription !');
+                    $(".valid").show();
                     setTimeout(function() {
-                        $("#successMessage").hide()
+                        $(".valid").hide()
                     }, 5000);
                     $("#request").val('');
                     var message = $.parseJSON(msg),
                         result = '';
+                    console.log(message.status);
                     if (message.status === 'pending') { // success
                         result = 'Success!  Please click the confirmation link that will be emailed to you shortly.';
                     } else { // error
@@ -321,13 +369,13 @@
                 behavior: 'smooth'
             });
         });
-        $(".btn-contact-nav").click(function(e) {
+        /*$(".btn-contact-nav").click(function(e) {
             e.preventDefault();
             document.querySelector('#contact').scrollIntoView({
                 behavior: 'smooth'
             });
-        });
-        console.log(window.location.pathname);
+        });*/
+        /*console.log(window.location.pathname);*/
         if( window.location.pathname == '/'){
             $(".btn-nos-artistes-nav").click(function(e) {
                 e.preventDefault();

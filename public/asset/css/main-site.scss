@@ -699,7 +699,7 @@ section.artistes{
           font-family: "GothamBold", sans-serif;
           font-size: 25px;
           line-height: 35px;
-          margin-top: 30px;
+          margin-top: 10px;
           text-transform: uppercase;
         }
         time{
@@ -1565,6 +1565,7 @@ section.artiste-infos{
       margin: 1%;
       width: 31%;
       overflow: hidden;
+      cursor: pointer;
       &:before{
         content: "";
         display: block;
@@ -1718,7 +1719,7 @@ div.contact-blog-devenir{
     letter-spacing: 2px;
     padding: 0 60px;
   }
-  #signup{
+  #just-email{
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -1733,13 +1734,35 @@ div.contact-blog-devenir{
       /*border-radius: 5px;*/
       border-bottom: 2px solid rgba(44, 44, 45, 0.5);
       width: 522px;
-      margin: 0 auto 60px;
+      margin: 0 auto;
       text-align: center;
       font-family: "GothamLight", sans-serif;
       font-size: 25px;
       @media screen and (max-width: $break-big) {
         max-width: 300px;
       }
+    }
+    div.div-btn{
+      margin-top: 60px;
+    }
+    small#emailHelp{
+      width: 522px;
+      margin: 0 auto;
+      font-family: "GothamBold", sans-serif;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: left;
+      @media screen and (max-width: $break-big) {
+        text-align: center;
+      }
+    }
+    small.error-two{
+      display: none;
+      color: red;
+    }
+    small.valid{
+      display: none;
+      color: green;
     }
     /*textarea{
       width: 522px;
@@ -1760,6 +1783,95 @@ div.contact-blog-devenir{
     }
   }
   a.revenir-en-arriere{
+    display: block;
+    /*width: 100%;
+    margin: 0 auto;*/
+    text-align: center;
+    margin: 10px 0;
+    font-family: "GothamBold", sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    color: #2d2d2d;
+  }
+  #successMessage{
+    display: none;
+    width: 300px;
+    margin: 40px auto 0;
+    background-color: #00a65a;
+    p{
+      color: #ffffff;
+      font-family: "GothamBlack", sans-serif;
+      font-size: 15px;
+      padding: 15px 20px 10px;
+    }
+  }
+}
+
+div.contact-blog-devenir-send{
+  & > p{
+    max-width: 600px;
+    margin: 80px auto;
+    font-family: 'GilroyRegular';
+    font-size: 15px;
+    text-align: center;
+    line-height: 19.5px;
+    letter-spacing: 2px;
+    padding: 0 60px;
+  }
+  small#emailHelp{
+    width: 522px;
+    margin: 0 auto;
+    font-family: "GothamBold", sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    @media screen and (max-width: $break-big) {
+      text-align: center;
+    }
+  }
+  small.valid-two{
+    display: none;
+    color: green;
+  }
+  #signup-two{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    input{
+      margin: 0;
+      display: block;
+    }
+    textarea{
+      padding: 10px 20px;
+      border:none;
+      border-bottom: 2px solid rgba(44, 44, 45, 0.5);
+      width: 522px;
+      height: 50px;
+      margin: 0 auto;
+      font-family: "GothamLight", sans-serif;
+      font-size: 25px;
+      @media screen and (max-width: $break-big) {
+        max-width: 300px;
+      }
+    }
+    div.div-btn{
+      margin-top: 60px;
+    }
+    @include btn-color($rose);
+    input[type="submit"]{
+      background-color: #3CFCC7;
+      font-family: "GothamBold", sans-serif;
+      font-size: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 10px 40px;
+      border: none;
+      border-radius: 5px;
+    }
+  }
+  a.revenir-en-arriere-two{
     display: block;
     /*width: 100%;
     margin: 0 auto;*/
@@ -1821,10 +1933,13 @@ div.contact-blog-soutenir{
     small#emailHelp{
       width: 522px;
       margin: 0 auto;
-      font-family: "GothamLight", sans-serif;
+      font-family: "GothamBold", sans-serif;
       font-size: 12px;
       line-height: 20px;
       text-align: left;
+      @media screen and (max-width: $break-big) {
+        text-align: center;
+      }
     }
     small.error{
       display: none;
@@ -2279,7 +2394,7 @@ section#objectif{
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: rgba(0,0,0,.85);
   @media screen and (max-width: $break-big) {
     top: 50px;
   }
@@ -2299,7 +2414,8 @@ section#objectif{
     display: block;
     margin: 0 auto;
     max-width: 1200px;
-    height: auto;
+    max-height: 70vh;
+    /*height: auto;*/
     @media screen and (max-width: $break-big) {
       width: 70%;
       height: auto;
@@ -2666,6 +2782,10 @@ div.show-wrapper{
         }
         div.article-show-body{
           margin: 40px 0 20px;
+          font-family: "GilroyLight", sans-serif;
+          letter-spacing: 3px;
+          font-size: 15px;
+          line-height: 18px;
           p{
             font-family: "GilroyLight", sans-serif;
             letter-spacing: 3px;
@@ -2720,4 +2840,44 @@ div.show-wrapper{
     background-position: top;
     padding-top: 0px;
   }
+}
+
+div.body-404{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('./asset/img/404-elephant.jpg');
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: $break-big) {
+    flex-direction: column;
+  }
+  @include btn-color(#ffffff);
+  div.div-btn{
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    @media screen and (max-width: $break-big) {
+      padding: 0 40px;
+      left: 0;
+      margin: 0 auto;
+    }
+    a{
+      color: #222 !important;
+    }
+  }
+  figure{
+    img{
+      max-width: 500px;
+    }
+  }
+}
+
+
+html{
+  overflow-x: hidden;
 }

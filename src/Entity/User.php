@@ -193,7 +193,7 @@ class User implements AdvancedUserInterface, \Serializable
 
 
     /**
-     * @ORM\Column(type="simple_array")
+     * @ORM\Column(type="simple_array", nullable=true)
      */
     private $videos;
 
@@ -326,6 +326,11 @@ class User implements AdvancedUserInterface, \Serializable
      */
     private $instagram;
 
+    /**
+     * @ORM\Column(name="location", type="string", nullable=true)
+     */
+    private $location;
+
 
     private $resetPasswordToken = false;
 
@@ -339,6 +344,23 @@ class User implements AdvancedUserInterface, \Serializable
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param mixed $location
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    }
+
 
     /**
      * @return mixed

@@ -1,17 +1,13 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'base-site.html.twig' %}
+{% block head %}{% endblock %}
     {% block content %}
-        <!-- Main -->
-        <div id="main" class="alt">
-            <!-- One -->
-            <section id="one">
-                <div class="inner">
-                    <header class="major">
-                        <h1>404</h1>
-                    </header>
-                    <p>{{ status_text }}</p>
-                    <p><a href="{{ path('home') }}">Retour à l'accueil</a></p>
-                </div>
-            </section>
+
+        <div>
+            <header>
+                <h1>500</h1>
+            </header>
+            <p>Page non trouvé</p>
+            <p><a href="{{ path('home') }}">Retour à l'accueil</a></p>
         </div>
+
     {% endblock %}

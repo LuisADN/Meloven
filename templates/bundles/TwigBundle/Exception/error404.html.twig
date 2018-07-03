@@ -1,17 +1,45 @@
-{% extends 'base.html.twig' %}
+<!doctype html>
+<html lang="fr" xmins:og="http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meloven - Erreur 404</title>
+    <meta name="description" content="Meloven, met en avant les artistes de rues en organisant des concerts à ciel ouvert.">
+    <link rel="icon" type="image/png" href="{{ asset('asset/img/favicon.png') }}" />
+    {% block head %}
 
-    {% block content %}
-        <!-- Main -->
-        <div id="main" class="alt">
-            <!-- One -->
-            <section id="one">
-                <div class="inner">
-                    <header class="major">
-                        <h1>404</h1>
-                    </header>
-                    <p>{{ status_text }}</p>
-                    <p><a href="{{ path('home') }}">Retour à l'accueil</a></p>
-                </div>
-            </section>
-        </div>
     {% endblock %}
+    {% include('heads/head_front_site.html.twig') %}
+    {% include('analytics/analyticsHead.html.twig') %}
+</head>
+<body>
+{% include('analytics/analyticsBody.html.twig') %}
+
+
+{#<div>
+    <header>
+        <h1>404</h1>
+    </header>
+    <p>Page non trouvé</p>
+    <p><a href="{{ path('home') }}">Retour à l'accueil</a></p>
+</div>#}
+
+<div class="body-404">
+    <figure>
+        <img src="{{ asset('asset/img/404-erreur.gif') }}" alt="Erreur 404">
+    </figure>
+    <div class="div-btn">
+        <span class="button--bubble__container">
+            <a href="{{ path('home') }}" class="button button--bubble">Retour à la page d'accueil</a>
+        </span>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+

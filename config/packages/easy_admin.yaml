@@ -35,6 +35,7 @@ easy_admin:
           - { property: firstName, label: 'Prénom' }
           - { property: lastName, label: 'Nom' }
           - { property: userdescription, type: 'ckeditor' }
+          - { property: location, label: "Localisation de l'artiste" }
           - { property: facebook, label: 'Facebook' }
           - { property: youtube, label: 'Youtube' }
           - { property: twitter, label: 'Twitter' }

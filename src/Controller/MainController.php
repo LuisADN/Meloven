@@ -98,6 +98,14 @@ class MainController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/test", name="test")
+     */
+    /*public function test(): Response
+    {
+        return $this->render('bundles/TwigBundle/Exception/error404.html.twig', [
+        ]);
+    }*/
 
     /**
      * @Route("/les-artistes", name="les-artistes")

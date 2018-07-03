@@ -1,0 +1,3 @@
+0
+%255BApp%255CEntity%255CUser%255C%2524GEDMO_SLUGGABLE_CLASSMETADATA%255D%255B1%255D
+a:2:{s:5:"slugs";a:1:{s:4:"slug";a:11:{s:6:"fields";a:1:{i:0;s:8:"username";}s:4:"slug";s:4:"slug";s:5:"style";s:7:"default";s:10:"dateFormat";s:9:"Y-m-d-H:i";s:9:"updatable";b:1;s:6:"unique";b:1;s:11:"unique_base";N;s:9:"separator";s:1:"-";s:6:"prefix";s:0:"";s:6:"suffix";s:0:"";s:8:"handlers";a:0:{}}}s:14:"useObjectClass";s:15:"App\Entity\User";}

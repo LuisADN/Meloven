@@ -3,13 +3,13 @@
         <a href="{{ path('home') }}"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></a>
     </figure>
     <ul>
-        <a href="{{ path('qui_sommes_nous') }}"><li>Qui est Meloven</li></a>
+        {#<a href="{{ path('qui_sommes_nous') }}"><li>Qui est Meloven</li></a>#}
         <a href="{{ path('home') }}#artistes" class="btn-nos-artistes-nav"><li>Nos artistes</li></a>
         <a href="{{ path('blog') }}"><li>Blog</li></a>
         {#<a href="#"><li>Contact</li></a>#}
         <div class="div-btn">
             <span class="button--bubble__container">
-              <a href="#contact" class="button button--bubble btn-contact-nav">
+              <a href="{{ path('qui_sommes_nous') }}" class="button button--bubble btn-contact-nav">
                 Vous êtes un(e) artiste ?
               </a>
               <span class="button--bubble__effect-container">
