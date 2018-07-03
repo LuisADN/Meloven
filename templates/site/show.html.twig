@@ -1,25 +1,97 @@
-{% extends 'base-blog.html.twig' %}
+{% extends 'base-site.html.twig' %}
 
-{% block head %}
-    {% include('heads/head_front.html.twig') %}
-{% endblock %}
+{% block head %}{% endblock %}
 
 {% block content %}
-    <div class="content">
-        <h1 class="article-show-title">{{ blog_post.title }}</h1>
-        <div class="article-show-image">
-            <img src="{{ asset('media/') }}{{ blog_post.cover }}" alt="{{ blog_post.title }}">
+
+
+    <div class="show-wrapper">
+        <div class="show-content">
+            {% include('site/nav.html.twig') %}
+            <article>
+                <h1><a class="underline--magical">{{ blog_post.title }}</a></h1>
+                {#<span>{{ blog_post.title }}</span>#}
+
+                <div class="content-box">
+                    <div class="content-box--image">
+                        <img src="{{ asset('media/') }}{{ blog_post.cover }}" alt="{{ blog_post.title }}">
+                    </div>
+                    <div class="article-show-body">{{ blog_post.body | raw}}</div>
+                    {#<a href="{{ path('blog') }}" class="back-home">&#x21fd; Revenir sur le blog</a>#}
+                </div>
+            </article>
+            <div class="other-articles">
+                <h1><a class="underline--magical">Autres articles</a></h1>
+                <span>Regarde par içi ! Il y en a encore !</span>
+            </div>
+            <section class="blog">
+                <div class="container-blog">
+                    <div class="article-blog-bloc">
+                        {% for post in blog_posts %}
+                            <article>
+                                <figure>
+                                    <img src="{{ asset('media/') }}{{ post.cover }}" alt="">
+                                    <span>
+                                    <img src="{{ asset('media/') }}{{ post.user.avatar }}" alt="">
+                                </span>
+                                </figure>
+                                <span>{{ post.user.firstName }} de Meloven</span>
+                                <h1>{{ post.title }}</h1>
+                                <p>{{ post.description|easyadmin_truncate(75, false, "") }}<a href="{{ path('site_post_show', {'slug':post.slug}) }}">[...]</a></p>
+                                <div class="div-btn">
+                                <span class="button--bubble__container">
+                                  <a href="{{ path('site_post_show', {'slug': post.slug}) }}" class="button button--bubble">
+                                    Découvrir
+                                  </a>
+                                  <span class="button--bubble__effect-container">
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="button effect-button"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                  </span>
+                                </span>
+                                </div>
+                                {# <a  href="{{ path('site_post_show', {'slug': post.slug}) }}">Découvrir</a> #}
+                            </article>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="btn-parcourir-blog">
+                    {#<a href="{{ path('blog') }}">Parcourir le blog</a>#}
+                    <div class="div-btn">
+                    <span class="button--bubble__container">
+                      <a href="{{ path('blog') }}" class="button button--bubble">
+                        Parcourir le blog
+                      </a>
+                      <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                      </span>
+                    </span>
+                    </div>
+                </div>
+            </section>
         </div>
-        <img src="" alt="">
-
-        <div class="article-show-body">{{ blog_post.body | raw}}</div>
-
-        <a href="/" class="back-home">&#x21fd; Revenir sur la homepage</a>
+        <section class="objectif">
+            <h1 class="title"><a class="underline--magical">Pourquoi rejoindre l’aventure ?</a></h1>
+            <p>Meloven rêve de partager avec toi son amour pour la musique et de te faire découvrir de nouveaux talents. Nous souhaitons également t'offrir la possibilité d’aider les artistes à vivre de leur passion en réalisant leur rêves en mettant en place un système de dons grâce au paiement sans contact. Notre mission ultime: se retrouver tous ensemble lors d'un grand concert que nous organiserons afin de vivre un moment de partage magique.</p>
+            {#<div class="btn-objectif">
+                <a href="#">En savoir plus</a>
+            </div>#}
+        </section>
     </div>
 {% endblock  %}
 
 {% block javascripts %}
-    <script src="{{ asset('asset/js/app.js') }}"></script>
-    {% include('includes/scripts.html.twig') %}
+   {# <script src="{{ asset('asset/js/app.js') }}"></script>
+    {% include('includes/scripts.html.twig') %}#}
 {% endblock %}
 

@@ -46,13 +46,17 @@ body{
         position: relative;
         z-index: 1;
         color: white;
-        background: none;
+        background: $btn-color;
 
         &:hover {
-          background: none;
+          /*background: none;*/
+          background: darken($btn-color, 15%);
         }
 
         &:hover + .button--bubble__effect-container .circle {
+          /*
+          background: darken($btn-color, 15%);
+          */
           background: darken($btn-color, 15%);
         }
 
@@ -714,6 +718,10 @@ section.artistes{
           line-height: 19.5px;
           letter-spacing: 3px;
           padding: 20px 50px 0 0;
+          a{
+            text-decoration: none;
+            color: #000000;
+          }
           @media screen and (max-width: $break-big) {
             padding: 5px 0 20px 0;
           }
@@ -912,6 +920,10 @@ section.blog{
           line-height: 18px;
           letter-spacing: 1px;
           padding: 0 40px 50px;
+          a{
+            text-decoration: none;
+            color: #000000;
+          }
         }
         @include btn-color(#9A51F8);
         .div-btn{
@@ -1162,8 +1174,8 @@ footer{
               height: 25.43px;
             }
             a.youtube-rose-round{
-              background-image: url("./asset/img/youtube-rose.svg");
-              width: 18.51px;
+              background-image: url("./asset/img/instagram-rose-footer.svg");
+              width: 24px;
               height: 21.34px;
             }
             a.twitter-rose-round{
@@ -1235,6 +1247,7 @@ header.header-artiste {
         letter-spacing: 5px;
         color: #ffffff;
         text-transform: uppercase;
+        text-shadow: 2px 2px 2px #2d2d2d;
         /*padding-top: 40px;*/
         @media screen and (max-width: $break-big) {
           /*padding-top: 100px;*/
@@ -1355,9 +1368,9 @@ section.artiste-infos{
       @media screen and (max-width: $break-big) {
         padding: 20px;
       }
-      P.no-content{
-        font-family: "GothamBold", sans-serif;
-        font-size: 25px;
+      p.no-content{
+        font-family: "GilroyLight", sans-serif;
+        font-size: 15px;
         letter-spacing: 3px;
       }
       .block-changable-evenement-date{
@@ -1573,6 +1586,24 @@ section.artiste-infos{
   }
 }
 
+.block-changable-photos-error {
+  position: relative;
+  display: none;
+  flex-direction: row;
+  padding: 60px;
+  margin-top: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(218, 199, 247, 0.2), 0 6px 20px 0 rgba(218, 199, 247, 0.2);
+  border-radius: 5px;
+  @media screen and (max-width: $break-big) {
+    padding: 20px;
+  }
+  p.no-content{
+    font-family: "GilroyLight", sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+}
 
 .block-changable-video{
   display: none;
@@ -1594,6 +1625,25 @@ section.artiste-infos{
         height: 300px;
       }
     }
+  }
+}
+
+.block-changable-video-error {
+  position: relative;
+  display: none;
+  flex-direction: row;
+  padding: 60px;
+  margin-top: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(218, 199, 247, 0.2), 0 6px 20px 0 rgba(218, 199, 247, 0.2);
+  border-radius: 5px;
+  @media screen and (max-width: $break-big) {
+    padding: 20px;
+  }
+  p.no-content{
+    font-family: "GilroyLight", sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
   }
 }
 
@@ -1760,7 +1810,7 @@ div.contact-blog-soutenir{
       /*border-radius: 5px;*/
       border-bottom: 2px solid rgba(44, 44, 45, 0.5);
       width: 522px;
-      margin: 0 auto 60px;
+      margin: 0 auto;
       text-align: center;
       font-family: "GothamLight", sans-serif;
       font-size: 25px;
@@ -1768,7 +1818,26 @@ div.contact-blog-soutenir{
         max-width: 300px;
       }
     }
+    small#emailHelp{
+      width: 522px;
+      margin: 0 auto;
+      font-family: "GothamLight", sans-serif;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: left;
+    }
+    small.error{
+      display: none;
+      color: red;
+    }
+    small.valid{
+      display: none;
+      color: green;
+    }
     @include btn-color($rose);
+    .div-btn{
+      margin-top: 60px;
+    }
     input[type="submit"]{
       background-color: #3CFCC7;
       font-family: "GothamBold", sans-serif;
@@ -2328,5 +2397,327 @@ section#objectif{
 
   .hover-shadow:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+/*
+.cookie-banner{
+  position: fixed;
+  bottom: 0px;
+  left:0px;
+  background-color: $rose;
+  padding: 20px 40px;
+  p{
+    font-family: "GilroyLight", sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    color: #ffffff;
+  }
+  span{
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 3px 5px 1px 5px;
+    font-family: "GilroyRegular", sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+*/
+
+
+header.blog-header{
+  width: 100%;
+  height: 100vh;
+  /*min-height: 850px;*/
+  background: url("./asset/img/back-elephant-skate.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vW;
+  /*background-size: 100%;*/
+  @media screen and (max-width: $break-big) {
+    /*background: url("./asset/img/elephant-mini.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 450px;
+    padding: 60px 20px;*/
+    height: 250px;
+  }
+  figure.elephant-figure{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    @media screen and (max-width: $break-big) {
+      top:90px;
+      left: 5px;
+    }
+    img{
+      width: 600px;
+      @media screen and (max-width: $break-big) {
+        width: 200px;
+      }
+    }
+  }
+  div.blog-header-container{
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  div.blog-header-content{
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translate(-50%, -50%);
+    /*margin: 60px 220px 60px;*/
+    text-align: left;
+    @media screen and (max-width: $break-big) {
+      top: 140px;
+      right: -60px;
+      max-width: 180px;
+      margin: 0;
+      padding: 60px 0 0;
+    }
+    h1{
+      padding-top: 60px;
+      font-family: "GothamBlack", sans-serif;
+      font-size: 60px;
+      line-height: 84px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      @media screen and (max-width: $break-big) {
+        font-size: 20px;
+        line-height: 30px;
+        padding: 0 20px;
+      }
+    }
+    p{
+      padding: 40px 0 80px;
+      font-family: "GilroyLight", sans-serif;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      @media screen and (max-width: $break-big) {
+        display: none;
+      }
+    }
+  }
+}
+
+div.article-all{
+  width: 100%;
+  background: url("./asset/img/back-bleu.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  & > h1{
+    font-family: "GothamBlack", sans-serif;
+    font-size: 35px;
+    line-height: 35px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 80px 20px 0;
+  }
+  & > span{
+    display: block;
+    font-family: "GothamBold", sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 20px 80px;
+  }
+  div.articles{
+    max-width: 988px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media screen and (max-width: $break-big) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      padding: 0 20px;
+    }
+    article{
+      width: 478.87px;
+      box-shadow: 0 4px 8px 0 rgba(45, 45, 45, .1), 0 6px 20px 0 rgba(45, 45, 45, .1);
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 0 0 30px;
+      background-color: #ffffff;
+      @media screen and (max-width: $break-big) {
+        width: 100%;
+      }
+      a{
+        text-decoration: none;
+        display: block;
+        position: relative;
+        img{
+          width: 478.87px;
+          display: block;
+        }
+        h1{
+          font-family: "GothamBlack", sans-serif;
+          font-size: 25px;
+          line-height: 35px;
+          letter-spacing: 3px;
+          text-align: center;
+          color: #000000;
+          padding: 20px 40px;
+        }
+        p{
+          font-family: "GilroyLight", sans-serif;
+          font-size: 15px;
+          line-height: 18px;
+          letter-spacing: 1px;
+          text-align: center;
+          color: #707070;
+          padding: 0px 40px 20px;
+        }
+      }
+      div.author{
+        .author-description{
+          text-align: center;
+          div.image-oveflow{
+            position: relative;
+            figure{
+              position: absolute;
+              left: 50%;
+              bottom: 0;
+              width: 64.37px;
+              height: 66px;
+              border-radius: 50%;
+              overflow: hidden;
+              transform: translate(-50%, 50%);
+              img{
+                width: 100%;
+              }
+            }
+          }
+          h3{
+            padding-top: 50px;
+            font-family: "GothamBlack", sans-serif;
+            font-size: 10px;
+            line-height: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+          }
+          p{
+            font-family: "GothamLight", sans-serif;
+            letter-spacing: 1px;
+            font-size: 10px;
+            line-height: 14px;
+          }
+        }
+      }
+      @include btn-color(#9A51F8);
+      .div-btn{
+        margin: 40px 0;
+      }
+    }
+  }
+}
+
+
+div.show-wrapper{
+  /*background: url('./asset/img/blog-nuages-transp.png') 0 0 no-repeat / 100vW,
+  url('./asset/img/artiste-img-sample-page.png') 0 0 no-repeat / 100vW;*/
+  background: url('./asset/img/blog-nuages-transp.png') 0 0 no-repeat / 100vW,
+  url('./asset/img/bg-test-article.jpg') 0 0 no-repeat / 100vW;
+  background-color: #ffedf2;
+  div.show-content{
+    max-width: 1280px;
+    margin: 0 auto;
+    & > article{
+      & > h1{
+        font-family: "GothamBlack", sans-serif;
+        font-size: 35px;
+        line-height: 35px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 80px 20px 80px;
+      }
+      /*& > span{
+        display: block;
+        font-family: "GothamBold", sans-serif;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 20px 20px 80px;
+      }*/
+      div.content-box{
+        max-width: 988px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 40px 40px;
+        div.content-box--image{
+          text-align: center;
+          img{
+            display: block;
+            max-width: 100%;
+          }
+        }
+        div.article-show-body{
+          margin: 40px 0 20px;
+          p{
+            font-family: "GilroyLight", sans-serif;
+            letter-spacing: 3px;
+            font-size: 15px;
+            line-height: 18px;
+          }
+          a.back-home {
+            display: block;
+            font-family: "GothamBlack", sans-serif;
+            font-size: 13px;
+            color: #8247DF;
+            text-decoration: none;
+            padding: 40px 0 20px;
+          }
+        }
+      }
+    }
+    div.other-articles{
+      & > h1{
+        font-family: "GothamBlack", sans-serif;
+        font-size: 35px;
+        line-height: 35px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 120px 20px 0;
+      }
+      & > span{
+        display: block;
+        font-family: "GothamBold", sans-serif;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 20px 20px 80px;
+      }
+    }
+    section.blog{
+      background: none;
+      padding-top: 0px;
+      div.article-blog-bloc{
+        padding-top: 0px;
+      }
+      div.btn-parcourir-blog{
+        padding: 120px 0 120px;
+      }
+    }
+  }
+  section.objectif{
+    background: url('./asset/img/nuages-rose-down.png') 0 0 no-repeat / cover;
+    background-position: top;
+    padding-top: 0px;
   }
 }

@@ -23,6 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class MainController extends Controller
 {
@@ -32,9 +33,24 @@ class MainController extends Controller
      */
     public function home(BlogPostRepository $blogPostRepository, UserRepository $userRepository): Response
     {
+
+        /*if(!isset($_COOKIE["Test"]))
+        {
+            $response = new Response();
+            $cookie = new Cookie('Test','Derp', time() + ( 2 * 365 * 24 * 60 * 60), '/' , NULL, FALSE);
+            $response->headers->setCookie($cookie);
+            $response->send();
+        }else{
+            $res = new Response();
+            $res->headers->clearCookie('Test');
+            $res->send();
+        }*/
+
         return $this->render('site/home.html.twig', [
             'blog_posts' => $blogPostRepository->findLastThree(),
-            'musicians' => $userRepository->findMusiciansHome()
+            'musicians' => $userRepository->findMusiciansHome(),
+            /*'cookies' => $cookie*/
+
         ]);
     }
 
@@ -84,11 +100,25 @@ class MainController extends Controller
 
 
     /**
+     * @Route("/les-artistes", name="les-artistes")
+     */
+    public function listeDesArtiste(UserRepository $userRepository): Response
+    {
+        return $this->render('site/liste-des-artistes.html.twig', [
+            'users_infos' => $userRepository->findMusiciansHome(),
+        ]);
+    }
+
+
+    /**
      * @Route("/blog/article/{slug}", name="site_post_show", methods="GET")
      */
-    public function show(BlogPost $blogPost): Response
+    public function show(BlogPost $blogPost, BlogPostRepository $blogPostRepository): Response
     {
-        return $this->render('site/show.html.twig', ['blog_post' => $blogPost]);
+        return $this->render('site/show.html.twig', [
+            'blog_post' => $blogPost,
+            'blog_posts' => $blogPostRepository->findLastThree()
+        ]);
     }
 
     /**

@@ -60,7 +60,7 @@
                         <address>24 Rue de l’amiral Roussin<br>
                             75015 PARIS</address>#}
 
-                        <p>{{ musician.userDescription|easyadmin_truncate(300, false, "[...]")|raw }}</p>
+                        <p>{{ musician.userDescription|easyadmin_truncate(300, false, "")|raw }}<a href="{{ path('artiste', {'slug':musician.slug}) }}">[...]</a></p>
                         <div class="div-btn">
                             <span class="button--bubble__container">
                               <a href="{{ path('artiste', {'slug':musician.slug}) }}" class="button button--bubble">
@@ -126,7 +126,7 @@
                             </figure>
                             <span>{{ post.user.firstName }} de Meloven</span>
                             <h1>{{ post.title }}</h1>
-                            <p>{{ post.description|easyadmin_truncate(75, false, "[...]") }}</p>
+                            <p>{{ post.description|easyadmin_truncate(75, false, "") }}<a href="{{ path('site_post_show', {'slug':post.slug}) }}">[...]</a></p>
                             <div class="div-btn">
                                 <span class="button--bubble__container">
                                   <a href="{{ path('site_post_show', {'slug': post.slug}) }}" class="button button--bubble">

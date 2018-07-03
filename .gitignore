@@ -18,5 +18,5 @@ yarn-error.log
 .DS_STORE
 
 README.md
-
+.idea
 /config/packages/welp_mailchimp.yaml

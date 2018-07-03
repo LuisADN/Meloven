@@ -1,20 +1,36 @@
-{% extends 'base-blog.html.twig' %}
+{% extends 'base-site.html.twig' %}
 
-{% block head %}
-    {% include('heads/head_front.html.twig') %}
-{% endblock %}
+{% block head %}{% endblock %}
 
 
 {% block content %}
-    <div class="video">
-        <video id="video" poster="{{ asset('asset/img/background_video_meloven.png') }}"> {#poster="{{ asset('asset/img/background_video_meloven.jpg') }}"#}
+    {#<div class="video">
+        <video id="video" poster="{{ asset('asset/img/background_video_meloven.png') }}"> #}{#poster="{{ asset('asset/img/background_video_meloven.jpg') }}"#}{#
             <source src="{{ asset('asset/video/MoodBoard.webm') }}" type="video/mp4">
             Votre navigateur ne gère pas l'élément <code>video</code>.
         </video>
         <img class="lecteur" id="lecteur" src="{{ asset('asset/img/player-video.png') }}" alt="lecteur">
-    </div>
-    <div class="content">
-        <div class="article-one">
+    </div>#}
+
+    <header class="blog-header">
+        <figure class="elephant-figure">
+            <img onmouseover="PlaySound('audio')" src="{{ asset('asset/img/elephant-skate-V4.gif') }}" alt="Elephant Skate">
+        </figure>
+
+        <div class="blog-header-container">
+            {% include('site/nav.html.twig') %}
+            <div class="blog-header-content">
+                <h1>Le<br>blog<br>de<br>justine</h1>
+            </div>
+        </div>
+
+        {#<audio id="audio" src="{{ asset('audio/qui-sommes-nous.mp3') }}"></audio>#}
+    </header>
+
+
+
+    {#<div class="content">#}
+        {#<div class="article-one">
             <h1>Derniers </h1>
             <article>
                 <div class="image-overfow">
@@ -38,9 +54,10 @@
                     </a>
                 </div>
             </article>
-        </div>
+        </div>#}
         <div id="artiste-de-rue" class="article-all">
-            <h1>ARTISTE DE RUE</h1>
+            <h1><a class="underline--magical">nos découvertes</a></h1>
+            <span>musicales</span>
             <div class="articles">
                 {% for blog_post in blog_posts %}
                     <article>
@@ -48,21 +65,41 @@
                         <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
                             <img src="{{ asset('media/') }}{{ blog_post.cover }}" alt="{{ blog_post.title }}">
                         </a>
-                        <span>{{ blog_post.category }}</span>
+
+                        <div class="author">
+                            <div class="author-description">
+                                <div class="image-oveflow">
+                                    <figure>
+                                        <img src="{{ asset('media/') }}{{ blog_post.user.avatar }}" alt="{{ blog_post.user.firstName }} {{ blog_post.user.lastName }}">
+                                    </figure>
+                                </div>
+                                <h3>{{ blog_post.user.firstName }} {{ blog_post.user.lastName }} de Meloven</h3>
+                                <p>{{ blog_post.createdAt|localizeddate('medium', 'none') }}   •   {{ blog_post.readingTime }} min de lecture</p>
+                            </div>
+                        </div>
+
+                        {#<span>{{ blog_post.category }}</span>#}
                         <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><h1>{{ blog_post.title }}</h1></a>
                         <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}"><p>{{ blog_post.description }}</p></a>
 
-                        <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}">
-                            <div class="author">
-                                <div class="image-oveflow">
-                                    <img src="{{ asset('media/') }}{{ blog_post.user.avatar }}" alt="{{ blog_post.user.firstName }} {{ blog_post.user.lastName }}">
-                                </div>
-                                <div class="author-description">
-                                    <h1>{{ blog_post.user.firstName }} {{ blog_post.user.lastName }} de Meloven</h1>
-                                    <p>{{ blog_post.createdAt|localizeddate('medium', 'none') }}   •   {{ blog_post.readingTime }} min de lecture</p>
-                                </div>
-                            </div>
-                        </a>
+
+                        <div class="div-btn">
+                            <span class="button--bubble__container">
+                              <a href="{{ path('site_post_show', {'slug': blog_post.slug}) }}" class="button button--bubble">
+                                Découvrir
+                              </a>
+                              <span class="button--bubble__effect-container">
+                                <span class="circle top-left"></span>
+                                <span class="circle top-left"></span>
+                                <span class="circle top-left"></span>
+                                <span class="button effect-button"></span>
+                                <span class="circle bottom-right"></span>
+                                <span class="circle bottom-right"></span>
+                                <span class="circle bottom-right"></span>
+                              </span>
+                            </span>
+                        </div>
+
                         <p>
                             {#<a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">show</a>#}
                         </p>
@@ -72,13 +109,21 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
+
+
+    <section id="objectif">
+        <div>
+            <h1><a class="underline--magical">Pourquoi rejoindre l’aventure ?</a></h1>
+            <p>Meloven rêve de partager avec toi son amour pour la musique et de te faire découvrir de nouveaux talents. Nous souhaitons également t'offrir la possibilité d’aider les artistes à vivre de leur passion en réalisant leur rêves en mettant en place un système de dons grâce au paiement sans contact. Notre mission ultime: se retrouver tous ensemble lors d'un grand concert que nous organiserons afin de vivre un moment de partage magique.</p>
+        </div>
+    </section>
+    {# </div>#}
 {% endblock  %}
 
 
 
 {% block javascripts %}
-    <script src="{{ asset('asset/js/app.js') }}"></script>
-    {% include('includes/scripts.html.twig') %}
+   {# <script src="{{ asset('asset/js/app.js') }}"></script>
+    {% include('includes/scripts.html.twig') %}#}
 {% endblock %}
 

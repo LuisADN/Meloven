@@ -3,7 +3,6 @@
 {% block head %}{% endblock %}
 
 {% block content %}
-    {% if is_granted('ROLE_AUTHOR') %}{% endif %}
     <header class="header-artiste">
         <div class="header-container">
             {% include('site/nav.html.twig') %}
@@ -80,32 +79,48 @@
                 {% else %}
                     <div class="block-changable-evenement">
                         <p class="no-content">
-                            Pas d'évenement prévus :(
+                            Pas d’événement prévu pour le moment...
                         </p>
                     </div>
                 {% endif %}
 
 
-
-                <div id="block-changable-video" class="block-changable-video">
-                    <div class="block-changable-video-unity">
-                        {% for video in user_info[0].videos %}
-                            {#{{ dump(video) }}#}
-                            <div class="unity">
-                                <iframe src="https://www.youtube.com/embed/{{ video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                        {% endfor %}
+                {% if user_info[0].videos is defined and user_info[0].videos is not null and user_info[0].videos is not empty %}
+                    <div id="block-changable-video" class="block-changable-video">
+                        <div class="block-changable-video-unity">
+                            {% for video in user_info[0].videos %}
+                                {#{{ dump(video) }}#}
+                                <div class="unity">
+                                    <iframe src="https://www.youtube.com/embed/{{ video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-
-                <div id="block-changable-photos" class="block-changable-photos">
-                    <div class="block-changable-photos-unity">
-
-                        {% for photo in user_info[0].photos %}
-                            <figure class="unity"><img onclick="openModal();currentSlide({{ loop.index }})" src="{{ asset('media/') }}{{ photo }}" alt=""></figure>
-                        {% endfor %}
+                {% else %}
+                    <div class="block-changable-video-error">
+                        <p class="no-content">
+                            Pas de vidéos pour le moment...
+                        </p>
                     </div>
-                </div>
+                {% endif %}
+
+
+                {% if user_info[0].photos is defined and user_info[0].photos is not null and user_info[0].photos is not empty %}
+                    <div id="block-changable-photos" class="block-changable-photos">
+                        <div class="block-changable-photos-unity">
+
+                            {% for photo in user_info[0].photos %}
+                                <figure class="unity"><img onclick="openModal();currentSlide({{ loop.index }})" src="{{ asset('media/') }}{{ photo }}" alt=""></figure>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="block-changable-photos-error">
+                        <p class="no-content">
+                            Pas de photos pour le moment...
+                        </p>
+                    </div>
+                {% endif %}
 
             </div>
         </div>
