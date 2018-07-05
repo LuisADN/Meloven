@@ -5,12 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meloven - Découvrez et soutenez les artistes de rue !</title>
-    <meta name="description" content="Meloven, met en avant les artistes de rues en organisant des concerts à ciel ouvert.">
-    <link rel="icon" type="image/png" href="{{ asset('asset/img/favicon.png') }}" />
     {% block head %}
 
     {% endblock %}
+    <title>Meloven - Découvrez et soutenez les artistes de rue !</title>
+    <meta name="description" content="Meloven, met en avant les artistes de rues en organisant des concerts à ciel ouvert.">
+    <link rel="icon" type="image/png" href="{{ asset('asset/img/favicon.png') }}" />
+
     {% include('heads/head_front_site.html.twig') %}
     {% include('analytics/analyticsHead.html.twig') %}
 </head>
@@ -25,7 +26,7 @@
 
     <div class="burger-menu">
         <label>
-            <input type='checkbox'>
+            <input id="toggle-nav" type='checkbox'>
             <span class='menu'>
                <span class='hamburger'></span>
             </span>
@@ -33,7 +34,7 @@
                 <li><a href="/"><h1 class="logo-burger"><img src="{{ asset('asset/img/svg/logo-desktop.svg') }}" alt="Meloven"></h1></a></li>
                 <li><a href="{{ path('qui_sommes_nous') }}">Qui est Moloven</a></li>
                 <li><a href="{{ path('home') }}#artistes">Nos artistes</a></li>
-                <li><a href="{{ path('blog') }}" target="_blank">Blog</a></li>
+                <li><a href="{{ path('blog') }}">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
                 {#<a href="#" class="btn-discover"><li>Vous êtes un(e) artiste ?</li></a>#}
                 {#<li>

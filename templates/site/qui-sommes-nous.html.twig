@@ -1,6 +1,9 @@
 {% extends 'base-site.html.twig' %}
 
-{% block head %}{% endblock %}
+{% block head %}
+    <title>Meloven - Notre action</title>
+    <meta name="description" content="Du rap au jazz, en passant par le lyrique ou encore le rock, Meloven repère et te présente les meilleurs musiciens de Paris...">
+{% endblock %}
 
 {% block content %}
     <header class="qui-sommes-nous-header">
@@ -14,7 +17,7 @@
         <figure class="elephant-figure">
             <img onmouseover="PlaySound('audio')" src="{{ asset('asset/img/elephant.gif') }}" alt="Elephant">
         </figure>
-        <audio id="audio" src="{{ asset('audio/qui-sommes-nous.mp3') }}"></audio>
+        <audio id="audio" src="{{ asset('audio/les-artiste-vous-etes-ou.mp3') }}"></audio>
     </header>
 
     <section id="goals">

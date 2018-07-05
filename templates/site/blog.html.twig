@@ -1,6 +1,8 @@
 {% extends 'base-site.html.twig' %}
 
-{% block head %}{% endblock %}
+{% block head %}
+    <title>Meloven - Le blog de Justine</title>
+{% endblock %}
 
 
 {% block content %}
@@ -16,7 +18,7 @@
         <figure class="elephant-figure">
             <img onmouseover="PlaySound('audio')" src="{{ asset('asset/img/elephant-skate-V4.gif') }}" alt="Elephant Skate">
         </figure>
-
+        <audio id="audio" src="{{ asset('audio/et-moi-je-suis-un-artiste.mp3') }}"></audio>
         <div class="blog-header-container">
             {% include('site/nav.html.twig') %}
             <div class="blog-header-content">

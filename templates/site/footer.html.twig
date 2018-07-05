@@ -131,7 +131,7 @@
                 <ul>
                     <li><a href="{{ path('qui_sommes_nous') }}">Qui est Meloven</a></li>
                     <li><a href="{{ path('home') }}#artistes">Nos artistes</a></li>
-                    <li><a href="{{ path('blog') }}" target="_blank">Blog</a></li>
+                    <li><a href="{{ path('blog') }}">Blog</a></li>
                 </ul>
             </li>
             <li>
@@ -451,8 +451,21 @@
     }
 </script>
 <script>
+    $('.burger-menu ul li a').on('click', function () {
+        document.getElementById('toggle-nav').checked = false;
+    });
+</script>
+<script>
+    if($('video')){
+        $('video').trigger('play');
+    }
+</script>
+<script>
     /*$('.qui-sommes-nous-header-content h1').hover(function(){
         $('.qui-sommes-nous-header-content audio').play();
+    });*/
+    /*$('.elephant-figure img').mouseover(function() {
+        console.log('music');
     });*/
 
     function PlaySound(soundobj) {

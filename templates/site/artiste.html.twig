@@ -1,6 +1,9 @@
 {% extends 'base-site.html.twig' %}
 
-{% block head %}{% endblock %}
+{% block head %}
+    <title>Meloven - {{ user_info[0].username }}</title>
+    <meta name="description" content="{{ user_info[0].userdescription|raw }}">
+{% endblock %}
 
 {% block content %}
     <header class="header-artiste">

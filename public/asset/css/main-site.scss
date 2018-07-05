@@ -319,7 +319,7 @@ div.burger-menu{
       height: 200px;
       background: transparent;
       border-radius: 50% 50% 50% 50%;
-      transition: .5s ease-in-out;
+      transition: .2s ease-in-out;
       box-shadow: transparent, transparent;
       cursor: pointer;
     }
@@ -332,10 +332,10 @@ div.burger-menu{
       background: #ffffff;
       display: block;
       transform-origin: center;
-      transition: .5s ease-in-out;
+      transition: .2s ease-in-out;
       &:after,
       &:before {
-        transition: .5s ease-in-out;
+        transition: .2s ease-in-out;
         content: "";
         position: absolute;
         display: block;
@@ -379,11 +379,11 @@ div.burger-menu{
     & > ul {
       z-index: -200;
       position: absolute;
-      top: 0;
+      top: -50px;
       left: 50%;
       transform: translate(-50%,50%);
       opacity: 0;
-      transition: opacity 0.5s;
+      transition: opacity 0.2s;
       /*transition: .25s 0s ease-in-out;*/
     }
 
@@ -470,7 +470,7 @@ header.header-home{
   position: relative;
   background: url("./asset/img/bg-header-site.jpg") no-repeat center fixed;
   background-size: cover;
-  @media screen and (max-width: $break-big) {
+  @media screen and (max-width: 550px) {
     height: 550px;
     background: url("./asset/img/bg-header-site-mobile.jpg") no-repeat center fixed;
     background-size: contain;
@@ -493,7 +493,7 @@ header.header-home{
         line-height: 100px;
         letter-spacing: 10px;
         text-transform: uppercase;
-        @media screen and (max-width: $break-big) {
+        @media screen and (max-width: 550px) {
           font-size: 25px;
         }
       }
@@ -506,7 +506,7 @@ header.header-home{
         line-height: 100px;
         letter-spacing: 10px;
         text-transform: uppercase;
-        @media screen and (max-width: $break-big) {
+        @media screen and (max-width: 550px) {
           font-size: 25px;
           line-height: 40px;
         }
@@ -767,7 +767,15 @@ section.artistes{
         overflow: hidden;
         border-radius: 5px;
         box-shadow: 0 4px 8px 0 rgba(45, 45, 45, .1), 0 6px 20px 0 rgba(45, 45, 45, .1);
-        @media screen and (max-width: $break-big) {
+        @media screen and (max-width: 1066px) {
+          position: relative;
+          top: 0;
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          order: 1;
+        }
+        @media screen and (max-width: 540px) {
           position: relative;
           top: 0;
           width: auto;
@@ -788,7 +796,7 @@ section.artistes{
 section.objectif{
   padding-top: 280px;
   width: 100%;
-  background: url("./asset/img/bg/city-bg.png");
+  background: url("./asset/img/bg/city-bg.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
@@ -802,14 +810,14 @@ section.objectif{
   p{
     max-width: 844px;
     margin: 0 auto;
-    padding: 80px 0;
+    padding: 60px 0;
     text-align: center;
     font-family: 'GilroyLight';
     font-size: 20px;
     line-height: 35px;
     letter-spacing: 3px;
     @media screen and (max-width: $break-big) {
-      padding: 40px 20px;
+      padding: 40px 20px 0px;
       font-size: 15px;
       line-height: 25px;
     }
@@ -842,7 +850,7 @@ section.blog{
   background-color: #ffffff;
   padding-top: 80px;
   @media screen and (max-width: $break-big) {
-    padding-top: 40px;
+    padding-top: 80px;
   }
   div.container-blog{
     max-width: 988px;
@@ -1107,7 +1115,7 @@ footer{
       justify-content: space-between;
       @media screen and (max-width: $break-big) {
         flex-wrap: wrap;
-        padding: 80px 20px;
+        padding: 0px 20px 40px;
       }
       & > li{
         @media screen and (max-width: $break-big) {
@@ -1746,7 +1754,7 @@ div.contact-blog-devenir{
       margin-top: 60px;
     }
     small#emailHelp{
-      width: 522px;
+      max-width: 522px;
       margin: 0 auto;
       font-family: "GothamBold", sans-serif;
       font-size: 12px;
@@ -1819,7 +1827,7 @@ div.contact-blog-devenir-send{
     padding: 0 60px;
   }
   small#emailHelp{
-    width: 522px;
+    max-width: 522px;
     margin: 0 auto;
     font-family: "GothamBold", sans-serif;
     font-size: 12px;
@@ -1832,6 +1840,9 @@ div.contact-blog-devenir-send{
   small.valid-two{
     display: none;
     color: green;
+    @media screen and (max-width: $break-big) {
+      text-align: center;
+    }
   }
   #signup-two{
     display: flex;
@@ -1931,7 +1942,7 @@ div.contact-blog-soutenir{
       }
     }
     small#emailHelp{
-      width: 522px;
+      max-width: 522px;
       margin: 0 auto;
       font-family: "GothamBold", sans-serif;
       font-size: 12px;
@@ -2020,7 +2031,10 @@ header.qui-sommes-nous-header{
     }
     img{
       width: 400px;
-      @media screen and (max-width: $break-big) {
+      @media screen and (max-width: 1300px) {
+        width: 300px;
+      }
+      @media screen and (max-width: 900px) {
         width: 200px;
       }
     }
@@ -2032,10 +2046,13 @@ header.qui-sommes-nous-header{
   div.qui-sommes-nous-header-content{
     max-width: 413px;
     margin: 60px 220px 60px;
-    @media screen and (max-width: $break-big) {
+    @media screen and (max-width:$break-big) {
+      margin: 50px 220px 60px;
+    }
+    @media screen and (max-width:550px) {
       max-width: 180px;
       margin: 0;
-      padding: 60px 0 0;
+      padding: 160px 0 0;
     }
     h1{
       padding-top: 60px;
@@ -2044,7 +2061,7 @@ header.qui-sommes-nous-header{
       line-height: 60px;
       letter-spacing: 5px;
       text-transform: uppercase;
-      @media screen and (max-width: $break-big) {
+      @media screen and (max-width: 550px) {
         font-size: 20px;
         line-height: 30px;
         padding: 0 20px;
@@ -2082,7 +2099,7 @@ section#goals{
   /*background-color: #e6edfc;*/
   padding: 100px 0;
   @media screen and (max-width: $break-big) {
-    padding: 100px 20px 0;
+    padding: 20px 20px 0;
   }
   & > h1{
     max-width: 800px;
@@ -2142,6 +2159,9 @@ section#goals{
     article{
       width: 241px;
       margin: 80px 0 0;
+      @media screen and (max-width: $break-big) {
+        margin: 20px 0 0;
+      }
       figure{
         margin: 0 auto;
         width: 83px;
@@ -2163,22 +2183,9 @@ section#goals{
     text-align: center;
     @include btn-color($rose);
     padding: 60px 0 80px;
-    /*a{
-      display: inline-block;
-      margin: 60px 0 80px;
-      font-family: "GothamBold", sans-serif;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      background-color: $rose;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 11px 60px;
-      border-radius: 5px;
-      @media screen and (max-width: $break-big) {
-        margin-bottom: 80px;
-      }
-    }*/
+    @media screen and (max-width: $break-big) {
+      padding: 80px 0 40px;
+    }
   }
   div.promotion{
     max-width: 988px;
@@ -2191,6 +2198,7 @@ section#goals{
     @media screen and (max-width: $break-big) {
       flex-direction: column;
       align-items: center;
+      padding-bottom: 0px;
     }
     article{
       width: 241px;
@@ -2343,7 +2351,7 @@ section#objectif{
   background-size: contain;
   background-position: top;*/
   @media screen and (max-width: $break-big) {
-    padding: 30px 0 0;
+    padding: 60px 0 0;
   }
   div{
     max-width: 988px;
@@ -2375,6 +2383,7 @@ section#objectif{
       @media screen and (max-width: $break-big) {
         font-size: 15px;
         line-height: 25px;
+        margin: 40px auto 0;
       }
     }
   }
@@ -2555,12 +2564,9 @@ header.blog-header{
   background-size: 100vW;
   /*background-size: 100%;*/
   @media screen and (max-width: $break-big) {
-    /*background: url("./asset/img/elephant-mini.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: auto;
-    min-height: 450px;
-    padding: 60px 20px;*/
+    height: 500px;
+  }
+  @media screen and (max-width: 550px) {
     height: 250px;
   }
   figure.elephant-figure{
@@ -2573,7 +2579,10 @@ header.blog-header{
     }
     img{
       width: 600px;
-      @media screen and (max-width: $break-big) {
+      @media screen and (max-width: 1066px) {
+        width: 400px;
+      }
+      @media screen and (max-width: 550px) {
         width: 200px;
       }
     }
@@ -2590,6 +2599,10 @@ header.blog-header{
     /*margin: 60px 220px 60px;*/
     text-align: left;
     @media screen and (max-width: $break-big) {
+      top: 220px;
+      right: -40px;
+    }
+    @media screen and (max-width: 550px) {
       top: 140px;
       right: -60px;
       max-width: 180px;
@@ -2604,6 +2617,10 @@ header.blog-header{
       letter-spacing: 5px;
       text-transform: uppercase;
       @media screen and (max-width: $break-big) {
+        font-size: 40px;
+        line-height: 60px;
+      }
+      @media screen and (max-width: 550px) {
         font-size: 20px;
         line-height: 30px;
         padding: 0 20px;
@@ -2635,6 +2652,11 @@ div.article-all{
     text-transform: uppercase;
     text-align: center;
     padding: 80px 20px 0;
+    @media screen and (max-width: $break-big) {
+      font-size: 30px;
+      line-height: 30px;
+      padding: 80px 20px 0;
+    }
   }
   & > span{
     display: block;
@@ -2675,6 +2697,9 @@ div.article-all{
         img{
           width: 478.87px;
           display: block;
+          @media screen and (max-width: $break-big) {
+            width: 100%;
+          }
         }
         h1{
           font-family: "GothamBlack", sans-serif;
@@ -2749,7 +2774,12 @@ div.show-wrapper{
     max-width: 1280px;
     margin: 0 auto;
     & > article{
+      @media screen and (max-width: $break-big) {
+        padding: 0 20px;
+      }
       & > h1{
+        max-width: 620px;
+        margin: 0 auto;
         font-family: "GothamBlack", sans-serif;
         font-size: 35px;
         line-height: 35px;
@@ -2757,6 +2787,11 @@ div.show-wrapper{
         text-transform: uppercase;
         text-align: center;
         padding: 80px 20px 80px;
+        @media screen and (max-width: $break-big) {
+          font-size: 30px;
+          line-height: 30px;
+          padding: 100px 20px 40px;
+        }
       }
       /*& > span{
         display: block;
@@ -2773,6 +2808,9 @@ div.show-wrapper{
         margin: 0 auto;
         background-color: #ffffff;
         padding: 40px 40px;
+        @media screen and (max-width: $break-big) {
+          border-radius: 5px;
+        }
         div.content-box--image{
           text-align: center;
           img{
@@ -2812,6 +2850,11 @@ div.show-wrapper{
         text-transform: uppercase;
         text-align: center;
         padding: 120px 20px 0;
+        @media screen and (max-width: $break-big) {
+          font-size: 30px;
+          line-height: 30px;
+          padding: 80px 20px 0;
+        }
       }
       & > span{
         display: block;
@@ -2822,6 +2865,11 @@ div.show-wrapper{
         text-transform: uppercase;
         text-align: center;
         padding: 20px 20px 80px;
+        @media screen and (max-width: $break-big) {
+          font-size: 15px;
+          line-height: 20px;
+          padding: 20px 20px 40px;
+        }
       }
     }
     section.blog{
@@ -2832,6 +2880,9 @@ div.show-wrapper{
       }
       div.btn-parcourir-blog{
         padding: 120px 0 120px;
+        @media screen and (max-width: $break-big) {
+          padding: 30px 0 80px;
+        }
       }
     }
   }
@@ -2877,6 +2928,71 @@ div.body-404{
   }
 }
 
+.content-m-l{
+  background-color: rgba(255, 58, 133, .2);
+}
+.mentions-legales{
+  max-width: 1280px;
+  margin: 0 auto;
+  div.m-l-content{
+    margin-top: 60px;
+    padding: 40px 20px 80px;
+    background-color: #ffffff;
+    h1{
+      font-family: "GothamBlack", sans-serif;
+      font-size: 20px;
+      line-height: 20px;
+      letter-spacing: 2px;
+      text-align: left;
+      text-transform: uppercase;
+      padding: 15px 40px 20px;
+    }
+    h2{
+      font-family: "GothamBlack", sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 2px;
+      text-align: left;
+      text-transform: uppercase;
+      padding: 15px 40px 20px;
+    }
+    h3{
+      font-family: "GothamRegular", sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 2px;
+      text-align: left;
+      text-transform: uppercase;
+      padding: 15px 40px 20px;
+    }
+    p{
+      font-family: 'GilroyLight';
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 1px;
+      padding: 0 40px 20px;
+      a{
+        text-decoration: none;
+        color: $rose;
+      }
+    }
+    ul{
+      list-style-type: circle;
+      padding: 0 80px;
+      margin-bottom: 20px;
+      li{
+        font-family: 'GilroyLight';
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 1px;
+        a{
+          text-decoration: none;
+          color: $rose;
+        }
+      }
+    }
+  }
+}
 
 html{
   overflow-x: hidden;

@@ -1,17 +1,17 @@
-{% extends 'base-blog.html.twig' %}
+{% extends 'base-site.html.twig' %}
 
 {% block head %}
-    {% include('heads/head_front.html.twig') %}
+    <title>Meloven - Mentions légales</title>
 {% endblock %}
 
 
 {% block content %}
-    <div class="content">
+    <div class="content-m-l">
         <div class="mentions-legales">
+            {% include('site/nav.html.twig') %}
 
 
-
-
+            <div class="m-l-content">
 
             <h1>Mentions Légales</h1>
 
@@ -30,7 +30,7 @@
 
             <h2>1. Présentation du site internet.</h2>
             <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site internet&nbsp;<a href="https://www.meloven.fr">https://www.meloven.fr</a>&nbsp;l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi:
-            </p><p><strong>Propriétaire</strong> :   Jordan Balende   – UNE_ADRESSE 75001 Paris<br>
+            </p><p><strong>Propriétaire</strong> :   Jordan Balende   –  5 Rue Saint-Augustin, 75002 Paris<br>
 
                 <strong>Responsable publication</strong> : Justine Claverie – justineclaveriedp@gmail.com<br>
                 Le responsable publication est une personne physique ou une personne morale.<br>
@@ -108,8 +108,8 @@
                 &nbsp;
                 <li>pour améliorer la navigation sur le Site : données de connexion et d’utilisation </li>
                 &nbsp;
-                <li>pour mener des enquêtes de satisfaction facultatives sur <a href="https://www.meloven.fr">https://www.meloven.fr</a> : adresse email </li>
-                <li>pour mener des campagnes de communication (sms, mail) : numéro de téléphone, adresse email</li>
+                <li>pour mener des enquêtes de satisfaction facultatives sur <a href="https://www.meloven.fr">https://www.meloven.fr</a> : contact@meloven.fr </li>
+                <li>pour mener des campagnes de communication (mail) : contact@meloven.fr</li>
 
 
             </ul>
@@ -139,8 +139,8 @@
             &nbsp;
             <p>Si l’Utilisateur souhaite savoir comment <a href="https://www.meloven.fr">https://www.meloven.fr</a> utilise ses Données Personnelles, demander à les rectifier ou s’oppose à leur traitement, l’Utilisateur peut contacter <a href="https://www.meloven.fr">https://www.meloven.fr</a> par écrit à l’adresse suivante : </p>
             &nbsp;
-            Jordan Balende – DPO, Jordan Balende <br>
-            UNE_ADRESSE 75001 Paris.
+            <p>Jordan Balende – DPO, Jordan Balende <br>
+            5 Rue Saint-Augustin, 75002 Paris.</p>
             &nbsp;
             <p>Dans ce cas, l’Utilisateur doit indiquer les Données Personnelles qu’il souhaiterait que <a href="https://www.meloven.fr">https://www.meloven.fr</a> corrige, mette à jour ou supprime, en s’identifiant précisément avec une copie d’une pièce d’identité (carte d’identité ou passeport). </p>
 
@@ -181,8 +181,8 @@
             <h2>9. Liens hypertextes « cookies » et balises (“tags”) internet</h2>
             <p>
                 Le site&nbsp;<a href="https://www.meloven.fr">https://www.meloven.fr</a>&nbsp;contient un certain nombre de liens hypertextes vers d’autres sites, mis en place avec l’autorisation de <a href="https://www.meloven.fr">https://www.meloven.fr</a>. Cependant, <a href="https://www.meloven.fr">https://www.meloven.fr</a> n’a pas la possibilité de vérifier le contenu des sites ainsi visités, et n’assumera en conséquence aucune responsabilité de ce fait.</p>
-            Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tout ou partie des Services proposés par le site.
-            <p></p>
+            <p>Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tout ou partie des Services proposés par le site.
+            </p>
 
             <h3>9.1. « COOKIES »</h3>
             &nbsp;<p>
@@ -216,17 +216,12 @@
                 Cette technologie permet à <a href="https://www.meloven.fr">https://www.meloven.fr</a> d’évaluer les réponses des visiteurs face au Site et l’efficacité de ses actions (par exemple, le nombre de fois où une page est ouverte et les informations consultées), ainsi que l’utilisation de ce Site par l’Utilisateur. </p>
             &nbsp;<p>
                 Le prestataire externe pourra éventuellement recueillir des informations sur les visiteurs du Site et d’autres sites Internet grâce à ces balises, constituer des rapports sur l’activité du Site à l’attention de <a href="https://www.meloven.fr">https://www.meloven.fr</a>, et fournir d’autres services relatifs à l’utilisation de celui-ci et d’Internet.</p>
-            &nbsp;<p>
-            </p><h2>10. Droit applicable et attribution de juridiction.</h2>
-            Tout litige en relation avec l’utilisation du site&nbsp;<a href="https://www.meloven.fr">https://www.meloven.fr</a>&nbsp;est soumis au droit français.
-            En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris<p></p>
+            &nbsp;
+            <h2>10. Droit applicable et attribution de juridiction.</h2>
+            <p>Tout litige en relation avec l’utilisation du site&nbsp;<a href="https://www.meloven.fr">https://www.meloven.fr</a>&nbsp;est soumis au droit français.
+            En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris.</p>
+
+            </div>
         </div>
     </div>
 {% endblock  %}
-
-
-
-{% block javascripts %}
-    <script src="{{ asset('asset/js/app.js') }}"></script>
-    {% include('includes/scripts.html.twig') %}
-{% endblock %}
